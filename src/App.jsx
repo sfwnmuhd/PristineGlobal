@@ -8,7 +8,7 @@ import LeadershipTeamSection from './components/LeadershipTeamSection'
 import ContactSection from './components/ContactSection'
 import CallToActionSection from './components/CallToActionSection'
 import Footer from './components/Footer'
-import Footer3 from './components/Footer'
+
 
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
      <LeadershipTeamSection/>
      <ContactSection/>
      <CallToActionSection/>
-     <Footer3/>
+     <Footer/>
     </div>
   )
 }

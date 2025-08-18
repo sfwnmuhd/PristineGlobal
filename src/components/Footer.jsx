@@ -95,7 +95,7 @@
 
 import React from "react";
 import logo from '/logo.png'
-const Footer3 = () => {
+const Footer = () => {
   const footerLinks = {
     pagedone: [{
       name: "Home",
@@ -201,7 +201,7 @@ const Footer3 = () => {
               Trusted in 3 countries . Have any
               query ?
             </p>
-            <a href="#" className="py-2.5 px-5 h-9 block w-fit bg-indigo-600 dark:bg-indigo-500 rounded-full shadow-sm text-xs text-white mx-auto transition-all duration-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 lg:mx-0">
+            <a href="#" className="py-2.5 px-5 h-9 block w-fit bg-[#0b3b5c] rounded-full shadow-sm text-xs text-white mx-auto transition-all duration-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 lg:mx-0">
               Contact us
             </a>
           </div>
@@ -241,4 +241,4 @@ const Footer3 = () => {
       </div>
     </footer>;
 };
-export default Footer3;
+export default Footer;

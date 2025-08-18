@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'motion/react'
+import ShimmerButton from './ShimmerButton'
 
 const CallToActionSection = () => {
   return (
@@ -9,7 +10,7 @@ const CallToActionSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-blue-500 rounded-xl p-12 relative overflow-hidden"
+          className="bg-[#0b3b5c] rounded-xl p-12 relative overflow-hidden"
         >
           <div className="absolute inset-0 opacity-10">
             <img
@@ -20,19 +21,20 @@ const CallToActionSection = () => {
           </div>
           <div className="relative flex flex-col lg:flex-row items-center justify-between">
             <div className="mb-8 lg:mb-0">
-              <h2 className="text-3xl font-medium text-white mb-4">
+              <h2 className="text-xl sm:text-3xl font-medium text-gray-400 mb-4">
                 Ready to Make an Impact?
               </h2>
-              <p className="text-xl text-white leading-relaxed">
+              <p className="text-sm sm:text-xl text-gray-400 leading-relaxed">
                 Join us in our mission or partner to deliver exceptional
                 services across
                 <br />
                 healthcare, technology, and trading hubs.
               </p>
             </div>
-            <button className="border border-white border-opacity-50 text-white px-8 py-3 rounded-2xl text-xl font-medium hover:bg-white hover:text-pristine-blue transition-colors">
+            {/* <button className="border border-white border-opacity-50 text-white px-8 py-3 rounded-2xl text-xl font-medium hover:bg-white hover:text-pristine-blue transition-colors">
               Join or partner now
-            </button>
+            </button> */}
+            <ShimmerButton text={"Join or partner now"}/>
           </div>
         </motion.div>
       </div>

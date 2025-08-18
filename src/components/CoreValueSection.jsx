@@ -32,7 +32,7 @@ const CoreValueSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-semibold text-black mb-16"
+          className="text-3xl sm:text-5xl font-semibold text-black mb-12"
         >
           Our Core Values
         </motion.h2>
@@ -49,12 +49,12 @@ const CoreValueSection = () => {
               <img
                 src={value.icon}
                 alt={value.title}
-                className="w-42 h-42 mx-auto mb-6 opacity-80"
+                className="w-36 h-36 mx-auto mb-6 opacity-80"
               />
-              <h3 className="text-3xl font-normal text-black mb-6">
+              <h3 className="text-2xl sm:text-3xl font-medium text-black mb-4 sm:mb-6">
                 {value.title}
               </h3>
-              <p className="text-xl text-pristine-text-gray leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-500 leading-relaxed text-justify">
                 {value.description}
               </p>
             </motion.div>

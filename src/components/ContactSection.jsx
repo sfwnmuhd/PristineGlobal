@@ -45,7 +45,7 @@ const ContactSection = () => {
                 </svg>
                 <div>
                   <h3 className="text-2xl font-medium text-black">Call us</h3>
-                  <p className="text-lg text-pristine-text-gray tracking-widest">
+                  <p className="text-lg text-gray-500 tracking-widest">
                     07868 751 907
                   </p>
                 </div>
@@ -61,7 +61,7 @@ const ContactSection = () => {
                 </svg>
                 <div>
                   <h3 className="text-2xl font-medium text-black">Mail us</h3>
-                  <p className="text-lg text-pristine-text-gray">
+                  <p className="text-lg text-gray-500">
                     sayeed@pristine-global.com
                   </p>
                 </div>
@@ -84,7 +84,7 @@ const ContactSection = () => {
                       <h4 className="text-xl text-gray-700 font-medium">
                         UK Headquarters:
                       </h4>
-                      <p className="text-lg text-pristine-text-gray">
+                      <p className="text-lg text-gray-500">
                         Hawthorne House, 17a Hawthorne Drive, Leicester,
                         England, LE5 6DL
                       </p>
@@ -93,7 +93,7 @@ const ContactSection = () => {
                       <h4 className="text-xl text-gray-700 font-medium">
                         India Office:
                       </h4>
-                      <p className="text-lg text-pristine-text-gray">
+                      <p className="text-lg text-gray-500">
                         S-359, 2nd Floor, Tower B, Ansal Corporate Plaza, Palam
                         Vihar, Gurgaon, Haryana – Pristine Global Pvt. Ltd.
                       </p>
@@ -177,13 +177,13 @@ const ContactSection = () => {
               </div>
 
               <div className="flex justify-end">
-                {/* <button
+                <button
                   type="submit"
-                  className="px-6 py-2 bg-blue-500 text-white rounded-full text-lg hover:bg-opacity-90 transition-colors"
+                  className="px-6 py-2 bg-[#0b3b5c] text-white rounded-full text-lg hover:bg-opacity-90 transition-colors"
                 >
                   Send
-                </button> */}
-                <ShimmerButton text="Send" />
+                </button>
+                
               </div>
             </form>
           </motion.div>

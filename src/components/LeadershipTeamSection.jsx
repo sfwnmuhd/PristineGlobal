@@ -35,7 +35,7 @@ const LeadershipTeamSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-semibold text-black mb-4"
+          className="text-4xl sm:text-5xl font-semibold text-black mb-4"
         >
           Our Leadership Team
         </motion.h2>
@@ -44,7 +44,7 @@ const LeadershipTeamSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl text-pristine-text-gray mb-16"
+          className="text-lg sm:text-xl text-gray-500 mb-12 text-center sm:text-left"
         >
           A dynamic team of medical, technology, and business leaders committed
           to global healthcare excellence.
@@ -85,7 +85,7 @@ const LeadershipTeamSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mt-16 sm:flex  sm:justify-between"
         >
-          <div className='sm:flex  sm:flex-col sm:items-start'>
+          <div className='sm:flex  sm:flex-col sm:items-start text-justify '>
             <h3 className="text-xl sm:text-2xl font-medium text-black mb-4">
               Ready to invest in our growing portfolio?
             </h3>
