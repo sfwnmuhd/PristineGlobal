@@ -22,7 +22,7 @@ const CallToActionSection = () => {
           </div>
 
           {/* Globe Background */}
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-20">
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-40">
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F2dfd29570bc441179a2ba2cc76735eb6%2Fc58fc2a83b054d7e8d31ffbfd37629b8?format=webp&width=800"
               alt="Globe Background"
