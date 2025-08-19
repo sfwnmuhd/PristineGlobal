@@ -14,15 +14,15 @@ import Footer from './components/Footer'
 const App = () => {
   return (
     <div className='min-h-screen bg-white'>
-     <Navbar />
-     <Hero/>
-     <AboutSection/>
-     <DivisionByCountrySection/>
-     <CoreValueSection/>
-     <LeadershipTeamSection/>
-     <ContactSection/>
-     <CallToActionSection/>
-     <Footer/>
+      <Navbar />
+      <Hero />
+      <AboutSection />
+      <DivisionByCountrySection />
+      <CoreValueSection />
+      <LeadershipTeamSection />
+      <ContactSection />
+      <CallToActionSection />
+      <Footer />
     </div>
   )
 }
