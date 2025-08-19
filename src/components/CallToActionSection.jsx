@@ -12,11 +12,21 @@ const CallToActionSection = () => {
           transition={{ duration: 0.6 }}
           className="bg-[#0b3b5c] rounded-xl p-8 sm:p-12 relative overflow-hidden"
         >
+          {/* Gradient Background */}
           <div className="absolute inset-0 opacity-10">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/4d4f369a455a13efb2cd4c4da62c8e30c059f8f5?width=2604"
               alt="Gradient Background"
               className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Globe Background */}
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-20">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F2dfd29570bc441179a2ba2cc76735eb6%2Fc58fc2a83b054d7e8d31ffbfd37629b8?format=webp&width=800"
+              alt="Globe Background"
+              className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
             />
           </div>
           <div className="relative flex flex-col lg:flex-row items-center lg:items-start justify-between">
