@@ -9,6 +9,7 @@ import ContactSection from './components/ContactSection'
 import CallToActionSection from './components/CallToActionSection'
 import Footer from './components/Footer'
 import ScrollProgressIndicator from './components/ScrollProgressIndicator'
+import BackToTop from './components/BackToTop'
 
 
 
@@ -35,6 +36,7 @@ const App = () => {
         <CallToActionSection />
       </section>
       <Footer />
+      <BackToTop />
     </div>
   )
 }
