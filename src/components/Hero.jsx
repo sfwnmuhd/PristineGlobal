@@ -57,9 +57,9 @@ const Hero = () => {
 
   // Connected lines between locations
   const connectionLines = [
-    { from: locations[0].coordinates, to: locations[1].coordinates },
-    { from: locations[1].coordinates, to: locations[2].coordinates },
-    { from: locations[0].coordinates, to: locations[2].coordinates }
+    { from: getCoordinates(locations[0]), to: getCoordinates(locations[1]) },
+    { from: getCoordinates(locations[1]), to: getCoordinates(locations[2]) },
+    { from: getCoordinates(locations[0]), to: getCoordinates(locations[2]) }
   ]
 
   // Animation variants for smooth entrance
