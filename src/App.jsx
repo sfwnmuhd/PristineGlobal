@@ -8,12 +8,14 @@ import LeadershipTeamSection from './components/LeadershipTeamSection'
 import ContactSection from './components/ContactSection'
 import CallToActionSection from './components/CallToActionSection'
 import Footer from './components/Footer'
+import ScrollProgressIndicator from './components/ScrollProgressIndicator'
 
 
 
 const App = () => {
   return (
     <div className='min-h-screen bg-white'>
+      <ScrollProgressIndicator />
       <Navbar />
       <section id='home'>
         <Hero />
