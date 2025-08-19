@@ -20,24 +20,47 @@ body {
     overflow-x: hidden;
 }
 
-/* Ensure consistent mobile spacing */
+/* Responsive utilities for cleaner layouts */
+.responsive-container {
+    width: 100%;
+    max-width: 80rem; /* max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .responsive-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsive-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Ensure consistent spacing across all devices */
 @media (max-width: 640px) {
-    .max-w-7xl {
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+    /* Remove any excessive padding on mobile */
+    section {
+        padding-left: 0;
+        padding-right: 0;
     }
 
-    /* Fix any potential padding inconsistencies on small screens */
-    section {
+    /* Consistent mobile spacing */
+    .container-spacing {
         padding-left: 1rem;
         padding-right: 1rem;
     }
 
-    /* Override any asymmetric spacing */
-    .px-4 {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+    /* Better mobile typography */
+    h1, h2, h3 {
+        line-height: 1.2;
     }
 }
 
@@ -48,9 +71,34 @@ body {
     }
 }
 
-/* Smooth transitions for responsive elements */
+/* Enhanced transitions for responsive elements */
 .responsive-transition {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Improved focus states for accessibility */
+*:focus-visible {
+    outline: 2px solid #0b3b5c;
+    outline-offset: 2px;
+}
+
+/* Better button hover states */
+button:hover, a:hover {
+    transition: all 0.2s ease;
+}
+
+/* Consistent border radius */
+.rounded-custom {
+    border-radius: 0.75rem;
+}
+
+/* Clean card shadows */
+.card-shadow {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.card-shadow-hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 /* Custom scrollbar for webkit browsers */
