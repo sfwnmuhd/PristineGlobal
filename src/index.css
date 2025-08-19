@@ -20,6 +20,27 @@ body {
     overflow-x: hidden;
 }
 
+/* Ensure consistent mobile spacing */
+@media (max-width: 640px) {
+    .max-w-7xl {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Fix any potential padding inconsistencies on small screens */
+    section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Override any asymmetric spacing */
+    .px-4 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
 /* Fix for better mobile viewport */
 @supports (height: 100dvh) {
     .min-h-screen {
