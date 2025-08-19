@@ -33,7 +33,7 @@ const Hero = () => {
   const [hoveredLocation, setHoveredLocation] = useState(null)
 
   return (
-    <section className="relative h-screen overflow-hidden flex items-center pt-16 bg-[#fafafa]">
+    <section className="relative min-h-screen overflow-hidden flex items-center bg-[#fafafa] pt-20 sm:pt-24 lg:pt-28">
       {/* Background grid pattern */}
       <div className="absolute inset-0">
         <img
@@ -44,12 +44,12 @@ const Hero = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 flex flex-col justify-center w-full">
+      <div className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 flex flex-col justify-center w-full">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl lg:text-7xl/16 font-semibold leading-tight mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight mb-6 sm:mb-8"
         >
           Global Excellence in{" "}
           <span className="text-[#0b3b5c] font-bold">
@@ -61,7 +61,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg text-gray-700 mb-6  mx-auto"
+          className="text-base sm:text-lg lg:text-xl text-gray-700 mb-8 sm:mb-10 max-w-4xl mx-auto px-4"
         >
           Enhancing lives across the UK, Qatar, and India through compassionate
           care, innovative solutions, and trusted services.
@@ -72,19 +72,18 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-12 sm:mb-16 lg:mb-20 px-4"
         >
-          {/* <button className="px-8 py-3 bg-[#2b376b] text-white rounded-full text-sm font-medium hover:bg-none hover:text-black transition-colors cursor-pointer">
-            Explore Our Services
-          </button> */}
           <ShimmerButton text="Explore Our Services" />
-          {/* <button className="px-8 py-3 border border-pristine-blue text-pristine-blue rounded-full text-sm font-medium hover:bg-pristine-blue hover:text-white transition-colors">
-            Contact Us
-          </button> */}
         </motion.div>
 
-        {/* Map Section (below text, less gap) */}
-        <div className="relative mx-auto w-full max-w-4xl">
+        {/* Map Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="relative mx-auto w-full max-w-5xl px-4"
+        >
           <img
             src={worldmap}
             alt="World Map"
@@ -95,7 +94,7 @@ const Hero = () => {
           {locations.map((location) => (
             <div
               key={location.id}
-              className="absolute cursor-pointer"
+              className="absolute cursor-pointer group"
               style={{
                 left: `${location.coordinates.x}%`,
                 top: `${location.coordinates.y}%`,
@@ -105,43 +104,40 @@ const Hero = () => {
             >
               {/* Pulse Animation */}
               <motion.div
-                // className="w-4
-                //  h-4 bg-[#2b376b] rounded-full relative"
                 animate={{ scale: [1, 1.5, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="relative"
               >
-                {/* <motion.div
-                  className="absolute inset-0 bg-[#0b3b5c] rounded-full opacity-30"
-                  animate={{
-                    scale: [1, 2, 1],
-                    opacity: [0.3, 0, 0.3],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                /> */}
-                <MapPin className="text-[#2b376b] w-4 h-4 drop-shadow-lg"/>
+                <MapPin className="text-[#2b376b] w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 drop-shadow-lg"/>
               </motion.div>
 
               {/* Hover Popup */}
               {hoveredLocation === location.id && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute -top-20 left-1/2 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-lg border min-w-[250px] z-30"
+                  initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                  className="absolute -top-24 sm:-top-28 left-1/2 transform -translate-x-1/2 bg-white p-3 sm:p-4 rounded-lg shadow-xl border min-w-[200px] sm:min-w-[250px] z-30"
                 >
-                  <h3 className="font-semibold text-blue mb-2">
-                    {location.name}
-                  </h3>
-                  <p className="text-sm text-gray">{location.details}</p>
+                  <div className="flex items-center gap-2 mb-2">
+                    <ReactCountryFlag
+                      countryCode={location.id === 'uk' ? 'GB' : location.id === 'qatar' ? 'QA' : 'IN'}
+                      svg
+                      style={{
+                        width: '20px',
+                        height: '15px',
+                      }}
+                    />
+                    <h3 className="font-semibold text-[#0b3b5c] text-sm sm:text-base">
+                      {location.name}
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{location.details}</p>
                 </motion.div>
               )}
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
