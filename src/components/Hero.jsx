@@ -4,27 +4,27 @@ import worldmap from '../assets/map.png'
 import { motion } from 'motion/react'
 import ShimmerButton from './ShimmerButton'
 import ReactCountryFlag from 'react-country-flag'
-
+import { MapPin } from 'lucide-react'
 
 const Hero = () => {
   const locations = [
     {
       id: "uk",
       name: "United Kingdom",
-      coordinates: { x: 44, y: 31 },
+      coordinates: { x: 44, y: 30 },
       details:
         "Three care homes and one child care facility offering specialized, person-centered care.",
     },
     {
       id: "qatar",
       name: "Qatar",
-      coordinates: { x: 58, y: 42 },
+      coordinates: { x: 58, y: 40 },
       details: "Healthcare and technology services in the Middle East region.",
     },
     {
       id: "india",
       name: "India",
-      coordinates: { x: 66, y: 55 },
+      coordinates: { x: 65, y: 55 },
       details:
         "Distribution networks and healthcare investments across multiple regions.",
     },
@@ -105,12 +105,12 @@ const Hero = () => {
             >
               {/* Pulse Animation */}
               <motion.div
-                className="w-4
-                 h-4 bg-[#2b376b] rounded-full relative"
+                // className="w-4
+                //  h-4 bg-[#2b376b] rounded-full relative"
                 animate={{ scale: [1, 1.5, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
-                <motion.div
+                {/* <motion.div
                   className="absolute inset-0 bg-[#0b3b5c] rounded-full opacity-30"
                   animate={{
                     scale: [1, 2, 1],
@@ -121,7 +121,8 @@ const Hero = () => {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                />
+                /> */}
+                <MapPin className="text-[#2b376b] w-4 h-4 drop-shadow-lg"/>
               </motion.div>
 
               {/* Hover Popup */}
