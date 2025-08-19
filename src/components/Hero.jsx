@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import gridbg from '../assets/grid-bg.jpg'
 import worldmap from '../assets/map.png'
 import { motion } from 'motion/react'
@@ -10,33 +10,67 @@ const Hero = () => {
     {
       id: "uk",
       name: "United Kingdom",
-      coordinates: { x: 45, y: 30 },
+      coordinates: {
+        mobile: { x: 42, y: 25 },
+        tablet: { x: 44, y: 28 },
+        desktop: { x: 45, y: 30 }
+      },
       details: "Three care homes and one child care facility offering specialized, person-centered care.",
       stats: "3 Care Homes • 1 Child Care"
     },
     {
       id: "qatar",
       name: "Qatar",
-      coordinates: { x: 56, y: 40 },
+      coordinates: {
+        mobile: { x: 58, y: 35 },
+        tablet: { x: 57, y: 38 },
+        desktop: { x: 56, y: 40 }
+      },
       details: "Healthcare and technology services in the Middle East region.",
       stats: "Healthcare • Technology"
     },
     {
       id: "india",
       name: "India",
-      coordinates: { x: 65, y: 55 },
+      coordinates: {
+        mobile: { x: 68, y: 50 },
+        tablet: { x: 66, y: 52 },
+        desktop: { x: 65, y: 55 }
+      },
       details: "Distribution networks and healthcare investments across multiple regions.",
       stats: "Distribution • Healthcare"
     },
   ]
 
+  // Function to get coordinates based on screen size
+  const getCoordinates = (location) => {
+    if (windowSize.width < 768) return location.coordinates.mobile
+    if (windowSize.width < 1024) return location.coordinates.tablet
+    return location.coordinates.desktop
+  }
+
   const [hoveredLocation, setHoveredLocation] = useState(null)
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
+
+  // Handle window resize for responsive coordinates
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+    }
+
+    // Set initial size
+    if (typeof window !== 'undefined') {
+      handleResize()
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   // Connected lines between locations
   const connectionLines = [
-    { from: locations[0].coordinates, to: locations[1].coordinates },
-    { from: locations[1].coordinates, to: locations[2].coordinates },
-    { from: locations[0].coordinates, to: locations[2].coordinates }
+    { from: getCoordinates(locations[0]), to: getCoordinates(locations[1]) },
+    { from: getCoordinates(locations[1]), to: getCoordinates(locations[2]) },
+    { from: getCoordinates(locations[0]), to: getCoordinates(locations[2]) }
   ]
 
   // Animation variants for smooth entrance
@@ -209,8 +243,8 @@ const Hero = () => {
                   key={location.id}
                   className="absolute cursor-pointer group"
                   style={{
-                    left: `${location.coordinates.x}%`,
-                    top: `${location.coordinates.y}%`,
+                    left: `${getCoordinates(location).x}%`,
+                    top: `${getCoordinates(location).y}%`,
                     zIndex: 2
                   }}
                   initial={{ scale: 0, opacity: 0 }}
