@@ -92,7 +92,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative h-screen overflow-hidden flex items-center justify-center bg-[#fafafa]">
+    <section className="relative h-[80vh] sm:h-[85vh] lg:h-screen overflow-hidden flex items-center justify-center bg-[#fafafa]">
       {/* Background grid pattern with subtle animation */}
       <motion.div 
         className="absolute inset-0"
