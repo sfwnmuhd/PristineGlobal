@@ -26,8 +26,8 @@ const CoreValueSection = () => {
     ];
   return (
     <div>
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto text-center">
+      <section className="py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,24 +37,24 @@ const CoreValueSection = () => {
           Our Core Values
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {coreValues.map((value, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-white border border-gray-200 rounded-xl p-8 text-center"
+              className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 text-center"
             >
               <img
                 src={value.icon}
                 alt={value.title}
-                className="w-36 h-36 mx-auto mb-6 opacity-80"
+                className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 mx-auto mb-6 opacity-80"
               />
-              <h3 className="text-2xl sm:text-3xl font-medium text-black mb-4 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-medium text-black mb-4 sm:mb-6">
                 {value.title}
               </h3>
-              <p className="text-lg sm:text-xl text-gray-500 leading-relaxed text-justify">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 {value.description}
               </p>
             </motion.div>

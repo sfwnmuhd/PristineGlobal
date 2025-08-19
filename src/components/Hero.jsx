@@ -126,7 +126,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative h-[80vh] sm:h-[85vh] lg:h-screen overflow-hidden flex items-center justify-center bg-[#fafafa]">
+    <section className="relative min-h-[80vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden flex items-center justify-center bg-[#fafafa]">
       {/* Background grid pattern with subtle animation */}
       <motion.div 
         className="absolute inset-0"
@@ -143,14 +143,14 @@ const Hero = () => {
 
       {/* Hero Content with smooth entrance animations */}
       <motion.div
-        className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex flex-col justify-center items-center pt-16 sm:pt-20 lg:pt-24 pb-4 sm:pb-6 lg:pb-8"
+        className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center items-center py-16 sm:py-20 lg:py-24"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         
         {/* Main Content Container */}
-        <div className="flex flex-col items-center justify-center max-w-5xl mx-auto space-y-4 sm:space-y-6">
+        <div className="flex flex-col items-center justify-center max-w-5xl mx-auto space-y-6 sm:space-y-8">
           
           <motion.h1
             variants={itemVariants}
@@ -175,7 +175,7 @@ const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base lg:text-lg text-gray-700 max-w-3xl mx-auto px-2 sm:px-0"
+            className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto"
           >
             Enhancing lives across the UK, Qatar, and India through compassionate
             care, innovative solutions, and trusted services.
@@ -184,7 +184,7 @@ const Hero = () => {
           {/* Buttons with enhanced entrance */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center mt-2"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -198,13 +198,13 @@ const Hero = () => {
           {/* Map Section with improved entrance animation */}
           <motion.div
             variants={mapVariants}
-            className="relative w-full max-w-3xl mx-auto flex-shrink-0"
+            className="relative w-full max-w-4xl mx-auto mt-8 lg:mt-12"
           >
             <div className="relative">
               <motion.img
                 src={worldmap}
                 alt="World Map"
-                className="w-full h-auto max-h-[150px] sm:max-h-[300px] md:max-h-[350px] lg:max-h-[400px] object-contain opacity-40"
+                className="w-full h-auto max-h-[200px] sm:max-h-[320px] md:max-h-[380px] lg:max-h-[450px] object-contain opacity-40"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 0.4, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.9 }}

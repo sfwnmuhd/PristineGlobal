@@ -26,12 +26,31 @@ const Navbar = () => {
   }
 
   const menuItems = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Locations', href: '#' },
-    { name: 'Services', href: '#' },
-    { name: 'Contact Us', href: '#' }
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Locations', href: '#locations' },
+    { name: 'Services', href: '#services' },
+    { name: 'Contact Us', href: '#contact' }
   ]
+
+  // Smooth scroll function
+  const handleSmoothScroll = (e, href) => {
+    e.preventDefault()
+    const targetId = href.substring(1)
+    const targetElement = document.getElementById(targetId)
+
+    if (targetElement) {
+      const headerOffset = 80 // Account for fixed header
+      const elementPosition = targetElement.offsetTop
+      const offsetPosition = elementPosition - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+    closeMenu() // Close mobile menu if open
+  }
 
   return (
     <motion.header 
@@ -61,7 +80,8 @@ const Navbar = () => {
             <a
               key={index}
               href={item.href}
-              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base"
+              onClick={(e) => handleSmoothScroll(e, item.href)}
+              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer"
             >
               {item.name}
             </a>
@@ -74,7 +94,8 @@ const Navbar = () => {
             <a
               key={index}
               href={item.href}
-              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm"
+              onClick={(e) => handleSmoothScroll(e, item.href)}
+              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer"
             >
               {item.name}
             </a>
@@ -152,8 +173,8 @@ const Navbar = () => {
                   >
                     <a
                       href={item.href}
-                      onClick={closeMenu}
-                      className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50/50 rounded-lg transition-all duration-200 font-medium text-lg"
+                      onClick={(e) => handleSmoothScroll(e, item.href)}
+                      className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50/50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
                     >
                       {item.name}
                     </a>

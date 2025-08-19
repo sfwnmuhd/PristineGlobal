@@ -10,9 +10,31 @@
     box-sizing: border-box;
 }
 
-/* Improve responsive behavior */
+/* Enhanced smooth scrolling */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for fixed header */
+}
+
+/* Better smooth scrolling for all browsers */
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* Prevent horizontal overflow */
@@ -20,24 +42,47 @@ body {
     overflow-x: hidden;
 }
 
-/* Ensure consistent mobile spacing */
+/* Responsive utilities for cleaner layouts */
+.responsive-container {
+    width: 100%;
+    max-width: 80rem; /* max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .responsive-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsive-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Ensure consistent spacing across all devices */
 @media (max-width: 640px) {
-    .max-w-7xl {
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+    /* Remove any excessive padding on mobile */
+    section {
+        padding-left: 0;
+        padding-right: 0;
     }
 
-    /* Fix any potential padding inconsistencies on small screens */
-    section {
+    /* Consistent mobile spacing */
+    .container-spacing {
         padding-left: 1rem;
         padding-right: 1rem;
     }
 
-    /* Override any asymmetric spacing */
-    .px-4 {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+    /* Better mobile typography */
+    h1, h2, h3 {
+        line-height: 1.2;
     }
 }
 
@@ -48,25 +93,90 @@ body {
     }
 }
 
-/* Smooth transitions for responsive elements */
+/* Enhanced transitions for responsive elements */
 .responsive-transition {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Custom scrollbar for webkit browsers */
+/* Smooth scroll transitions */
+.smooth-scroll {
+    scroll-behavior: smooth;
+    transition: scroll-behavior 0.3s ease;
+}
+
+/* Section smooth entrance animations */
+.section-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced page transitions */
+.page-transition {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Improved focus states for accessibility */
+*:focus-visible {
+    outline: 2px solid #0b3b5c;
+    outline-offset: 2px;
+}
+
+/* Better button hover states */
+button:hover, a:hover {
+    transition: all 0.2s ease;
+}
+
+/* Consistent border radius */
+.rounded-custom {
+    border-radius: 0.75rem;
+}
+
+/* Clean card shadows */
+.card-shadow {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.card-shadow-hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Enhanced custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: rgba(241, 241, 241, 0.8);
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 4px;
+    background: linear-gradient(135deg, #0b3b5c, #2b376b);
+    border-radius: 6px;
+    border: 2px solid rgba(241, 241, 241, 0.8);
+    transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+    background: linear-gradient(135deg, #2b376b, #0b3b5c);
+    transform: scale(1.1);
+}
+
+/* Smooth scroll indicator */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #0b3b5c, #2b376b);
+    transform-origin: 0%;
+    z-index: 9999;
+    transition: transform 0.1s ease-out;
 }

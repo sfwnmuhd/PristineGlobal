@@ -8,21 +8,35 @@ import LeadershipTeamSection from './components/LeadershipTeamSection'
 import ContactSection from './components/ContactSection'
 import CallToActionSection from './components/CallToActionSection'
 import Footer from './components/Footer'
+import ScrollProgressIndicator from './components/ScrollProgressIndicator'
+import BackToTop from './components/BackToTop'
 
 
 
 const App = () => {
   return (
     <div className='min-h-screen bg-white'>
-     <Navbar />
-     <Hero/>
-     <AboutSection/>
-     <DivisionByCountrySection/>
-     <CoreValueSection/>
-     <LeadershipTeamSection/>
-     <ContactSection/>
-     <CallToActionSection/>
-     <Footer/>
+      <ScrollProgressIndicator />
+      <Navbar />
+      <section id='home'>
+        <Hero />
+      </section>
+      <section id='about'>
+        <AboutSection />
+      </section>
+      <section id='locations'>
+        <DivisionByCountrySection />
+      </section>
+      <section id='services'>
+        <CoreValueSection />
+        <LeadershipTeamSection />
+      </section>
+      <section id='contact'>
+        <ContactSection />
+        <CallToActionSection />
+      </section>
+      <Footer />
+      <BackToTop />
     </div>
   )
 }
