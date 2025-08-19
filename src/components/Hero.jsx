@@ -232,8 +232,8 @@ const Hero = () => {
                   key={location.id}
                   className="absolute cursor-pointer group"
                   style={{
-                    left: `${location.coordinates.x}%`,
-                    top: `${location.coordinates.y}%`,
+                    left: `${getCoordinates(location).x}%`,
+                    top: `${getCoordinates(location).y}%`,
                     zIndex: 2
                   }}
                   initial={{ scale: 0, opacity: 0 }}
