@@ -1,51 +1,170 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { Menu, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'motion/react'
 
 const Navbar = () => {
-  return (
-    <header className="absolute top-0 left-0 right-0 z-50 py-6 px-6 ">
-      <div className="flex items-center justify-between max-w-7xl mx-auto">
-        <img
-          src="/logo.png"
-          alt="Pristine Global Logo"
-          className=" w-auto h-auto"
-        />
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
-        {/* Navigation Menu */}
-        <nav className="hidden md:flex space-x-8">
-          <a
-            href="#"
-            className="text-gray-700 hover:text-pristine-blue transition-colors font-medium"
-          >
-            Home
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 hover:text-pristine-blue transition-colors font-medium"
-          >
-            About
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 hover:text-pristine-blue transition-colors font-medium"
-          >
-            Locations
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 hover:text-pristine-blue transition-colors font-medium"
-          >
-            Services
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 hover:text-pristine-blue transition-colors font-medium"
-          >
-            Contact Us
-          </a>
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      setIsScrolled(scrollPosition > 50) // Show background after 50px scroll
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
+  const menuItems = [
+    { name: 'Home', href: '#' },
+    { name: 'About', href: '#' },
+    { name: 'Locations', href: '#' },
+    { name: 'Services', href: '#' },
+    { name: 'Contact Us', href: '#' }
+  ]
+
+  return (
+    <motion.header 
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      animate={{
+        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
+        backdropFilter: isScrolled ? 'blur(10px)' : 'blur(0px)'
+      }}
+      style={{
+        boxShadow: isScrolled ? '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)' : 'none'
+      }}
+    >
+      <div className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <img
+            src="/logo.png"
+            alt="Pristine Global Logo"
+            className="w-auto h-10 sm:h-12"
+          />
+        </div>
+
+        {/* Desktop Navigation Menu - visible on lg screens and up */}
+        <nav className="hidden lg:flex space-x-8">
+          {menuItems.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base"
+            >
+              {item.name}
+            </a>
+          ))}
         </nav>
+
+        {/* Tablet Navigation Menu - visible on md to lg screens */}
+        <nav className="hidden md:flex lg:hidden space-x-4">
+          {menuItems.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm"
+            >
+              {item.name}
+            </a>
+          ))}
+        </nav>
+
+        {/* Mobile Hamburger Menu Button */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden p-2 rounded-md text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors"
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </button>
       </div>
-    </header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
+            onClick={closeMenu}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Menu Panel - Sliding from top */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ y: '-100%', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: '-100%', opacity: 0 }}
+            transition={{ 
+              type: 'spring', 
+              damping: 25, 
+              stiffness: 200,
+              opacity: { duration: 0.2 }
+            }}
+            className="md:hidden fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg z-50"
+          >
+            {/* Header with logo and close button */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-200/50">
+              <img
+                src="/logo.png"
+                alt="Pristine Global Logo"
+                className="w-auto h-8"
+              />
+              <button
+                onClick={closeMenu}
+                className="p-2 rounded-md text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            
+            {/* Navigation Menu */}
+            <nav className="p-6">
+              <ul className="space-y-1">
+                {menuItems.map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.1 }}
+                  >
+                    <a
+                      href={item.href}
+                      onClick={closeMenu}
+                      className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50/50 rounded-lg transition-all duration-200 font-medium text-lg"
+                    >
+                      {item.name}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   )
 }
 

@@ -4,7 +4,6 @@ import worldmap from '../assets/map.png'
 import { motion } from 'motion/react'
 import ShimmerButton from './ShimmerButton'
 import ReactCountryFlag from 'react-country-flag'
-import { MapPin } from 'lucide-react'
 
 const Hero = () => {
   const locations = [
@@ -12,137 +11,343 @@ const Hero = () => {
       id: "uk",
       name: "United Kingdom",
       coordinates: { x: 44, y: 30 },
-      details:
-        "Three care homes and one child care facility offering specialized, person-centered care.",
+      details: "Three care homes and one child care facility offering specialized, person-centered care.",
+      stats: "3 Care Homes • 1 Child Care"
     },
     {
       id: "qatar",
       name: "Qatar",
       coordinates: { x: 58, y: 40 },
       details: "Healthcare and technology services in the Middle East region.",
+      stats: "Healthcare • Technology"
     },
     {
       id: "india",
       name: "India",
       coordinates: { x: 65, y: 55 },
-      details:
-        "Distribution networks and healthcare investments across multiple regions.",
+      details: "Distribution networks and healthcare investments across multiple regions.",
+      stats: "Distribution • Healthcare"
     },
   ]
 
   const [hoveredLocation, setHoveredLocation] = useState(null)
 
+  // Connected lines between locations
+  const connectionLines = [
+    { from: locations[0].coordinates, to: locations[1].coordinates },
+    { from: locations[1].coordinates, to: locations[2].coordinates },
+    { from: locations[0].coordinates, to: locations[2].coordinates }
+  ]
+
+  // Animation variants for smooth entrance
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 60,
+      scale: 0.9
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 100,
+        duration: 0.8
+      }
+    }
+  }
+
+  const mapVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.8,
+      y: 40
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 25,
+        stiffness: 120,
+        duration: 1,
+        delay: 0.8
+      }
+    }
+  }
+
   return (
-    <section className="relative h-screen overflow-hidden flex items-center pt-16 bg-[#fafafa]">
-      {/* Background grid pattern */}
-      <div className="absolute inset-0">
+    <section className="relative h-screen overflow-hidden flex items-center justify-center bg-[#fafafa]">
+      {/* Background grid pattern with subtle animation */}
+      <motion.div 
+        className="absolute inset-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
         <img
           src={gridbg}
           alt="Background Grid"
           className="w-full h-full object-cover opacity-40"
         />
-      </div>
+      </motion.div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 flex flex-col justify-center w-full">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl lg:text-7xl/16 font-semibold leading-tight mb-4"
-        >
-          Global Excellence in{" "}
-          <span className="text-[#0b3b5c] font-bold">
-            Healthcare, Retail & Technology
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg text-gray-700 mb-6  mx-auto"
-        >
-          Enhancing lives across the UK, Qatar, and India through compassionate
-          care, innovative solutions, and trusted services.
-        </motion.p>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
-        >
-          {/* <button className="px-8 py-3 bg-[#2b376b] text-white rounded-full text-sm font-medium hover:bg-none hover:text-black transition-colors cursor-pointer">
-            Explore Our Services
-          </button> */}
-          <ShimmerButton text="Explore Our Services" />
-          {/* <button className="px-8 py-3 border border-pristine-blue text-pristine-blue rounded-full text-sm font-medium hover:bg-pristine-blue hover:text-white transition-colors">
-            Contact Us
-          </button> */}
-        </motion.div>
-
-        {/* Map Section (below text, less gap) */}
-        <div className="relative mx-auto w-full max-w-4xl">
-          <img
-            src={worldmap}
-            alt="World Map"
-            className="w-full h-auto opacity-50"
-          />
-
-          {/* Interactive pins */}
-          {locations.map((location) => (
-            <div
-              key={location.id}
-              className="absolute cursor-pointer"
-              style={{
-                left: `${location.coordinates.x}%`,
-                top: `${location.coordinates.y}%`,
-              }}
-              onMouseEnter={() => setHoveredLocation(location.id)}
-              onMouseLeave={() => setHoveredLocation(null)}
+      {/* Hero Content with smooth entrance animations */}
+      <motion.div 
+        className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex flex-col justify-center items-center pt-20 sm:pt-24 pb-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        
+        {/* Main Content Container */}
+        <div className="flex flex-col items-center justify-center max-w-5xl mx-auto">
+          
+          <motion.h1
+            variants={itemVariants}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight mb-3 sm:mb-4"
+          >
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
             >
-              {/* Pulse Animation */}
-              <motion.div
-                // className="w-4
-                //  h-4 bg-[#2b376b] rounded-full relative"
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                {/* <motion.div
-                  className="absolute inset-0 bg-[#0b3b5c] rounded-full opacity-30"
-                  animate={{
-                    scale: [1, 2, 1],
-                    opacity: [0.3, 0, 0.3],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                /> */}
-                <MapPin className="text-[#2b376b] w-4 h-4 drop-shadow-lg"/>
-              </motion.div>
+              Global Excellence in{" "}
+            </motion.span>
+            <motion.span 
+              className="text-[#0b3b5c] font-bold"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
+              Healthcare, Retail & Technology
+            </motion.span>
+          </motion.h1>
 
-              {/* Hover Popup */}
-              {hoveredLocation === location.id && (
+          <motion.p
+            variants={itemVariants}
+            className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 sm:mb-6 max-w-3xl mx-auto"
+          >
+            Enhancing lives across the UK, Qatar, and India through compassionate
+            care, innovative solutions, and trusted services.
+          </motion.p>
+
+          {/* Buttons with enhanced entrance */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-6 sm:mb-8"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <ShimmerButton text="Explore Our Services" />
+            </motion.div>
+          </motion.div>
+
+          {/* Map Section with improved entrance animation */}
+          <motion.div
+            variants={mapVariants}
+            className="relative w-full max-w-3xl mx-auto flex-shrink-0"
+          >
+            <div className="relative">
+              <motion.img
+                src={worldmap}
+                alt="World Map"
+                className="w-full h-auto max-h-[200px] sm:max-h-[250px] lg:max-h-[300px] object-contain opacity-40"
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 0.4, scale: 1 }}
+                transition={{ duration: 1.2, delay: 0.9 }}
+              />
+
+              {/* Connection Lines with sequential drawing */}
+              <svg 
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                style={{ zIndex: 1 }}
+              >
+                {connectionLines.map((line, index) => (
+                  <motion.line
+                    key={index}
+                    x1={`${line.from.x}%`}
+                    y1={`${line.from.y}%`}
+                    x2={`${line.to.x}%`}
+                    y2={`${line.to.y}%`}
+                    stroke="#0b3b5c"
+                    strokeWidth="2"
+                    strokeDasharray="5,5"
+                    opacity="0.3"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 0.3 }}
+                    transition={{ 
+                      duration: 1.5, 
+                      delay: index * 0.4 + 1.5,
+                      ease: "easeInOut"
+                    }}
+                  />
+                ))}
+              </svg>
+
+              {/* Interactive location dots with staggered entrance */}
+              {locations.map((location, index) => (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute -top-20 left-1/2 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-lg border min-w-[250px] z-30"
+                  key={location.id}
+                  className="absolute cursor-pointer group"
+                  style={{
+                    left: `${location.coordinates.x}%`,
+                    top: `${location.coordinates.y}%`,
+                    zIndex: 2
+                  }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ 
+                    delay: index * 0.3 + 1.8, 
+                    type: "spring",
+                    damping: 15,
+                    stiffness: 200
+                  }}
+                  onMouseEnter={() => setHoveredLocation(location.id)}
+                  onMouseLeave={() => setHoveredLocation(null)}
                 >
-                  <h3 className="font-semibold text-blue mb-2">
-                    {location.name}
-                  </h3>
-                  <p className="text-sm text-gray">{location.details}</p>
+                  {/* Animated Dot with Enhanced Ripple Effect */}
+                  <div className="relative flex items-center justify-center">
+                    {/* Outer ripple */}
+                    <motion.div
+                      className="absolute w-8 h-8 bg-[#0b3b5c] rounded-full opacity-20"
+                      animate={{
+                        scale: [1, 2.5, 1],
+                        opacity: [0.2, 0, 0.2],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: index * 0.5
+                      }}
+                    />
+                    
+                    {/* Middle ripple */}
+                    <motion.div
+                      className="absolute w-6 h-6 bg-[#2b376b] rounded-full opacity-30"
+                      animate={{
+                        scale: [1, 1.8, 1],
+                        opacity: [0.3, 0, 0.3],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: index * 0.5 + 0.5
+                      }}
+                    />
+                    
+                    {/* Core dot with pulse */}
+                    <motion.div
+                      className="w-4 h-4 bg-[#0b3b5c] rounded-full border-2 border-white shadow-lg relative z-10"
+                      whileHover={{ 
+                        scale: 1.3,
+                        boxShadow: "0 0 20px rgba(11, 59, 92, 0.4)"
+                      }}
+                      animate={{
+                        boxShadow: [
+                          "0 0 0px rgba(11, 59, 92, 0.4)",
+                          "0 0 10px rgba(11, 59, 92, 0.6)",
+                          "0 0 0px rgba(11, 59, 92, 0.4)"
+                        ]
+                      }}
+                      transition={{ 
+                        scale: { type: "spring", stiffness: 300 },
+                        boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                      }}
+                    />
+                  </div>
+
+                  {/* Beautiful Hover Popup with smooth entrance */}
+                  {hoveredLocation === location.id && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 15, scale: 0.8 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 15, scale: 0.8 }}
+                      transition={{ 
+                        type: "spring", 
+                        damping: 20, 
+                        stiffness: 300,
+                        duration: 0.4
+                      }}
+                      className="absolute -top-32 sm:-top-36 left-1/2 transform -translate-x-1/2 z-30"
+                    >
+                      <motion.div 
+                        className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 sm:p-5 min-w-[240px] sm:min-w-[280px] backdrop-blur-sm"
+                        whileHover={{ y: -5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        {/* Header with flag and country */}
+                        <div className="flex items-center gap-3 mb-3">
+                          <motion.div 
+                            className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] flex items-center justify-center shadow-md"
+                            whileHover={{ rotate: 5 }}
+                          >
+                            <ReactCountryFlag
+                              countryCode={location.id === 'uk' ? 'GB' : location.id === 'qatar' ? 'QA' : 'IN'}
+                              svg
+                              style={{
+                                width: '18px',
+                                height: '14px',
+                              }}
+                            />
+                          </motion.div>
+                          <div>
+                            <h3 className="font-bold text-[#0b3b5c] text-base sm:text-lg">
+                              {location.name}
+                            </h3>
+                            <p className="text-xs text-[#2b376b] font-medium">
+                              {location.stats}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        {/* Content */}
+                        <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                          {location.details}
+                        </p>
+                        
+                        {/* Bottom accent with animation */}
+                        <motion.div 
+                          className="w-full h-1 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] rounded-full"
+                          initial={{ width: 0 }}
+                          animate={{ width: "100%" }}
+                          transition={{ delay: 0.2, duration: 0.6 }}
+                        />
+                      </motion.div>
+                      
+                      {/* Arrow pointer */}
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                        <div className="w-4 h-4 bg-white border-r border-b border-gray-100 transform rotate-45"></div>
+                      </div>
+                    </motion.div>
+                  )}
                 </motion.div>
-              )}
+              ))}
             </div>
-          ))}
+          </motion.div>
+          
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
