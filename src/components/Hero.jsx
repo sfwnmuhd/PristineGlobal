@@ -10,25 +10,48 @@ const Hero = () => {
     {
       id: "uk",
       name: "United Kingdom",
-      coordinates: { x: 45, y: 30 },
+      coordinates: {
+        mobile: { x: 42, y: 25 },
+        tablet: { x: 44, y: 28 },
+        desktop: { x: 45, y: 30 }
+      },
       details: "Three care homes and one child care facility offering specialized, person-centered care.",
       stats: "3 Care Homes • 1 Child Care"
     },
     {
       id: "qatar",
       name: "Qatar",
-      coordinates: { x: 56, y: 40 },
+      coordinates: {
+        mobile: { x: 58, y: 35 },
+        tablet: { x: 57, y: 38 },
+        desktop: { x: 56, y: 40 }
+      },
       details: "Healthcare and technology services in the Middle East region.",
       stats: "Healthcare • Technology"
     },
     {
       id: "india",
       name: "India",
-      coordinates: { x: 65, y: 55 },
+      coordinates: {
+        mobile: { x: 68, y: 50 },
+        tablet: { x: 66, y: 52 },
+        desktop: { x: 65, y: 55 }
+      },
       details: "Distribution networks and healthcare investments across multiple regions.",
       stats: "Distribution • Healthcare"
     },
   ]
+
+  // Function to get coordinates based on screen size
+  const getCoordinates = (location) => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth
+      if (width < 768) return location.coordinates.mobile
+      if (width < 1024) return location.coordinates.tablet
+      return location.coordinates.desktop
+    }
+    return location.coordinates.desktop // fallback
+  }
 
   const [hoveredLocation, setHoveredLocation] = useState(null)
 
