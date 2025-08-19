@@ -26,7 +26,7 @@ const CoreValueSection = () => {
     ];
   return (
     <div>
-      <section className="py-20 px-6">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
