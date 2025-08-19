@@ -10,8 +10,8 @@ const AboutSection = () => {
     <section className="py-12 sm:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          {/* Left side - Images with improved grid alignment */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 order-2 lg:order-1 max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0">
+          {/* Left side - Images with proper grid alignment */}
+          <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 order-2 lg:order-1 max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -39,7 +39,7 @@ const AboutSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-3 sm:space-y-4 mt-6 sm:mt-8 lg:mt-12"
+              className="space-y-3 sm:space-y-4"
             >
               <div className="border border-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
                 <img
