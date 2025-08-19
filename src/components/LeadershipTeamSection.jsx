@@ -29,13 +29,13 @@ const LeadershipTeamSection = () => {
         },
     ];
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 lg:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl font-semibold text-black mb-4"
+          className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-4"
         >
           Our Leadership Team
         </motion.h2>
@@ -44,13 +44,13 @@ const LeadershipTeamSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg sm:text-xl text-gray-500 mb-12 text-center sm:text-left"
+          className="text-base sm:text-lg lg:text-xl text-gray-500 mb-12 text-center sm:text-left"
         >
           A dynamic team of medical, technology, and business leaders committed
           to global healthcare excellence.
         </motion.p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
@@ -59,18 +59,18 @@ const LeadershipTeamSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-white border border-gray-200 rounded-xl overflow-hidden"
             >
-              <div className="relative h-80 overflow-hidden">
+              <div className="relative h-64 sm:h-72 lg:h-80 overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <h3 className="text-lg font-medium text-black mb-2">
                   {member.name}
                 </h3>
-                <p className="text-sm text-pristine-text-gray leading-relaxed">
+                <p className="text-sm text-gray-600 leading-relaxed">
                   {member.role}
                 </p>
               </div>
@@ -83,21 +83,21 @@ const LeadershipTeamSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-16 sm:flex  sm:justify-between"
+          className="text-center sm:text-left mt-16 sm:flex sm:justify-between sm:items-center"
         >
-          <div className='sm:flex  sm:flex-col sm:items-start text-justify '>
+          <div className='sm:flex sm:flex-col sm:items-start mb-6 sm:mb-0'>
             <h3 className="text-xl sm:text-2xl font-medium text-black mb-4">
               Ready to invest in our growing portfolio?
             </h3>
-            <p className="text-sm sm:text-lg text-gray-500 mb-8">
-              from the upcoming UK care home to thriving ventures worldwide.
+            <p className="text-sm sm:text-lg text-gray-500">
+              From the upcoming UK care home to thriving ventures worldwide.
             </p>
           </div>  
           <div>
-            <button className="flex items-center justify-center mx-auto border border-pristine-blue text-pristine-blue px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-500 hover:text-white transition-colors cursor-pointer">
+            <button className="flex items-center justify-center mx-auto sm:mx-0 border border-[#0b3b5c] text-[#0b3b5c] px-6 py-3 rounded-full text-sm font-medium hover:bg-[#0b3b5c] hover:text-white transition-colors cursor-pointer">
               Invest with Us
               <svg
-                className="w-6 h-6 ml-2"
+                className="w-5 h-5 ml-2"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
