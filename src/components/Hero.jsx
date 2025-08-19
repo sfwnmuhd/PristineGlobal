@@ -10,14 +10,14 @@ const Hero = () => {
     {
       id: "uk",
       name: "United Kingdom",
-      coordinates: { x: 44, y: 30 },
+      coordinates: { x: 45, y: 30 },
       details: "Three care homes and one child care facility offering specialized, person-centered care.",
       stats: "3 Care Homes • 1 Child Care"
     },
     {
       id: "qatar",
       name: "Qatar",
-      coordinates: { x: 58, y: 40 },
+      coordinates: { x: 56, y: 40 },
       details: "Healthcare and technology services in the Middle East region.",
       stats: "Healthcare • Technology"
     },
@@ -120,7 +120,7 @@ const Hero = () => {
           
           <motion.h1
             variants={itemVariants}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight"
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -170,7 +170,7 @@ const Hero = () => {
               <motion.img
                 src={worldmap}
                 alt="World Map"
-                className="w-full h-auto max-h-[150px] sm:max-h-[200px] md:max-h-[250px] lg:max-h-[300px] object-contain opacity-40"
+                className="w-full h-auto max-h-[150px] sm:max-h-[300px] md:max-h-[350px] lg:max-h-[400px] object-contain opacity-40"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 0.4, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.9 }}
