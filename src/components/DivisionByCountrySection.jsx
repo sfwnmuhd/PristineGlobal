@@ -265,7 +265,7 @@ const DivisionByCountrySection = () => {
     },
     India: {
       title: 'Integrated Healthcare & Distribution',
-      description: `Our operations in India focus on:\n• Prime Care Hospitals – delivering multispecialty hospital services across India\n• Prime Care Pharma – retail and wholesale pharmaceutical distribution\n• Primecare Distribution – streamlining supply chain and product delivery logistics`,
+      description: `Our operations in India focus on:\n�� Prime Care Hospitals – delivering multispecialty hospital services across India\n• Prime Care Pharma – retail and wholesale pharmaceutical distribution\n• Primecare Distribution – streamlining supply chain and product delivery logistics`,
       img: 'https://via.placeholder.com/996x400?text=India+Division',
     },
   }
@@ -279,7 +279,7 @@ const DivisionByCountrySection = () => {
   const current = countryData[selectedCountry]
 
   return (
-    <section className="py-20 px-6 bg-gray-50">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
