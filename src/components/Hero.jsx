@@ -54,6 +54,21 @@ const Hero = () => {
   }
 
   const [hoveredLocation, setHoveredLocation] = useState(null)
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
+
+  // Handle window resize for responsive coordinates
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+    }
+
+    // Set initial size
+    if (typeof window !== 'undefined') {
+      handleResize()
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   // Connected lines between locations
   const connectionLines = [
