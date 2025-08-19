@@ -44,13 +44,9 @@ const Hero = () => {
 
   // Function to get coordinates based on screen size
   const getCoordinates = (location) => {
-    if (typeof window !== 'undefined') {
-      const width = window.innerWidth
-      if (width < 768) return location.coordinates.mobile
-      if (width < 1024) return location.coordinates.tablet
-      return location.coordinates.desktop
-    }
-    return location.coordinates.desktop // fallback
+    if (windowSize.width < 768) return location.coordinates.mobile
+    if (windowSize.width < 1024) return location.coordinates.tablet
+    return location.coordinates.desktop
   }
 
   const [hoveredLocation, setHoveredLocation] = useState(null)
