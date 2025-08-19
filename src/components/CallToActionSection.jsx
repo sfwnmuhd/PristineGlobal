@@ -29,8 +29,8 @@ const CallToActionSection = () => {
               className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
             />
           </div>
-          <div className="relative flex flex-col lg:flex-row items-center lg:items-start justify-between">
-            <div className="mb-8 lg:mb-0 text-center lg:text-left">
+          <div className="relative flex flex-col lg:flex-row items-center lg:items-center justify-between">
+            <div className="mb-8 lg:mb-0 text-center lg:text-left lg:flex-1 lg:pr-8">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-300 mb-4">
                 Ready to Make an Impact?
               </h2>
@@ -38,10 +38,9 @@ const CallToActionSection = () => {
                 Join us in our mission or partner to deliver exceptional services across healthcare, technology, and trading hubs.
               </p>
             </div>
-            {/* <button className="border border-white border-opacity-50 text-white px-8 py-3 rounded-2xl text-xl font-medium hover:bg-white hover:text-pristine-blue transition-colors">
-              Join or partner now
-            </button> */}
-            <ShimmerButton text={"Join or partner now"}/>
+            <div className="lg:flex-shrink-0">
+              <ShimmerButton text={"Join or partner now"}/>
+            </div>
           </div>
         </motion.div>
       </div>
