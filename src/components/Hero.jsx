@@ -204,7 +204,7 @@ const Hero = () => {
               <motion.img
                 src={worldmap}
                 alt="World Map"
-                className="w-full h-auto max-h-[350px] sm:max-h-[450px] md:max-h-[550px] lg:max-h-[700px] xl:max-h-[800px] object-contain opacity-80"
+                className="w-full h-auto max-h-[40vh] sm:max-h-[45vh] md:max-h-[50vh] lg:max-h-[55vh] object-contain opacity-80"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 0.8, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.9 }}
