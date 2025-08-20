@@ -144,7 +144,7 @@ const Hero = () => {
 
       {/* Hero Content with smooth entrance animations */}
       <motion.div
-        className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center items-center py-8 sm:py-12 lg:py-16"
+        className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center items-center py-8 sm:py-12 lg:py-16 mt-16 sm:mt-20"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
