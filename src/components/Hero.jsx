@@ -126,7 +126,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-[80vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden flex items-center justify-center bg-[#fafafa]">
+    <section className="relative min-h-[70vh] sm:min-h-[85vh] lg:min-h-[100vh] overflow-hidden flex items-center justify-center bg-[#fafafa]">
       {/* Background grid pattern with subtle animation */}
       <motion.div 
         className="absolute inset-0"
@@ -150,11 +150,11 @@ const Hero = () => {
       >
         
         {/* Main Content Container */}
-        <div className="flex flex-col items-center justify-center max-w-5xl mx-auto space-y-6 sm:space-y-8">
+        <div className="flex flex-col items-center justify-center max-w-6xl mx-auto space-y-6 sm:space-y-2">
           
           <motion.h1
             variants={itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight max-w-7xl"
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -175,7 +175,7 @@ const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto"
+            className=" text-sm sm:text-lg lg:text-xl text-gray-700  mx-auto"
           >
             Enhancing lives across the UK, Qatar, and India through compassionate
             care, innovative solutions, and trusted services.
@@ -184,7 +184,7 @@ const Hero = () => {
           {/* Buttons with enhanced entrance */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center mt-2"
+            className="flex justify-center"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -198,13 +198,13 @@ const Hero = () => {
           {/* Map Section with improved entrance animation */}
           <motion.div
             variants={mapVariants}
-            className="relative w-full max-w-4xl mx-auto mt-8 lg:mt-12"
+            className="relative w-full max-w-4xl mx-auto"
           >
             <div className="relative">
               <motion.img
                 src={worldmap}
                 alt="World Map"
-                className="w-full h-auto max-h-[200px] sm:max-h-[320px] md:max-h-[380px] lg:max-h-[650px] object-contain opacity-40"
+                className="w-full h-auto  object-contain opacity-40"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 0.4, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.9 }}
@@ -382,6 +382,7 @@ const Hero = () => {
           
         </div>
       </motion.div>
+      
     </section>
   )
 }
