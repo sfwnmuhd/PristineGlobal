@@ -59,13 +59,12 @@ const SocialMediaPopup = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
               transition={{
-                type: "spring",
-                damping: 25,
-                stiffness: 300
+                duration: 0.2,
+                ease: "easeOut"
               }}
               className="absolute bottom-16 left-0 flex space-x-3 bg-white/95 backdrop-blur-sm rounded-full px-4 py-3 shadow-lg border border-gray-100"
             >
@@ -76,26 +75,22 @@ const SocialMediaPopup = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`p-2 sm:p-3 bg-gradient-to-br ${social.gradient} ${social.hoverColor} text-white rounded-full shadow-md transition-all duration-300 group`}
-                  initial={{ opacity: 0, scale: 0 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
-                    delay: index * 0.1 + 0.1,
-                    type: "spring",
-                    stiffness: 300
+                    delay: index * 0.05,
+                    duration: 0.15,
+                    ease: "easeOut"
                   }}
                   whileHover={{
-                    scale: 1.1,
-                    y: -2
+                    scale: 1.05
                   }}
                   whileTap={{ scale: 0.9 }}
                   title={social.name}
                 >
-                  <motion.div
-                    whileHover={{ rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
+                  <div>
                     {React.cloneElement(social.icon, { className: "w-4 h-4 sm:w-5 sm:h-5" })}
-                  </motion.div>
+                  </div>
                 </motion.a>
               ))}
             </motion.div>
@@ -107,15 +102,14 @@ const SocialMediaPopup = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="p-3 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
           whileHover={{
-            scale: 1.1,
-            boxShadow: "0 10px 30px rgba(11, 59, 92, 0.3)"
+            scale: 1.05
           }}
           whileTap={{ scale: 0.95 }}
           aria-label="Toggle social media links"
         >
           <motion.div
             animate={{ rotate: isOpen ? 45 : 0 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
           >
             <Share2 className="w-5 h-5 sm:w-6 sm:h-6" />
           </motion.div>
