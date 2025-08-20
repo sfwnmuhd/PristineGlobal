@@ -41,7 +41,7 @@ const BackToTop = () => {
             damping: 20
           }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+          className="fixed bottom-8 right-24 z-50 p-3 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
           whileHover={{
             scale: 1.1,
             boxShadow: "0 10px 30px rgba(11, 59, 92, 0.3)"
