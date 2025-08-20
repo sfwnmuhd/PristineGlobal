@@ -126,7 +126,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-[80vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden flex items-center justify-center bg-[#fafafa]">
+    <section className="relative min-h-[100vh] overflow-hidden flex items-center justify-center bg-[#fafafa]">
       {/* Background grid pattern with subtle animation */}
       <motion.div 
         className="absolute inset-0"
