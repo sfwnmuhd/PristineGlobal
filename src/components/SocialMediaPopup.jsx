@@ -53,48 +53,11 @@ const SocialMediaPopup = () => {
   ]
 
   return (
-    <>
-      {/* Social Button Trigger */}
-      <motion.button
-        onClick={() => setIsOpen(true)}
-        className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 p-3 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group md:left-6"
-        whileHover={{ 
-          scale: 1.1,
-          boxShadow: "0 10px 30px rgba(11, 59, 92, 0.3)"
-        }}
-        whileTap={{ scale: 0.95 }}
-        aria-label="Open social media links"
-      >
-        <motion.div
-          whileHover={{ rotate: 15 }}
-          transition={{ type: "spring", stiffness: 400 }}
-        >
-          <Share2 className="w-5 h-5 md:w-6 md:h-6" />
-        </motion.div>
-        
-        {/* Ripple effect */}
-        <motion.div
-          className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20"
-          initial={{ scale: 0 }}
-          whileHover={{ scale: 1 }}
-          transition={{ duration: 0.3 }}
-        />
-      </motion.button>
-
-      {/* Social Media Popup */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
-              onClick={() => setIsOpen(false)}
-            />
-
-            {/* Popup Content */}
+    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+      <div className="relative">
+        {/* Social Links - Compact Row */}
+        <AnimatePresence>
+          {isOpen && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -104,72 +67,69 @@ const SocialMediaPopup = () => {
                 damping: 25,
                 stiffness: 300
               }}
-              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-2xl shadow-2xl p-6 sm:p-8 w-[90%] max-w-md"
+              className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-3 bg-white/95 backdrop-blur-sm rounded-full px-4 py-3 shadow-lg border border-gray-100"
             >
-              {/* Header */}
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">
-                  Follow Us
-                </h3>
-                <motion.button
-                  onClick={() => setIsOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                  whileHover={{ scale: 1.1 }}
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-2 sm:p-3 bg-gradient-to-br ${social.gradient} ${social.hoverColor} text-white rounded-full shadow-md transition-all duration-300 group`}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    delay: index * 0.1 + 0.1,
+                    type: "spring",
+                    stiffness: 300
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    y: -2
+                  }}
                   whileTap={{ scale: 0.9 }}
+                  title={social.name}
                 >
-                  <X className="w-5 h-5 text-gray-500" />
-                </motion.button>
-              </div>
-
-              {/* Social Links Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex flex-col items-center justify-center p-4 sm:p-6 bg-gradient-to-br ${social.gradient} ${social.hoverColor} text-white rounded-xl shadow-md transition-all duration-300 group`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 + 0.1 }}
-                    whileHover={{ 
-                      scale: 1.05,
-                      y: -2
-                    }}
-                    whileTap={{ scale: 0.95 }}
+                  <motion.div
+                    whileHover={{ rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 400 }}
                   >
-                    <motion.div
-                      className="mb-2"
-                      whileHover={{ rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      {social.icon}
-                    </motion.div>
-                    <span className="text-sm sm:text-base font-medium">
-                      {social.name}
-                    </span>
-                    
-                    {/* Shine effect */}
-                    <motion.div
-                      className="absolute inset-0 rounded-xl bg-white opacity-0 group-hover:opacity-10"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '100%' }}
-                      transition={{ duration: 0.6 }}
-                    />
-                  </motion.a>
-                ))}
-              </div>
-
-              {/* Footer Text */}
-              <p className="text-center text-gray-500 text-sm mt-6">
-                Connect with us on social media for updates and news
-              </p>
+                    {React.cloneElement(social.icon, { className: "w-4 h-4 sm:w-5 sm:h-5" })}
+                  </motion.div>
+                </motion.a>
+              ))}
             </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
+          )}
+        </AnimatePresence>
+
+        {/* Social Button Trigger */}
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-3 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+          whileHover={{
+            scale: 1.1,
+            boxShadow: "0 10px 30px rgba(11, 59, 92, 0.3)"
+          }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Toggle social media links"
+        >
+          <motion.div
+            animate={{ rotate: isOpen ? 45 : 0 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <Share2 className="w-5 h-5 sm:w-6 sm:h-6" />
+          </motion.div>
+
+          {/* Ripple effect */}
+          <motion.div
+            className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20"
+            initial={{ scale: 0 }}
+            whileHover={{ scale: 1 }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.button>
+      </div>
+    </div>
   )
 }
 
