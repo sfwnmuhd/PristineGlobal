@@ -380,9 +380,12 @@ const Hero = () => {
               ))}
             </div>
           </motion.div>
-          
+
         </div>
       </motion.div>
+
+      {/* Social Media Popup - Bottom of Hero */}
+      <SocialMediaPopup />
     </section>
   )
 }
