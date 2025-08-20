@@ -36,8 +36,8 @@ const App = () => {
         <ContactSection />
         <CallToActionSection />
       </section>
-      <BackToTop />
       <Footer />
+      <BackToTop />
       <FloatingWhatsApp />
     </div>
   )
