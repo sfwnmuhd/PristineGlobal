@@ -4,6 +4,7 @@ import worldmap from '../assets/worldmap.png'
 import { motion } from 'motion/react'
 import ShimmerButton from './ShimmerButton'
 import ReactCountryFlag from 'react-country-flag'
+import SocialMediaPopup from './SocialMediaPopup'
 
 const Hero = () => {
   const locations = [
