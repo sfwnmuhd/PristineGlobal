@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import gridbg from '../assets/grid-bg.jpg'
-import worldmap from '../assets/map.png'
+import worldmap from '../assets/worldmap.png'
 import { motion } from 'motion/react'
 import ShimmerButton from './ShimmerButton'
 import ReactCountryFlag from 'react-country-flag'
@@ -204,7 +204,7 @@ const Hero = () => {
               <motion.img
                 src={worldmap}
                 alt="World Map"
-                className="w-full h-auto max-h-[200px] sm:max-h-[320px] md:max-h-[380px] lg:max-h-[450px] object-contain opacity-40"
+                className="w-full h-auto max-h-[200px] sm:max-h-[320px] md:max-h-[380px] lg:max-h-[650px] object-contain opacity-40"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 0.4, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.9 }}
