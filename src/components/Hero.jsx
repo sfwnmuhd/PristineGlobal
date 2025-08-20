@@ -127,7 +127,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-[100vh] overflow-hidden flex items-center justify-center bg-[#fafafa]">
+    <section className="relative h-[100vh] overflow-hidden flex items-center justify-center bg-[#fafafa]">
       {/* Background grid pattern with subtle animation */}
       <motion.div 
         className="absolute inset-0"
@@ -144,7 +144,7 @@ const Hero = () => {
 
       {/* Hero Content with smooth entrance animations */}
       <motion.div
-        className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center items-center py-16 sm:py-20 lg:py-24"
+        className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center items-center py-8 sm:py-12 lg:py-16"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
