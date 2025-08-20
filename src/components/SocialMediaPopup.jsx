@@ -67,7 +67,7 @@ const SocialMediaPopup = () => {
                 damping: 25,
                 stiffness: 300
               }}
-              className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-3 bg-white/95 backdrop-blur-sm rounded-full px-4 py-3 shadow-lg border border-gray-100"
+              className="absolute bottom-16 left-0 flex space-x-3 bg-white/95 backdrop-blur-sm rounded-full px-4 py-3 shadow-lg border border-gray-100"
             >
               {socialLinks.map((social, index) => (
                 <motion.a
