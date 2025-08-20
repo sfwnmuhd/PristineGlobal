@@ -35,14 +35,14 @@ const BackToTop = () => {
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          transition={{ 
-            type: "spring", 
-            stiffness: 300, 
-            damping: 20 
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20
           }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-          whileHover={{ 
+          className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 z-50 p-3 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+          whileHover={{
             scale: 1.1,
             boxShadow: "0 10px 30px rgba(11, 59, 92, 0.3)"
           }}
@@ -55,7 +55,7 @@ const BackToTop = () => {
           >
             <ChevronUp className="w-6 h-6 group-hover:animate-bounce" />
           </motion.div>
-          
+
           {/* Ripple effect */}
           <motion.div
             className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20"

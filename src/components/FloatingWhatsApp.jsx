@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { MessageCircle, X } from 'lucide-react'
 
 const FloatingWhatsApp = () => {
@@ -14,7 +14,7 @@ const FloatingWhatsApp = () => {
   }
 
   return (
-    <div className='fixed bottom-4 right-4 sm:bottom-28 sm:right-6 z-50'>
+    <div className='fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50'>
       <AnimatePresence>
         {showChatView && (
           <motion.div

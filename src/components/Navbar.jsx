@@ -70,7 +70,7 @@ const Navbar = () => {
           <img
             src="/logo.png"
             alt="Pristine Global Logo"
-            className="w-auto h-10 sm:h-12"
+            className="w-auto h-10 sm:h-16"
           />
         </div>
 
