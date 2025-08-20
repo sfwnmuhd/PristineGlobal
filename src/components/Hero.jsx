@@ -198,15 +198,15 @@ const Hero = () => {
           {/* Map Section with improved entrance animation */}
           <motion.div
             variants={mapVariants}
-            className="relative w-full max-w-4xl mx-auto mt-8 lg:mt-12"
+            className="relative w-full max-w-6xl mx-auto mt-8 lg:mt-12"
           >
             <div className="relative">
               <motion.img
                 src={worldmap}
                 alt="World Map"
-                className="w-full h-auto max-h-[200px] sm:max-h-[320px] md:max-h-[380px] lg:max-h-[650px] object-contain opacity-40"
+                className="w-full h-auto max-h-[350px] sm:max-h-[450px] md:max-h-[550px] lg:max-h-[700px] xl:max-h-[800px] object-contain opacity-80"
                 initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 0.4, scale: 1 }}
+                animate={{ opacity: 0.8, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.9 }}
               />
 
