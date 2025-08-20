@@ -128,9 +128,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[100vh] overflow-hidden flex items-center justify-center bg-[#fafafa]">
-      {/* Social Media Popup */}
-      <SocialMediaPopup />
-
       {/* Background grid pattern with subtle animation */}
       <motion.div 
         className="absolute inset-0"
