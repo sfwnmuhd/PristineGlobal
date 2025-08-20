@@ -10,6 +10,7 @@ import CallToActionSection from './components/CallToActionSection'
 import Footer from './components/Footer'
 import ScrollProgressIndicator from './components/ScrollProgressIndicator'
 import BackToTop from './components/BackToTop'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 
 
 
@@ -37,6 +38,7 @@ const App = () => {
       </section>
       <Footer />
       <BackToTop />
+      <FloatingWhatsApp />
     </div>
   )
 }
