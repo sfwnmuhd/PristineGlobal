@@ -127,11 +127,7 @@ const Hero = () => {
   }
 
   return (
-<<<<<<< HEAD
-    <section className="relative h-[100vh] overflow-hidden flex items-center justify-center bg-[#fafafa] lg:pt-30">
-=======
-    <section className="relative min-h-[70vh] sm:min-h-[85vh] lg:min-h-[100vh] overflow-hidden flex items-center justify-center bg-[#fafafa]">
->>>>>>> refs/remotes/origin/main
+    <section className="relative h-[100vh] overflow-hidden flex items-center justify-center bg-[#fafafa]">
       {/* Background grid pattern with subtle animation */}
       <motion.div 
         className="absolute inset-0"
@@ -155,11 +151,11 @@ const Hero = () => {
       >
         
         {/* Main Content Container */}
-        <div className="flex flex-col items-center justify-center max-w-6xl mx-auto space-y-6 sm:space-y-2">
+        <div className="flex flex-col items-center justify-center max-w-6xl mx-auto space-y-6 sm:space-y-8">
           
           <motion.h1
             variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight max-w-7xl"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight"
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -180,7 +176,7 @@ const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className=" text-sm sm:text-lg lg:text-xl text-gray-700  mx-auto"
+            className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto"
           >
             Enhancing lives across the UK, Qatar, and India through compassionate
             care, innovative solutions, and trusted services.
@@ -189,7 +185,7 @@ const Hero = () => {
           {/* Buttons with enhanced entrance */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center"
+            className="flex justify-center mt-2"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -203,21 +199,13 @@ const Hero = () => {
           {/* Map Section with improved entrance animation */}
           <motion.div
             variants={mapVariants}
-<<<<<<< HEAD
             className="relative w-full max-w-6xl mx-auto mt-8 lg:mt-12"
-=======
-            className="relative w-full max-w-4xl mx-auto"
->>>>>>> refs/remotes/origin/main
           >
             <div className="relative">
               <motion.img
                 src={worldmap}
                 alt="World Map"
-<<<<<<< HEAD
                 className="w-full h-auto max-h-[40vh] sm:max-h-[45vh] md:max-h-[50vh] lg:max-h-[55vh] object-contain opacity-80"
-=======
-                className="w-full h-auto  object-contain opacity-40"
->>>>>>> refs/remotes/origin/main
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 0.8, scale: 1 }}
                 transition={{ duration: 1.2, delay: 0.9 }}
@@ -392,16 +380,12 @@ const Hero = () => {
               ))}
             </div>
           </motion.div>
-
+          
         </div>
       </motion.div>
-<<<<<<< HEAD
 
       {/* Social Media Popup - Bottom of Hero */}
       <SocialMediaPopup />
-=======
-      
->>>>>>> refs/remotes/origin/main
     </section>
   )
 }
