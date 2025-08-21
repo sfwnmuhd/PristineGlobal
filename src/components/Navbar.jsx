@@ -2,29 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 
+/**
+ * Navbar Component
+ * A responsive navigation bar with smooth scroll effects and mobile menu
+ * Features: Scroll-based styling, smooth scroll navigation, responsive design, accessibility
+ */
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      setIsScrolled(scrollPosition > 50) // Show background after 50px scroll
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
-
+  // ===== NAVIGATION CONFIGURATION =====
+  
   const menuItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -33,14 +21,50 @@ const Navbar = () => {
     { name: 'Contact Us', href: '#contact' }
   ]
 
-  // Smooth scroll function
+  // ===== SCROLL EFFECT HANDLER =====
+  
+  useEffect(() => {
+    /**
+     * Handle scroll effect for navbar background
+     * Changes navbar appearance after scrolling 50px
+     */
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      setIsScrolled(scrollPosition > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // ===== EVENT HANDLERS =====
+  
+  /**
+   * Toggle mobile menu visibility
+   */
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  /**
+   * Close mobile menu
+   */
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
+  /**
+   * Handle smooth scroll navigation
+   * @param {Event} e - Click event
+   * @param {string} href - Target section anchor
+   */
   const handleSmoothScroll = (e, href) => {
     e.preventDefault()
     const targetId = href.substring(1)
     const targetElement = document.getElementById(targetId)
 
     if (targetElement) {
-      const headerOffset = 80 // Account for fixed header
+      const headerOffset = 80 // Account for fixed header height
       const elementPosition = targetElement.offsetTop
       const offsetPosition = elementPosition - headerOffset
 
@@ -49,8 +73,10 @@ const Navbar = () => {
         behavior: 'smooth'
       })
     }
-    closeMenu() // Close mobile menu if open
+    closeMenu() // Close mobile menu after navigation
   }
+
+  // ===== COMPONENT RENDER =====
 
   return (
     <motion.header 
@@ -65,17 +91,17 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         
-        {/* Logo */}
+        {/* ===== LOGO ===== */}
         <div className="flex-shrink-0">
           <img
             src="/logo.png"
-            alt="Pristine Global Logo"
+            alt="Pristine Global - Healthcare, Technology & Trading Solutions"
             className="w-auto h-10 sm:h-16"
           />
         </div>
 
-        {/* Desktop Navigation Menu - visible on lg screens and up */}
-        <nav className="hidden lg:flex space-x-8">
+        {/* ===== DESKTOP NAVIGATION (Large screens) ===== */}
+        <nav className="hidden lg:flex space-x-8" role="navigation" aria-label="Main navigation">
           {menuItems.map((item, index) => (
             <a
               key={index}
@@ -88,8 +114,8 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Tablet Navigation Menu - visible on md to lg screens */}
-        <nav className="hidden md:flex lg:hidden space-x-4">
+        {/* ===== TABLET NAVIGATION (Medium screens) ===== */}
+        <nav className="hidden md:flex lg:hidden space-x-4" role="navigation" aria-label="Tablet navigation">
           {menuItems.map((item, index) => (
             <a
               key={index}
@@ -102,11 +128,13 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Mobile Hamburger Menu Button */}
+        {/* ===== MOBILE MENU BUTTON ===== */}
         <button
           onClick={toggleMenu}
           className="md:hidden p-2 rounded-md text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors"
-          aria-label="Toggle menu"
+          aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMenuOpen ? (
             <X className="h-6 w-6" />
@@ -116,7 +144,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* ===== MOBILE MENU OVERLAY ===== */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -126,14 +154,16 @@ const Navbar = () => {
             transition={{ duration: 0.2 }}
             className="md:hidden fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
             onClick={closeMenu}
+            aria-hidden="true"
           />
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu Panel - Sliding from top */}
+      {/* ===== MOBILE MENU PANEL ===== */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ y: '-100%', opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: '-100%', opacity: 0 }}
@@ -144,8 +174,11 @@ const Navbar = () => {
               opacity: { duration: 0.2 }
             }}
             className="md:hidden fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg z-50"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mobile-menu-heading"
           >
-            {/* Header with logo and close button */}
+            {/* Mobile Menu Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200/50">
               <img
                 src="/logo.png"
@@ -155,14 +188,15 @@ const Navbar = () => {
               <button
                 onClick={closeMenu}
                 className="p-2 rounded-md text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors"
-                aria-label="Close menu"
+                aria-label="Close mobile menu"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
             
-            {/* Navigation Menu */}
-            <nav className="p-6">
+            {/* Mobile Navigation Menu */}
+            <nav className="p-6" role="navigation" aria-labelledby="mobile-menu-heading">
+              <h2 id="mobile-menu-heading" className="sr-only">Mobile Navigation Menu</h2>
               <ul className="space-y-1">
                 {menuItems.map((item, index) => (
                   <motion.li
