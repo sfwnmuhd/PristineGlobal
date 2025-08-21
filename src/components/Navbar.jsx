@@ -208,7 +208,7 @@ const Navbar = () => {
                     <a
                       href={item.href}
                       onClick={(e) => handleSmoothScroll(e, item.href)}
-                      className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50/50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                      className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
                     >
                       {item.name}
                     </a>
