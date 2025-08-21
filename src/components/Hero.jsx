@@ -635,6 +635,16 @@ const Hero = () => {
                 </g>
               );
             })}
+
+            {/* Gradient definitions */}
+            <defs>
+              <linearGradient id="flowingGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0b3b5c" stopOpacity="0.3" />
+                <stop offset="30%" stopColor="#06b6d4" stopOpacity="0.8" />
+                <stop offset="70%" stopColor="#0b3b5c" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.3" />
+              </linearGradient>
+            </defs>
           </svg>
 
           {/* Location dots */}
