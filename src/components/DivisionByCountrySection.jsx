@@ -25,7 +25,7 @@ const DivisionByCountrySection = () => {
 • Hyper Nova Supermarket & Wholesale Trading – providing quality consumer goods
 • Precedence Information Technologies – delivering strategic IT services and solutions
 • Mednova Medical Trading – supplying medical equipment and healthcare essentials`,
-      img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=996&h=400&fit=crop&auto=format',
+      img: '',
     },
     India: {
       title: 'Integrated Healthcare & Distribution',
@@ -33,7 +33,7 @@ const DivisionByCountrySection = () => {
 • Prime Care Hospitals – delivering multispecialty hospital services across India
 • Prime Care Pharma – retail and wholesale pharmaceutical distribution
 • Primecare Distribution – streamlining supply chain and product delivery logistics`,
-      img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=996&h=400&fit=crop&auto=format',
+      img: '',
     },
   }
 
