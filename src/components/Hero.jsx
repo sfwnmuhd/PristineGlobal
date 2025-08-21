@@ -568,7 +568,7 @@ const Hero = () => {
             transition={{ duration: 1.0, delay: 0.6 }}
           />
 
-          {/* Connection Lines with Traveling Particles */}
+          {/* Connection Lines */}
           <svg
             className="pointer-events-none absolute inset-0 w-full h-full"
             viewBox="0 0 100 100"
@@ -601,7 +601,6 @@ const Hero = () => {
               }
 
               const pathData = `M ${fromX} ${fromY} Q ${controlX} ${controlY} ${toX} ${toY}`;
-              const pathId = `connection-path-${index}`;
 
               return (
                 <g key={index}>
@@ -609,95 +608,33 @@ const Hero = () => {
                   <path
                     d={pathData}
                     stroke="#0b3b5c"
-                    strokeWidth="0.15"
-                    strokeDasharray="0.8,0.8"
+                    strokeWidth="0.2"
+                    strokeDasharray="1,1"
                     fill="none"
-                    opacity="0.2"
-                    id={pathId}
+                    opacity="0.3"
                   />
 
                   {/* Animated flowing line */}
                   <motion.path
                     d={pathData}
-                    stroke="url(#flowingGradient)"
-                    strokeWidth="0.25"
+                    stroke="#0b3b5c"
+                    strokeWidth="0.3"
                     fill="none"
-                    opacity="0.8"
-                    strokeDasharray="3,6"
+                    opacity="0.6"
+                    strokeDasharray="2,4"
                     animate={{
-                      strokeDashoffset: [0, -9, 0]
+                      strokeDashoffset: [0, -6, 0]
                     }}
                     transition={{
                       duration: 3,
-                      delay: index * 0.8,
+                      delay: index * 0.6,
                       ease: "linear",
                       repeat: Infinity
-                    }}
-                  />
-
-                  {/* Traveling particles */}
-                  {[...Array(2)].map((_, particleIndex) => (
-                    <motion.circle
-                      key={`particle-${index}-${particleIndex}`}
-                      r="0.4"
-                      fill="#0b3b5c"
-                      opacity="0.9"
-                      initial={{ offsetDistance: "0%" }}
-                      animate={{
-                        offsetDistance: ["0%", "100%"]
-                      }}
-                      transition={{
-                        duration: 4,
-                        delay: index * 0.6 + particleIndex * 2,
-                        ease: "easeInOut",
-                        repeat: Infinity,
-                        repeatDelay: 0.5
-                      }}
-                      style={{
-                        offsetPath: `path('${pathData}')`,
-                        filter: "drop-shadow(0 0 2px rgba(11, 59, 92, 0.6))"
-                      }}
-                    />
-                  ))}
-
-                  {/* Glowing particle effect */}
-                  <motion.circle
-                    r="0.6"
-                    fill="none"
-                    stroke="#06b6d4"
-                    strokeWidth="0.2"
-                    opacity="0.7"
-                    initial={{ offsetDistance: "0%" }}
-                    animate={{
-                      offsetDistance: ["0%", "100%"],
-                      r: [0.6, 1.2, 0.6]
-                    }}
-                    transition={{
-                      duration: 5,
-                      delay: index * 0.7 + 1,
-                      ease: "easeInOut",
-                      repeat: Infinity,
-                      repeatDelay: 1
-                    }}
-                    style={{
-                      offsetPath: `path('${pathData}')`,
-                      filter: "drop-shadow(0 0 3px rgba(6, 182, 212, 0.8))"
                     }}
                   />
                 </g>
               );
             })}
-
-            {/* Gradient definitions */}
-            <defs>
-              <linearGradient id="flowingGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0b3b5c" stopOpacity="0" />
-                <stop offset="20%" stopColor="#0b3b5c" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.8" />
-                <stop offset="80%" stopColor="#0b3b5c" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#0b3b5c" stopOpacity="0" />
-              </linearGradient>
-            </defs>
           </svg>
 
           {/* Location dots */}
