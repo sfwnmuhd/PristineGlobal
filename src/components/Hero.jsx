@@ -613,11 +613,16 @@ const Hero = () => {
                   fill="none"
                   opacity="0.5"
                   initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 0.5 }}
+                  animate={{
+                    pathLength: [0, 1, 1, 0],
+                    opacity: [0, 0.5, 0.5, 0]
+                  }}
                   transition={{
-                    duration: 1.5,
-                    delay: index * 0.4 + 1.3,
-                    ease: "easeInOut"
+                    duration: 4,
+                    delay: index * 0.5 + 1.3,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatDelay: 1
                   }}
                 />
               );
