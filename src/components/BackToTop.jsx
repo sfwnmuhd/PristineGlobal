@@ -2,10 +2,21 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ChevronUp } from 'lucide-react'
 
+/**
+ * BackToTop Component
+ * A floating button that appears after scrolling and smoothly scrolls to top
+ * Features: Scroll detection, smooth animations, hover effects, accessibility
+ */
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
 
+  // ===== SCROLL DETECTION =====
+  
   useEffect(() => {
+    /**
+     * Toggle button visibility based on scroll position
+     * Shows button after scrolling 300px from top
+     */
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
         setIsVisible(true)
@@ -14,19 +25,28 @@ const BackToTop = () => {
       }
     }
 
+    // Add scroll listener with passive option for performance
     window.addEventListener('scroll', toggleVisibility, { passive: true })
 
+    // Cleanup listener on unmount
     return () => {
       window.removeEventListener('scroll', toggleVisibility)
     }
   }, [])
 
+  // ===== SCROLL TO TOP HANDLER =====
+  
+  /**
+   * Smoothly scroll to top of page
+   */
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     })
   }
+
+  // ===== COMPONENT RENDER =====
 
   return (
     <AnimatePresence>
@@ -49,6 +69,7 @@ const BackToTop = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Back to top"
         >
+          {/* Icon with Hover Animation */}
           <motion.div
             whileHover={{ y: -2 }}
             transition={{ type: "spring", stiffness: 400 }}
@@ -56,7 +77,7 @@ const BackToTop = () => {
             <ChevronUp className="w-6 h-6 group-hover:animate-bounce" />
           </motion.div>
 
-          {/* Ripple effect */}
+          {/* Subtle Ripple Effect on Hover */}
           <motion.div
             className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20"
             initial={{ scale: 0 }}

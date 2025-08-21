@@ -1,8 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { motion, useScroll, useSpring } from 'motion/react'
 
+/**
+ * ScrollProgressIndicator Component
+ * A fixed top progress bar that shows page scroll progress
+ * Features: Smooth spring animation, gradient styling, responsive design
+ */
 const ScrollProgressIndicator = () => {
+  // Track scroll progress (0 to 1)
   const { scrollYProgress } = useScroll()
+  
+  // Apply spring physics for smooth animation
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
