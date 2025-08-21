@@ -617,10 +617,10 @@ const Hero = () => {
                   {/* Animated flowing line */}
                   <motion.path
                     d={pathData}
-                    stroke="#0b3b5c"
+                    stroke="url(#flowingGradient)"
                     strokeWidth="0.3"
                     fill="none"
-                    opacity="0.6"
+                    opacity="0.7"
                     strokeDasharray="2,4"
                     animate={{
                       strokeDashoffset: [0, -6, 0]
