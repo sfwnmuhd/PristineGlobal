@@ -599,7 +599,7 @@ const Hero = () => {
                 controlY = midY - curveOffset * 0.8; // More pronounced upward curve
               }
 
-              const pathData = `M ${fromX} ${fromY} Q ${controlX} ${controlY} ${toX} ${toY}`;
+              const pathData = `M ${fromX}% ${fromY}% Q ${controlX}% ${controlY}% ${toX}% ${toY}%`;
 
               return (
                 <motion.path
