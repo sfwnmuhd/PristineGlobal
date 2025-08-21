@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { Share2, X } from 'lucide-react'
+import { Share2 } from 'lucide-react'
 
+/**
+ * SocialMediaPopup Component
+ * A floating social media widget with expandable links
+ * Features: Expandable social links, smooth animations, gradient styling
+ */
 const SocialMediaPopup = () => {
   const [isOpen, setIsOpen] = useState(false)
 
+  // ===== SOCIAL MEDIA CONFIGURATION =====
+  
   const socialLinks = [
     {
       name: 'Instagram',
@@ -40,7 +47,7 @@ const SocialMediaPopup = () => {
       hoverColor: 'hover:from-blue-600 hover:to-blue-700'
     },
     {
-      name: 'X',
+      name: 'X (Twitter)',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
@@ -52,10 +59,21 @@ const SocialMediaPopup = () => {
     }
   ]
 
+  // ===== EVENT HANDLERS =====
+  
+  /**
+   * Toggle social links visibility
+   */
+  const toggleSocialLinks = () => {
+    setIsOpen(!isOpen)
+  }
+
+  // ===== COMPONENT RENDER =====
+
   return (
     <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-40">
       <div className="relative">
-        {/* Social Links - Compact Row */}
+        {/* ===== EXPANDABLE SOCIAL LINKS ===== */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -82,11 +100,10 @@ const SocialMediaPopup = () => {
                     duration: 0.15,
                     ease: "easeOut"
                   }}
-                  whileHover={{
-                    scale: 1.05
-                  }}
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.9 }}
                   title={social.name}
+                  aria-label={`Visit our ${social.name} page`}
                 >
                   <div>
                     {React.cloneElement(social.icon, { className: "w-4 h-4 sm:w-5 sm:h-5" })}
@@ -97,16 +114,15 @@ const SocialMediaPopup = () => {
           )}
         </AnimatePresence>
 
-        {/* Social Button Trigger */}
+        {/* ===== MAIN TOGGLE BUTTON ===== */}
         <motion.button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={toggleSocialLinks}
           className="p-3 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-          whileHover={{
-            scale: 1.05
-          }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          aria-label="Toggle social media links"
+          aria-label={isOpen ? "Close social media links" : "Open social media links"}
         >
+          {/* Rotating Share Icon */}
           <motion.div
             animate={{ rotate: isOpen ? 45 : 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
@@ -114,7 +130,7 @@ const SocialMediaPopup = () => {
             <Share2 className="w-5 h-5 sm:w-6 sm:h-6" />
           </motion.div>
 
-          {/* Ripple effect */}
+          {/* Hover Ripple Effect */}
           <motion.div
             className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20"
             initial={{ scale: 0 }}
