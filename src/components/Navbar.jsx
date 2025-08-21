@@ -167,13 +167,12 @@ const Navbar = () => {
             initial={{ y: '-100%', opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: '-100%', opacity: 0 }}
-            transition={{ 
-              type: 'spring', 
-              damping: 25, 
-              stiffness: 200,
-              opacity: { duration: 0.2 }
+            transition={{
+              type: 'tween',
+              duration: 0.3,
+              ease: 'easeOut'
             }}
-            className="md:hidden fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg z-50"
+            className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-lg z-50"
             role="dialog"
             aria-modal="true"
             aria-labelledby="mobile-menu-heading"
@@ -201,14 +200,18 @@ const Navbar = () => {
                 {menuItems.map((item, index) => (
                   <motion.li
                     key={index}
-                    initial={{ opacity: 0, y: -10 }}
+                    initial={{ opacity: 0, y: -8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 + 0.1 }}
+                    transition={{
+                      delay: index * 0.05 + 0.1,
+                      duration: 0.3,
+                      ease: 'easeOut'
+                    }}
                   >
                     <a
                       href={item.href}
                       onClick={(e) => handleSmoothScroll(e, item.href)}
-                      className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50/50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                      className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
                     >
                       {item.name}
                     </a>
