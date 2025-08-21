@@ -571,6 +571,8 @@ const Hero = () => {
           {/* Connection Lines */}
           <svg
             className="pointer-events-none absolute inset-0 w-full h-full"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
             style={{ zIndex: 1 }}
           >
             {connectionLines.map((line, index) => {
@@ -586,7 +588,7 @@ const Hero = () => {
 
               // Add curve offset based on distance and direction
               const distance = Math.sqrt(Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2));
-              const curveOffset = distance * 0.3; // Adjust curve intensity
+              const curveOffset = distance * 0.2; // Reduce curve intensity
 
               // Determine curve direction (above or below the midpoint)
               let controlX = midX;
@@ -594,27 +596,27 @@ const Hero = () => {
 
               // For specific connections, adjust curve direction
               if (index === 1) { // Qatar to India
-                controlY = midY + curveOffset * 0.5; // Slight downward curve
+                controlY = midY + curveOffset * 0.3; // Slight downward curve
               } else if (index === 2) { // UK to India
-                controlY = midY - curveOffset * 0.8; // More pronounced upward curve
+                controlY = midY - curveOffset * 1.2; // More pronounced upward curve
               }
 
-              const pathData = `M ${fromX}% ${fromY}% Q ${controlX}% ${controlY}% ${toX}% ${toY}%`;
+              const pathData = `M ${fromX} ${fromY} Q ${controlX} ${controlY} ${toX} ${toY}`;
 
               return (
                 <motion.path
                   key={index}
                   d={pathData}
                   stroke="#0b3b5c"
-                  strokeWidth="2"
-                  strokeDasharray="5,5"
+                  strokeWidth="0.3"
+                  strokeDasharray="1,1"
                   fill="none"
-                  opacity="0.3"
+                  opacity="0.5"
                   initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 0.3 }}
+                  animate={{ pathLength: 1, opacity: 0.5 }}
                   transition={{
-                    duration: 1.2,
-                    delay: index * 0.35 + 1.1,
+                    duration: 1.5,
+                    delay: index * 0.4 + 1.3,
                     ease: "easeInOut"
                   }}
                 />
