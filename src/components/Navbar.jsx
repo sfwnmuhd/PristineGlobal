@@ -173,7 +173,7 @@ const Navbar = () => {
               stiffness: 200,
               opacity: { duration: 0.2 }
             }}
-            className="md:hidden fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg z-50"
+            className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-lg z-50"
             role="dialog"
             aria-modal="true"
             aria-labelledby="mobile-menu-heading"
