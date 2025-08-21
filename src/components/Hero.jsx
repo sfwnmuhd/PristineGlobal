@@ -513,7 +513,7 @@ const Hero = () => {
         animate="visible"
       >
         {/* Heading */}
-        <div className="text-center space-y-3 sm:space-y-4 mt-6">
+        <div className="text-center space-y-3 sm:space-y-4 mt-12 sm:mt-16 lg:mt-20">
           <motion.h1
             variants={itemVariants}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight"
