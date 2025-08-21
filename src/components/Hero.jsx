@@ -573,26 +573,53 @@ const Hero = () => {
             className="pointer-events-none absolute inset-0 w-full h-full"
             style={{ zIndex: 1 }}
           >
-            {connectionLines.map((line, index) => (
-              <motion.line
-                key={index}
-                x1={`${line.from.x}%`}
-                y1={`${line.from.y}%`}
-                x2={`${line.to.x}%`}
-                y2={`${line.to.y}%`}
-                stroke="#0b3b5c"
-                strokeWidth="2"
-                strokeDasharray="5,5"
-                opacity="0.3"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.3 }}
-                transition={{
-                  duration: 1.2,
-                  delay: index * 0.35 + 1.1,
-                  ease: "easeInOut"
-                }}
-              />
-            ))}
+            {connectionLines.map((line, index) => {
+              // Create curved path using quadratic Bezier curves
+              const fromX = line.from.x;
+              const fromY = line.from.y;
+              const toX = line.to.x;
+              const toY = line.to.y;
+
+              // Calculate control points for curved paths
+              const midX = (fromX + toX) / 2;
+              const midY = (fromY + toY) / 2;
+
+              // Add curve offset based on distance and direction
+              const distance = Math.sqrt(Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2));
+              const curveOffset = distance * 0.3; // Adjust curve intensity
+
+              // Determine curve direction (above or below the midpoint)
+              let controlX = midX;
+              let controlY = midY - curveOffset; // Curve upward by default
+
+              // For specific connections, adjust curve direction
+              if (index === 1) { // Qatar to India
+                controlY = midY + curveOffset * 0.5; // Slight downward curve
+              } else if (index === 2) { // UK to India
+                controlY = midY - curveOffset * 0.8; // More pronounced upward curve
+              }
+
+              const pathData = `M ${fromX} ${fromY} Q ${controlX} ${controlY} ${toX} ${toY}`;
+
+              return (
+                <motion.path
+                  key={index}
+                  d={pathData}
+                  stroke="#0b3b5c"
+                  strokeWidth="2"
+                  strokeDasharray="5,5"
+                  fill="none"
+                  opacity="0.3"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 0.3 }}
+                  transition={{
+                    duration: 1.2,
+                    delay: index * 0.35 + 1.1,
+                    ease: "easeInOut"
+                  }}
+                />
+              );
+            })}
           </svg>
 
           {/* Location dots */}
