@@ -192,7 +192,7 @@ const Navbar = () => {
         {/* ===== MOBILE MENU BUTTON ===== */}
         <button
           onClick={toggleMenu}
-          className="md:hidden p-2 rounded-md text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors"
+          className={`md:hidden p-2 rounded-md ${isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors`}
           aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
