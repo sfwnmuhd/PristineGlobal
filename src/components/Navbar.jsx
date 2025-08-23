@@ -11,15 +11,17 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   // ===== NAVIGATION CONFIGURATION =====
-  
+
   const menuItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Locations', href: '#locations' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact Us', href: '#contact' }
+    { name: 'Home', href: '/', type: 'route' },
+    { name: 'About', href: '/about', type: 'route' },
+    { name: 'Locations', href: '#locations', type: 'scroll' },
+    { name: 'Services', href: '#services', type: 'scroll' },
+    { name: 'Contact Us', href: '#contact', type: 'scroll' }
   ]
 
   // ===== SCROLL EFFECT HANDLER =====
@@ -55,12 +57,38 @@ const Navbar = () => {
   }
 
   /**
-   * Handle smooth scroll navigation
+   * Handle navigation - either route or smooth scroll
    * @param {Event} e - Click event
+   * @param {Object} item - Menu item object
+   */
+  const handleNavigation = (e, item) => {
+    if (item.type === 'route') {
+      // Handle React Router navigation
+      closeMenu()
+      return // Let Link component handle the navigation
+    } else {
+      // Handle smooth scroll navigation
+      e.preventDefault()
+
+      // If we're not on home page, navigate to home first
+      if (location.pathname !== '/') {
+        navigate('/')
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          scrollToSection(item.href)
+        }, 100)
+      } else {
+        scrollToSection(item.href)
+      }
+      closeMenu()
+    }
+  }
+
+  /**
+   * Scroll to section on current page
    * @param {string} href - Target section anchor
    */
-  const handleSmoothScroll = (e, href) => {
-    e.preventDefault()
+  const scrollToSection = (href) => {
     const targetId = href.substring(1)
     const targetElement = document.getElementById(targetId)
 
@@ -74,7 +102,6 @@ const Navbar = () => {
         behavior: 'smooth'
       })
     }
-    closeMenu() // Close mobile menu after navigation
   }
 
   // ===== COMPONENT RENDER =====
