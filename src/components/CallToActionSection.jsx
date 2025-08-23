@@ -31,7 +31,7 @@ const CallToActionSection = () => {
           {/* Content Container */}
           <div className="relative flex flex-col lg:flex-row items-center lg:items-center justify-between">
             {/* Text Content */}
-            <div className="mb-8 lg:mb-0 text-center lg:text-left lg:flex-1 lg:pr-8">
+            <div className="mb-4 lg:mb-0 text-center lg:text-left lg:flex-1 lg:pr-8">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-300 mb-4">
                 Ready to Make an Impact?
               </h2>

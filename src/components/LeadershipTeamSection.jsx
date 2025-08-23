@@ -43,7 +43,7 @@ const LeadershipTeamSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-4"
+          className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-4 text-center sm:text-left"
         >
           Our Leadership Team
         </motion.h2>
@@ -71,7 +71,7 @@ const LeadershipTeamSection = () => {
               className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300"
             >
               {/* Member Photo */}
-              <div className="relative h-64 sm:h-72 lg:h-80 overflow-hidden">
+              <div className="relative h-auto sm:h-72 lg:h-80 overflow-hidden">
                 <img
                   src={member.image}
                   alt={`${member.name} - ${member.role.split('|')[0].trim()}`}
@@ -98,11 +98,11 @@ const LeadershipTeamSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center sm:text-left mt-16 sm:flex sm:justify-between sm:items-center"
+          className="text-center sm:text-left mt-6 sm:mt-16 sm:flex sm:justify-between sm:items-center"
         >
           {/* CTA Content */}
-          <div className='sm:flex sm:flex-col sm:items-start mb-6 sm:mb-0'>
-            <h3 className="text-xl sm:text-2xl font-medium text-black mb-4">
+          <div className='sm:flex sm:flex-col sm:items-start mb-2 sm:mb-0'>
+            <h3 className="text-xl sm:text-2xl font-medium text-black mb-2 sm:mb-4">
               Ready to invest in our growing portfolio?
             </h3>
             <p className="text-sm sm:text-lg text-gray-500">

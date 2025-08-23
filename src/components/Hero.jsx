@@ -142,7 +142,7 @@ const Hero = () => {
   // ===== COMPONENT RENDER =====
 
   return (
-    <section className="relative h-screen overflow-hidden bg-[#fafafa] flex flex-col pt-16">
+    <section className="relative h-[85vh] sm:h-screen overflow-hidden bg-[#fafafa] flex flex-col pt-16">
       {/* ===== BACKGROUND GRID ===== */}
       <motion.div
         className="absolute inset-0"
@@ -169,7 +169,7 @@ const Hero = () => {
           {/* Main Heading with Split Animation */}
           <motion.h1
             variants={itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight"
+            className="text-4xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight"
           >
             <motion.span
               initial={{ opacity: 0, x: -12 }}
@@ -191,7 +191,7 @@ const Hero = () => {
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base md:text-lg text-gray-700 max-w-3xl mx-auto"
+            className="text-sm sm:text-base md:text-lg font-medium text-gray-700 max-w-5xl mx-auto"
           >
             Enhancing lives across the UK, Qatar, and India through compassionate
             care, innovative solutions, and trusted services.

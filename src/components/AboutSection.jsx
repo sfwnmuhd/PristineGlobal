@@ -103,7 +103,7 @@ const AboutSection = () => {
 
             {/* Description */}
             <motion.p 
-              className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed"
+              className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed text-justify"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}

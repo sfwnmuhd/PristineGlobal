@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'motion/react'
+import {ArrowUpRight, Phone, Mail, Pin} from 'lucide-react'
 
 /**
  * ContactSection Component
@@ -56,14 +57,15 @@ const ContactSection = () => {
             {/* Header with Arrow Icon */}
             <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-black mb-8 flex items-center">
               Reach out
-              <svg
+              <ArrowUpRight className="w-16 h-14 sm:w-24 sm:h-20 lg:w-32 lg:h-28 ml-4"/>
+              {/* <svg
                 className="w-16 h-14 sm:w-24 sm:h-20 lg:w-32 lg:h-28 ml-4"
                 fill="currentColor"
                 viewBox="0 0 127 111"
                 aria-hidden="true"
               >
                 <path d="M53.0267 43.5407L7.48353 83.3462L0 76.8055L45.5432 37H5.40184V27.75H63.61V78.625H53.0267V43.5407Z" />
-              </svg>
+              </svg> */}
             </h2>
 
             {/* Description */}
@@ -77,14 +79,7 @@ const ContactSection = () => {
             <div className="space-y-8">
               {/* Phone */}
               <div className="flex items-center">
-                <svg
-                  className="w-8 h-8 mr-4 flex-shrink-0 text-[#0b3b5c]"
-                  fill="currentColor"
-                  viewBox="0 0 30 30"
-                  aria-hidden="true"
-                >
-                  <path d="M26.25 20.525V24.9451C26.25 25.6014 25.7426 26.1459 25.0881 26.1921C24.5414 26.2307 24.0954 26.25 23.75 26.25C12.7042 26.25 3.75 17.2958 3.75 6.25C3.75 5.90464 3.76931 5.45859 3.80794 4.91188C3.85421 4.25735 4.39867 3.75 5.05482 3.75H9.47513C9.79598 3.75 10.0647 3.99303 10.0969 4.31225C10.1258 4.59884 10.1527 4.82892 10.1776 5.00252C10.4304 6.7684 10.9469 8.4492 11.6859 10.0038C11.8045 10.2533 11.7271 10.552 11.5023 10.7126L8.80444 12.6398C10.4469 16.4764 13.5236 19.5531 17.3602 21.1956L19.2839 18.5024C19.4465 18.2749 19.7487 18.1966 20.0012 18.3165C21.5557 19.0549 23.2364 19.5708 25.002 19.823C25.1745 19.8477 25.4031 19.8744 25.6877 19.9031C26.007 19.9354 26.25 20.2041 26.25 20.525Z" />
-                </svg>
+                <Phone className="w-8 h-8 mr-4 flex-shrink-0 text-[#0b3b5c]"/>
                 <div>
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-black">Call us</h3>
                   <a 
@@ -98,14 +93,7 @@ const ContactSection = () => {
 
               {/* Email */}
               <div className="flex items-center">
-                <svg
-                  className="w-8 h-8 mr-4 flex-shrink-0 text-[#0b3b5c]"
-                  fill="currentColor"
-                  viewBox="0 0 30 30"
-                  aria-hidden="true"
-                >
-                  <path d="M3.75 3.75H26.25C26.9404 3.75 27.5 4.30965 27.5 5V25C27.5 25.6904 26.9404 26.25 26.25 26.25H3.75C3.05965 26.25 2.5 25.6904 2.5 25V5C2.5 4.30965 3.05965 3.75 3.75 3.75ZM15.0758 14.6036L7.05903 7.79712L5.44097 9.70288L15.0914 17.8964L24.568 9.6952L22.932 7.8048L15.0758 14.6036Z" />
-                </svg>
+                <Mail className="w-8 h-8 mr-4 flex-shrink-0 text-[#0b3b5c]"/>
                 <div>
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-black">Mail us</h3>
                   <a 
@@ -119,14 +107,7 @@ const ContactSection = () => {
 
               {/* Addresses */}
               <div className="flex items-start">
-                <svg
-                  className="w-8 h-8 mr-4 mt-1 flex-shrink-0 text-[#0b3b5c]"
-                  fill="currentColor"
-                  viewBox="0 0 30 30"
-                  aria-hidden="true"
-                >
-                  <path d="M27.8908 12.7189L26.123 14.4867L25.2391 13.6028L19.9358 18.9061L19.0519 23.3256L17.2841 25.0933L11.9808 19.7899L5.79365 25.9772L4.02588 24.2094L10.2131 18.0222L4.90977 12.7189L6.67753 10.9511L11.097 10.0673L16.4003 4.76395L15.5164 3.88008L17.2841 2.1123L27.8908 12.7189Z" />
-                </svg>
+                <Pin className="w-8 h-8 mr-4 mt-1 flex-shrink-0 text-[#0b3b5c]"/>
                 <div>
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-black mb-4">
                     Find us

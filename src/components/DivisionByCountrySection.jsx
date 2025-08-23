@@ -81,13 +81,13 @@ const DivisionByCountrySection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-base sm:text-lg text-gray-500 mb-12"
+          className="text-base sm:text-lg text-gray-500 mb-8 lg:mb-12"
         >
           Expanding across continents with excellence in care, technology, and distribution
         </motion.p>
 
         {/* ===== COUNTRY SELECTOR TABS ===== */}
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-1 sm:gap-4 mb-8 lg:mb-12">
           {countries.map((country) => (
             <button
               key={country}
