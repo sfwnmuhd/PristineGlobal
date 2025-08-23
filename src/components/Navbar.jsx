@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
+import LocationsDropdown from './LocationsDropdown'
 
 /**
  * Navbar Component
@@ -22,7 +23,7 @@ const Navbar = () => {
   const menuItems = [
     { name: 'Home', href: '/', type: 'route' },
     { name: 'About', href: '/about', type: 'route' },
-    { name: 'Locations', href: '#locations', type: 'scroll' },
+    { name: 'Locations', href: '#locations', type: 'dropdown' },
     { name: 'Services', href: '#services', type: 'scroll' },
     { name: 'Contact Us', href: '#contact', type: 'scroll' }
   ]
