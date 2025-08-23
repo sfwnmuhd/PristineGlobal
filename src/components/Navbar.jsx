@@ -14,6 +14,9 @@ const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
+  // Check if we're on About page to adjust navbar styling
+  const isAboutPage = location.pathname === '/about'
+
   // ===== NAVIGATION CONFIGURATION =====
 
   const menuItems = [
