@@ -1,5 +1,5 @@
 import React from 'react'
-import AboutSection from '../components/AboutSection'
+import AboutPageHero from '../components/AboutPageHero'
 import MissionVisionSection from '../components/MissionVisionSection'
 import CoreValueSection from '../components/CoreValueSection'
 import LeadershipTeamSection from '../components/LeadershipTeamSection'
@@ -14,9 +14,9 @@ import FloatingWhatsApp from '../components/FloatingWhatsApp'
  */
 const About = () => {
   return (
-    <div className="min-h-screen bg-white pt-20">
-      {/* Company Overview */}
-      <AboutSection />
+    <div className="min-h-screen bg-white">
+      {/* Custom About Page Hero */}
+      <AboutPageHero />
 
       {/* Mission, Vision & Principles */}
       <MissionVisionSection />
