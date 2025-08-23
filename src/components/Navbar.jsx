@@ -266,13 +266,23 @@ const Navbar = () => {
                       ease: 'easeOut'
                     }}
                   >
-                    <a
-                      href={item.href}
-                      onClick={(e) => handleSmoothScroll(e, item.href)}
-                      className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
-                    >
-                      {item.name}
-                    </a>
+                    {item.type === 'route' ? (
+                      <Link
+                        to={item.href}
+                        onClick={() => closeMenu()}
+                        className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        onClick={(e) => handleNavigation(e, item)}
+                        className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                      >
+                        {item.name}
+                      </a>
+                    )}
                   </motion.li>
                 ))}
               </ul>
