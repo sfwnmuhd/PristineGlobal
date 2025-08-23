@@ -277,36 +277,68 @@ const Navbar = () => {
             <nav className="p-6" role="navigation" aria-labelledby="mobile-menu-heading">
               <h2 id="mobile-menu-heading" className="sr-only">Mobile Navigation Menu</h2>
               <ul className="space-y-1">
-                {menuItems.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      delay: index * 0.05 + 0.1,
-                      duration: 0.3,
-                      ease: 'easeOut'
-                    }}
-                  >
-                    {item.type === 'route' ? (
-                      <Link
-                        to={item.href}
-                        onClick={() => closeMenu()}
-                        className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                {menuItems.map((item, index) => {
+                  if (item.type === 'dropdown') {
+                    // For mobile, show location items directly
+                    const locationItems = [
+                      { name: 'UK', href: '/locations/uk' },
+                      { name: 'Qatar', href: '/locations/qatar' },
+                      { name: 'India', href: '/locations/india' }
+                    ];
+
+                    return locationItems.map((location, locationIndex) => (
+                      <motion.li
+                        key={`${index}-${locationIndex}`}
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          delay: (index + locationIndex) * 0.05 + 0.1,
+                          duration: 0.3,
+                          ease: 'easeOut'
+                        }}
                       >
-                        {item.name}
-                      </Link>
-                    ) : (
-                      <a
-                        href={item.href}
-                        onClick={(e) => handleNavigation(e, item)}
-                        className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
-                      >
-                        {item.name}
-                      </a>
-                    )}
-                  </motion.li>
-                ))}
+                        <Link
+                          to={location.href}
+                          onClick={() => closeMenu()}
+                          className="block py-3 px-4 pl-8 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                        >
+                          {location.name}
+                        </Link>
+                      </motion.li>
+                    ));
+                  }
+
+                  return (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        delay: index * 0.05 + 0.1,
+                        duration: 0.3,
+                        ease: 'easeOut'
+                      }}
+                    >
+                      {item.type === 'route' ? (
+                        <Link
+                          to={item.href}
+                          onClick={() => closeMenu()}
+                          className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                        >
+                          {item.name}
+                        </Link>
+                      ) : (
+                        <a
+                          href={item.href}
+                          onClick={(e) => handleNavigation(e, item)}
+                          className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                        >
+                          {item.name}
+                        </a>
+                      )}
+                    </motion.li>
+                  );
+                })}
               </ul>
             </nav>
           </motion.div>
