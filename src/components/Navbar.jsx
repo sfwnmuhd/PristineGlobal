@@ -142,7 +142,7 @@ const Navbar = () => {
                   key={index}
                   to={item.href}
                   onClick={() => closeMenu()}
-                  className={`${(isAboutPage || isLocationPage) && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
+                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
                 >
                   {item.name}
                 </Link>
@@ -162,7 +162,7 @@ const Navbar = () => {
                   key={index}
                   href={item.href}
                   onClick={(e) => handleNavigation(e, item)}
-                  className={`${(isAboutPage || isLocationPage) && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
+                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
                 >
                   {item.name}
                 </a>

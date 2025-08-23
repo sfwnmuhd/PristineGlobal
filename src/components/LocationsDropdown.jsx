@@ -8,7 +8,7 @@ import ReactCountryFlag from 'react-country-flag'
  * LocationsDropdown Component
  * Dropdown menu for location navigation
  */
-const LocationsDropdown = ({ isAboutPage, isScrolled, onClose }) => {
+const LocationsDropdown = ({ isAboutPage, isLocationPage, isScrolled, onClose }) => {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -43,7 +43,7 @@ const LocationsDropdown = ({ isAboutPage, isScrolled, onClose }) => {
     if (onClose) onClose()
   }
 
-  const textColor = isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'
+  const textColor = isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'
 
   return (
     <div
