@@ -222,7 +222,8 @@ const Hero = () => {
             className="w-full max-h-[55vh] sm:max-h-[60vh] lg:max-h-[65vh] xl:max-h-[70vh] object-contain"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 1.0, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            loading="eager"
           />
 
           {/* ===== ANIMATED CONNECTION LINES ===== */}
