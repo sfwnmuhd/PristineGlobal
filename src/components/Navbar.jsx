@@ -115,11 +115,11 @@ const Navbar = () => {
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       animate={{
-        backgroundColor: (isScrolled || isAboutPage || isLocationPage) ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
-        backdropFilter: (isScrolled || isAboutPage || isLocationPage) ? 'blur(10px)' : 'blur(0px)'
+        backgroundColor: (isScrolled || isAboutPage) ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
+        backdropFilter: (isScrolled || isAboutPage) ? 'blur(10px)' : 'blur(0px)'
       }}
       style={{
-        boxShadow: (isScrolled || isAboutPage || isLocationPage) ? '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)' : 'none'
+        boxShadow: (isScrolled || isAboutPage) ? '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)' : 'none'
       }}
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
