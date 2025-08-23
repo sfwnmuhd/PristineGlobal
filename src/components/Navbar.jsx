@@ -130,30 +130,60 @@ const Navbar = () => {
 
         {/* ===== DESKTOP NAVIGATION (Large screens) ===== */}
         <nav className="hidden lg:flex space-x-8" role="navigation" aria-label="Main navigation">
-          {menuItems.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
-              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer"
-            >
-              {item.name}
-            </a>
-          ))}
+          {menuItems.map((item, index) => {
+            if (item.type === 'route') {
+              return (
+                <Link
+                  key={index}
+                  to={item.href}
+                  onClick={() => closeMenu()}
+                  className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer"
+                >
+                  {item.name}
+                </Link>
+              )
+            } else {
+              return (
+                <a
+                  key={index}
+                  href={item.href}
+                  onClick={(e) => handleNavigation(e, item)}
+                  className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer"
+                >
+                  {item.name}
+                </a>
+              )
+            }
+          })}
         </nav>
 
         {/* ===== TABLET NAVIGATION (Medium screens) ===== */}
         <nav className="hidden md:flex lg:hidden space-x-4" role="navigation" aria-label="Tablet navigation">
-          {menuItems.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
-              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer"
-            >
-              {item.name}
-            </a>
-          ))}
+          {menuItems.map((item, index) => {
+            if (item.type === 'route') {
+              return (
+                <Link
+                  key={index}
+                  to={item.href}
+                  onClick={() => closeMenu()}
+                  className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer"
+                >
+                  {item.name}
+                </Link>
+              )
+            } else {
+              return (
+                <a
+                  key={index}
+                  href={item.href}
+                  onClick={(e) => handleNavigation(e, item)}
+                  className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer"
+                >
+                  {item.name}
+                </a>
+              )
+            }
+          })}
         </nav>
 
         {/* ===== MOBILE MENU BUTTON ===== */}
