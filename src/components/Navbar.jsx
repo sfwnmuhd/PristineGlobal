@@ -146,6 +146,15 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               )
+            } else if (item.type === 'dropdown') {
+              return (
+                <LocationsDropdown
+                  key={index}
+                  isAboutPage={isAboutPage}
+                  isScrolled={isScrolled}
+                  onClose={closeMenu}
+                />
+              )
             } else {
               return (
                 <a
@@ -174,6 +183,15 @@ const Navbar = () => {
                 >
                   {item.name}
                 </Link>
+              )
+            } else if (item.type === 'dropdown') {
+              return (
+                <LocationsDropdown
+                  key={index}
+                  isAboutPage={isAboutPage}
+                  isScrolled={isScrolled}
+                  onClose={closeMenu}
+                />
               )
             } else {
               return (
