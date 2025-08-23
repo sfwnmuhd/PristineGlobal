@@ -140,7 +140,7 @@ const Navbar = () => {
                   key={index}
                   to={item.href}
                   onClick={() => closeMenu()}
-                  className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer"
+                  className={`${isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
                 >
                   {item.name}
                 </Link>
@@ -151,7 +151,7 @@ const Navbar = () => {
                   key={index}
                   href={item.href}
                   onClick={(e) => handleNavigation(e, item)}
-                  className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer"
+                  className={`${isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
                 >
                   {item.name}
                 </a>
@@ -169,7 +169,7 @@ const Navbar = () => {
                   key={index}
                   to={item.href}
                   onClick={() => closeMenu()}
-                  className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer"
+                  className={`${isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
                 >
                   {item.name}
                 </Link>
@@ -180,7 +180,7 @@ const Navbar = () => {
                   key={index}
                   href={item.href}
                   onClick={(e) => handleNavigation(e, item)}
-                  className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer"
+                  className={`${isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
                 >
                   {item.name}
                 </a>
