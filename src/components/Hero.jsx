@@ -142,7 +142,7 @@ const Hero = () => {
   // ===== COMPONENT RENDER =====
 
   return (
-    <section className="relative h-[95vh] sm:h-screen overflow-hidden bg-[#fafafa] flex flex-col pt-16">
+    <section className="relative h-screen overflow-hidden bg-[#fafafa] flex flex-col pt-16">
       {/* ===== BACKGROUND GRID ===== */}
       <motion.div
         className="absolute inset-0"
