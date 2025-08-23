@@ -72,9 +72,9 @@ const MissionVisionSection = () => {
 
           {/* Founding Story */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             viewport={{ once: true }}
             className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200"
           >
