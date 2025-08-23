@@ -3,78 +3,43 @@ import { motion } from 'motion/react'
 
 /**
  * AboutPageHero Component
- * Custom hero section specifically for the About page
+ * Minimal hero section for the About page
  */
 const AboutPageHero = () => {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          
-          {/* Main Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6"
-          >
-            About
-            <span className="block text-3xl sm:text-5xl lg:text-6xl font-light text-blue-200 mt-2">
-              Pristine Global
-            </span>
-          </motion.h1>
+    <section className="min-h-screen flex items-center justify-center bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl sm:text-2xl lg:text-3xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed"
-          >
-            Transforming healthcare, technology, and global trading through 
-            visionary leadership and unwavering commitment to excellence
-          </motion.p>
+        {/* Main Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl sm:text-7xl lg:text-8xl font-light text-gray-900 mb-8"
+        >
+          About
+        </motion.h1>
 
-          {/* Key Highlights */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid sm:grid-cols-3 gap-8 mt-16"
-          >
-            <div className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-blue-200 mb-2">2020</div>
-              <div className="text-lg text-blue-100">Founded</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-blue-200 mb-2">3</div>
-              <div className="text-lg text-blue-100">Countries</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-blue-200 mb-2">100%</div>
-              <div className="text-lg text-blue-100">Commitment</div>
-            </div>
-          </motion.div>
+        {/* Company Name */}
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#0b3b5c] mb-12"
+        >
+          Pristine Global
+        </motion.h2>
 
-          {/* Call to Action */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-12"
-          >
-            <button className="px-8 py-4 bg-white text-[#0b3b5c] rounded-full font-semibold text-lg hover:bg-blue-50 transition-colors duration-300 shadow-lg">
-              Discover Our Journey
-            </button>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 border border-white rounded-full"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 border border-white rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 border border-white rounded-full"></div>
+        {/* Simple Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+        >
+          A family-led enterprise dedicated to excellence in healthcare,
+          technology, and global trading across multiple countries.
+        </motion.p>
       </div>
     </section>
   )
