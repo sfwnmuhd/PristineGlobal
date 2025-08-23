@@ -148,12 +148,13 @@ const Hero = () => {
         className="absolute inset-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 0.6 }}
       >
         <img
           src={gridbg}
           alt="Background Grid Pattern"
           className="w-full h-full object-cover opacity-40"
+          loading="eager"
         />
       </motion.div>
 
