@@ -4,6 +4,9 @@ import Navbar from './components/Navbar'
 import ScrollProgressIndicator from './components/ScrollProgressIndicator'
 import Home from './pages/Home'
 import About from './pages/About'
+import UK from './pages/locations/UK'
+import Qatar from './pages/locations/Qatar'
+import India from './pages/locations/India'
 
 const App = () => {
   return (
@@ -14,6 +17,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/locations/uk" element={<UK />} />
+          <Route path="/locations/qatar" element={<Qatar />} />
+          <Route path="/locations/india" element={<India />} />
         </Routes>
       </div>
     </Router>
