@@ -151,7 +151,8 @@ const Navbar = () => {
               return (
                 <LocationsDropdown
                   key={index}
-                  isAboutPage={isAboutPage || isLocationPage}
+                  isAboutPage={isAboutPage}
+                  isLocationPage={isLocationPage}
                   isScrolled={isScrolled}
                   onClose={closeMenu}
                 />
