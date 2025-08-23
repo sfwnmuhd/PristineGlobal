@@ -151,7 +151,7 @@ const Navbar = () => {
               return (
                 <LocationsDropdown
                   key={index}
-                  isAboutPage={isAboutPage}
+                  isAboutPage={isAboutPage || isLocationPage}
                   isScrolled={isScrolled}
                   onClose={closeMenu}
                 />
@@ -180,7 +180,7 @@ const Navbar = () => {
                   key={index}
                   to={item.href}
                   onClick={() => closeMenu()}
-                  className={`${isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
+                  className={`${(isAboutPage || isLocationPage) && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
                 >
                   {item.name}
                 </Link>
@@ -189,7 +189,7 @@ const Navbar = () => {
               return (
                 <LocationsDropdown
                   key={index}
-                  isAboutPage={isAboutPage}
+                  isAboutPage={isAboutPage || isLocationPage}
                   isScrolled={isScrolled}
                   onClose={closeMenu}
                 />
@@ -200,7 +200,7 @@ const Navbar = () => {
                   key={index}
                   href={item.href}
                   onClick={(e) => handleNavigation(e, item)}
-                  className={`${isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
+                  className={`${(isAboutPage || isLocationPage) && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
                 >
                   {item.name}
                 </a>
@@ -212,7 +212,7 @@ const Navbar = () => {
         {/* ===== MOBILE MENU BUTTON ===== */}
         <button
           onClick={toggleMenu}
-          className={`md:hidden p-2 rounded-md ${isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors`}
+          className={`md:hidden p-2 rounded-md ${(isAboutPage || isLocationPage) && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors`}
           aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
