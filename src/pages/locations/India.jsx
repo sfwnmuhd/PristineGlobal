@@ -41,32 +41,6 @@ const India = () => {
     }
   ]
 
-  const regions = [
-    {
-      name: "Mumbai",
-      role: "Business Hub",
-      focus: "Trading & Distribution",
-      description: "Primary center for pharmaceutical and medical equipment trading operations."
-    },
-    {
-      name: "Bangalore",
-      role: "Technology Center",
-      focus: "Software Development",
-      description: "Hub for healthcare technology development and digital health solutions."
-    },
-    {
-      name: "Delhi",
-      role: "Strategic Operations",
-      focus: "Government Relations",
-      description: "Government liaison and regulatory compliance for healthcare initiatives."
-    },
-    {
-      name: "Chennai",
-      role: "Manufacturing Support",
-      focus: "Medical Devices",
-      description: "Support for medical device manufacturing and quality assurance."
-    }
-  ]
 
   const initiatives = [
     {
@@ -186,44 +160,6 @@ const India = () => {
         </div>
       </section>
 
-      {/* Regional Operations */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-semibold text-black mb-12 text-center"
-          >
-            Regional Operations
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {regions.map((region, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
-              >
-                <h3 className="text-xl font-semibold text-black mb-2">{region.name}</h3>
-                <div className="mb-3">
-                  <span className="px-3 py-1 bg-[#0b3b5c] text-white text-sm font-medium rounded-full">
-                    {region.role}
-                  </span>
-                </div>
-                <div className="mb-3">
-                  <span className="text-sm font-medium text-blue-600">{region.focus}</span>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">{region.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Key Initiatives */}
       <section className="py-16 lg:py-24">
