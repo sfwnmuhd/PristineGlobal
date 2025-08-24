@@ -16,21 +16,24 @@ const UK = () => {
       type: "Nursing Home",
       capacity: "45 beds",
       specialty: "Dementia & Elderly Care",
-      location: "Nottingham, UK"
+      location: "Nottingham, UK",
+      image: "https://images.pexels.com/photos/18429307/pexels-photo-18429307.jpeg"
     },
     {
       name: "Broom Lane Care Home",
       type: "Care Home",
       capacity: "32 beds",
       specialty: "Residential Care",
-      location: "Leicester, UK"
+      location: "Leicester, UK",
+      image: "https://images.pexels.com/photos/8173269/pexels-photo-8173269.jpeg"
     },
     {
       name: "Sunnydale Child Care",
       type: "Child Care Facility",
       capacity: "50 children",
       specialty: "Early Years Education",
-      location: "Birmingham, UK"
+      location: "Birmingham, UK",
+      image: "https://images.pexels.com/photos/4458399/pexels-photo-4458399.jpeg"
     }
   ]
 
@@ -47,8 +50,18 @@ const UK = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white pt-24 pb-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.pexels.com/photos/9703033/pexels-photo-9703033.jpeg"
+            alt="Modern healthcare facility exterior"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0b3b5c]/80 to-[#2b376b]/80"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -190,10 +203,14 @@ const UK = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center p-6"
+              className="bg-white rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
             >
-              <div className="w-16 h-16 bg-[#0b3b5c] text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏥</span>
+              <div className="h-32 rounded-lg overflow-hidden mb-4">
+                <img
+                  src="https://images.pexels.com/photos/287237/pexels-photo-287237.jpeg"
+                  alt="Modern nursing care facility"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-semibold text-black mb-3">Nursing Care</h3>
               <p className="text-gray-600">24/7 professional nursing care for elderly residents with complex medical needs.</p>
@@ -204,10 +221,14 @@ const UK = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-center p-6"
+              className="bg-white rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
             >
-              <div className="w-16 h-16 bg-[#0b3b5c] text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🧠</span>
+              <div className="h-32 rounded-lg overflow-hidden mb-4">
+                <img
+                  src="https://images.pexels.com/photos/8173269/pexels-photo-8173269.jpeg"
+                  alt="Dementia care services"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-semibold text-black mb-3">Dementia Care</h3>
               <p className="text-gray-600">Specialized dementia care units with trained staff and tailored activities.</p>
@@ -218,10 +239,14 @@ const UK = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-center p-6"
+              className="bg-white rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
             >
-              <div className="w-16 h-16 bg-[#0b3b5c] text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">👶</span>
+              <div className="h-32 rounded-lg overflow-hidden mb-4">
+                <img
+                  src="https://images.pexels.com/photos/4458399/pexels-photo-4458399.jpeg"
+                  alt="Child care and early education"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-semibold text-black mb-3">Child Care</h3>
               <p className="text-gray-600">Early years education and childcare services for working families.</p>
