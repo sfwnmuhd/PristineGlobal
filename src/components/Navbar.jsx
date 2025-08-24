@@ -23,7 +23,7 @@ const Navbar = () => {
   // ===== NAVIGATION CONFIGURATION =====
 
   const menuItems = [
-    { name: 'Home', href: '#hero', type: 'route' },
+    { name: 'Home', href: '/', type: 'route' },
     { name: 'About', href: '/about', type: 'route' },
     { name: 'Locations', href: '#locations', type: 'dropdown' },
     { name: 'Services', href: '#services', type: 'scroll' },
@@ -127,13 +127,14 @@ const Navbar = () => {
         
         {/* ===== LOGO ===== */}
         <div className="flex-shrink-0">
-          
+          <Link to="/">
             <img
               src="/logo.png"
               alt="Pristine Global - Healthcare, Technology & Trading Solutions"
               className="w-auto h-10 sm:h-16"
+              
             />
-          
+          </Link>
         </div>
 
         {/* ===== DESKTOP NAVIGATION (Large screens) ===== */}
