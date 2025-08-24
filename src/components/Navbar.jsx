@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import LocationsDropdown from './LocationsDropdown'
+import Home from '../pages/Home'
 
 /**
  * Navbar Component
@@ -22,7 +23,7 @@ const Navbar = () => {
   // ===== NAVIGATION CONFIGURATION =====
 
   const menuItems = [
-    { name: 'Home', href: '/', type: 'route' },
+    { name: 'Home', href: '#hero', type: 'route' },
     { name: 'About', href: '/about', type: 'route' },
     { name: 'Locations', href: '#locations', type: 'dropdown' },
     { name: 'Services', href: '#services', type: 'scroll' },
@@ -126,11 +127,13 @@ const Navbar = () => {
         
         {/* ===== LOGO ===== */}
         <div className="flex-shrink-0">
-          <img
-            src="/logo.png"
-            alt="Pristine Global - Healthcare, Technology & Trading Solutions"
-            className="w-auto h-10 sm:h-16"
-          />
+          
+            <img
+              src="/logo.png"
+              alt="Pristine Global - Healthcare, Technology & Trading Solutions"
+              className="w-auto h-10 sm:h-16"
+            />
+          
         </div>
 
         {/* ===== DESKTOP NAVIGATION (Large screens) ===== */}
