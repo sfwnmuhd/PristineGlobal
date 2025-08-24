@@ -246,25 +246,41 @@ const India = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center mb-3">
-                      <h3 className="text-xl font-semibold text-black mr-4">{initiative.title}</h3>
-                      <span className={`px-3 py-1 text-sm font-medium rounded-full ${
-                        initiative.status === 'In Progress' ? 'bg-blue-100 text-blue-700' :
-                        initiative.status === 'Expanding' ? 'bg-green-100 text-green-700' :
-                        'bg-orange-100 text-orange-700'
-                      }`}>
-                        {initiative.status}
-                      </span>
+                <div className="md:flex">
+                  {/* Initiative Image */}
+                  <div className="md:w-1/3">
+                    <div className="h-48 md:h-full overflow-hidden">
+                      <img
+                        src={initiative.image}
+                        alt={initiative.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
-                    <p className="text-gray-600 leading-relaxed mb-3">{initiative.description}</p>
                   </div>
-                  <div className="md:ml-6 md:text-right">
-                    <div className="text-2xl font-bold text-[#0b3b5c]">{initiative.impact}</div>
-                    <div className="text-sm text-gray-500">Impact Reach</div>
+
+                  {/* Initiative Content */}
+                  <div className="md:w-2/3 p-6">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between h-full">
+                      <div className="flex-1">
+                        <div className="flex items-center mb-3">
+                          <h3 className="text-xl font-semibold text-black mr-4">{initiative.title}</h3>
+                          <span className={`px-3 py-1 text-sm font-medium rounded-full ${
+                            initiative.status === 'In Progress' ? 'bg-blue-100 text-blue-700' :
+                            initiative.status === 'Expanding' ? 'bg-green-100 text-green-700' :
+                            'bg-orange-100 text-orange-700'
+                          }`}>
+                            {initiative.status}
+                          </span>
+                        </div>
+                        <p className="text-gray-600 leading-relaxed mb-3">{initiative.description}</p>
+                      </div>
+                      <div className="md:ml-6 md:text-right">
+                        <div className="text-2xl font-bold text-[#0b3b5c]">{initiative.impact}</div>
+                        <div className="text-sm text-gray-500">Impact Reach</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
