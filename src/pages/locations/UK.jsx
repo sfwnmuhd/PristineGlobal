@@ -26,14 +26,6 @@ const UK = () => {
       specialty: "Residential Care",
       location: "Leicester, UK",
       image: "https://images.pexels.com/photos/8173269/pexels-photo-8173269.jpeg"
-    },
-    {
-      name: "Sunnydale Child Care",
-      type: "Child Care Facility",
-      capacity: "50 children",
-      specialty: "Early Years Education",
-      location: "Birmingham, UK",
-      image: "https://images.pexels.com/photos/4458399/pexels-photo-4458399.jpeg"
     }
   ]
 
@@ -99,7 +91,7 @@ const UK = () => {
             Our Facilities
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {facilities.map((facility, index) => (
               <motion.div
                 key={index}
