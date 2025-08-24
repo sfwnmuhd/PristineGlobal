@@ -113,7 +113,7 @@ const Hero = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 0.6, staggerChildren: 0.3, delayChildren: 0.2 }
+      transition: { duration: 0.4, staggerChildren: 0.1, delayChildren: 0 }
     }
   }
 
@@ -148,12 +148,13 @@ const Hero = () => {
         className="absolute inset-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 0.6 }}
       >
         <img
           src={gridbg}
           alt="Background Grid Pattern"
           className="w-full h-full object-cover opacity-40"
+          loading="eager"
         />
       </motion.div>
 
@@ -221,7 +222,8 @@ const Hero = () => {
             className="w-full max-h-[55vh] sm:max-h-[60vh] lg:max-h-[65vh] xl:max-h-[70vh] object-contain"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 1.0, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            loading="eager"
           />
 
           {/* ===== ANIMATED CONNECTION LINES ===== */}

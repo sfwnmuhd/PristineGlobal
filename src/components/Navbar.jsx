@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import LocationsDropdown from './LocationsDropdown'
 
 /**
  * Navbar Component
@@ -10,15 +12,21 @@ import { motion, AnimatePresence } from 'motion/react'
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  // Check if we're on About page or location pages to adjust navbar styling
+  const isAboutPage = location.pathname === '/about'
+  const isLocationPage = location.pathname.startsWith('/locations/')
 
   // ===== NAVIGATION CONFIGURATION =====
-  
+
   const menuItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Locations', href: '#locations' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact Us', href: '#contact' }
+    { name: 'Home', href: '/', type: 'route' },
+    { name: 'About', href: '/about', type: 'route' },
+    { name: 'Locations', href: '#locations', type: 'dropdown' },
+    { name: 'Services', href: '#services', type: 'scroll' },
+    { name: 'Contact Us', href: '#contact', type: 'scroll' }
   ]
 
   // ===== SCROLL EFFECT HANDLER =====
@@ -54,12 +62,38 @@ const Navbar = () => {
   }
 
   /**
-   * Handle smooth scroll navigation
+   * Handle navigation - either route or smooth scroll
    * @param {Event} e - Click event
+   * @param {Object} item - Menu item object
+   */
+  const handleNavigation = (e, item) => {
+    if (item.type === 'route') {
+      // Handle React Router navigation
+      closeMenu()
+      return // Let Link component handle the navigation
+    } else {
+      // Handle smooth scroll navigation
+      e.preventDefault()
+
+      // If we're not on home page, navigate to home first
+      if (location.pathname !== '/') {
+        navigate('/')
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          scrollToSection(item.href)
+        }, 100)
+      } else {
+        scrollToSection(item.href)
+      }
+      closeMenu()
+    }
+  }
+
+  /**
+   * Scroll to section on current page
    * @param {string} href - Target section anchor
    */
-  const handleSmoothScroll = (e, href) => {
-    e.preventDefault()
+  const scrollToSection = (href) => {
     const targetId = href.substring(1)
     const targetElement = document.getElementById(targetId)
 
@@ -73,20 +107,19 @@ const Navbar = () => {
         behavior: 'smooth'
       })
     }
-    closeMenu() // Close mobile menu after navigation
   }
 
   // ===== COMPONENT RENDER =====
 
   return (
-    <motion.header 
+    <motion.header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       animate={{
-        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'blur(0px)'
+        backgroundColor: (isScrolled || isAboutPage) ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
+        backdropFilter: (isScrolled || isAboutPage) ? 'blur(10px)' : 'blur(0px)'
       }}
       style={{
-        boxShadow: isScrolled ? '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)' : 'none'
+        boxShadow: (isScrolled || isAboutPage) ? '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)' : 'none'
       }}
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -102,36 +135,86 @@ const Navbar = () => {
 
         {/* ===== DESKTOP NAVIGATION (Large screens) ===== */}
         <nav className="hidden lg:flex space-x-8" role="navigation" aria-label="Main navigation">
-          {menuItems.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
-              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer"
-            >
-              {item.name}
-            </a>
-          ))}
+          {menuItems.map((item, index) => {
+            if (item.type === 'route') {
+              return (
+                <Link
+                  key={index}
+                  to={item.href}
+                  onClick={() => closeMenu()}
+                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
+                >
+                  {item.name}
+                </Link>
+              )
+            } else if (item.type === 'dropdown') {
+              return (
+                <LocationsDropdown
+                  key={index}
+                  isAboutPage={isAboutPage}
+                  isLocationPage={isLocationPage}
+                  isScrolled={isScrolled}
+                  onClose={closeMenu}
+                />
+              )
+            } else {
+              return (
+                <a
+                  key={index}
+                  href={item.href}
+                  onClick={(e) => handleNavigation(e, item)}
+                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
+                >
+                  {item.name}
+                </a>
+              )
+            }
+          })}
         </nav>
 
         {/* ===== TABLET NAVIGATION (Medium screens) ===== */}
         <nav className="hidden md:flex lg:hidden space-x-4" role="navigation" aria-label="Tablet navigation">
-          {menuItems.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
-              className="text-gray-700 hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer"
-            >
-              {item.name}
-            </a>
-          ))}
+          {menuItems.map((item, index) => {
+            if (item.type === 'route') {
+              return (
+                <Link
+                  key={index}
+                  to={item.href}
+                  onClick={() => closeMenu()}
+                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
+                >
+                  {item.name}
+                </Link>
+              )
+            } else if (item.type === 'dropdown') {
+              return (
+                <LocationsDropdown
+                  key={index}
+                  isAboutPage={isAboutPage}
+                  isLocationPage={isLocationPage}
+                  isScrolled={isScrolled}
+                  onClose={closeMenu}
+                />
+              )
+            } else {
+              return (
+                <a
+                  key={index}
+                  href={item.href}
+                  onClick={(e) => handleNavigation(e, item)}
+                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
+                >
+                  {item.name}
+                </a>
+              )
+            }
+          })}
         </nav>
 
         {/* ===== MOBILE MENU BUTTON ===== */}
         <button
           onClick={toggleMenu}
-          className="md:hidden p-2 rounded-md text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors"
+          className={`md:hidden p-2 rounded-md ${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors`}
           aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -197,26 +280,68 @@ const Navbar = () => {
             <nav className="p-6" role="navigation" aria-labelledby="mobile-menu-heading">
               <h2 id="mobile-menu-heading" className="sr-only">Mobile Navigation Menu</h2>
               <ul className="space-y-1">
-                {menuItems.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      delay: index * 0.05 + 0.1,
-                      duration: 0.3,
-                      ease: 'easeOut'
-                    }}
-                  >
-                    <a
-                      href={item.href}
-                      onClick={(e) => handleSmoothScroll(e, item.href)}
-                      className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                {menuItems.map((item, index) => {
+                  if (item.type === 'dropdown') {
+                    // For mobile, show location items directly
+                    const locationItems = [
+                      { name: 'UK', href: '/locations/uk' },
+                      { name: 'Qatar', href: '/locations/qatar' },
+                      { name: 'India', href: '/locations/india' }
+                    ];
+
+                    return locationItems.map((location, locationIndex) => (
+                      <motion.li
+                        key={`${index}-${locationIndex}`}
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          delay: (index + locationIndex) * 0.05 + 0.1,
+                          duration: 0.3,
+                          ease: 'easeOut'
+                        }}
+                      >
+                        <Link
+                          to={location.href}
+                          onClick={() => closeMenu()}
+                          className="block py-3 px-4 pl-8 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                        >
+                          {location.name}
+                        </Link>
+                      </motion.li>
+                    ));
+                  }
+
+                  return (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        delay: index * 0.05 + 0.1,
+                        duration: 0.3,
+                        ease: 'easeOut'
+                      }}
                     >
-                      {item.name}
-                    </a>
-                  </motion.li>
-                ))}
+                      {item.type === 'route' ? (
+                        <Link
+                          to={item.href}
+                          onClick={() => closeMenu()}
+                          className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                        >
+                          {item.name}
+                        </Link>
+                      ) : (
+                        <a
+                          href={item.href}
+                          onClick={(e) => handleNavigation(e, item)}
+                          className="block py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                        >
+                          {item.name}
+                        </a>
+                      )}
+                    </motion.li>
+                  );
+                })}
               </ul>
             </nav>
           </motion.div>

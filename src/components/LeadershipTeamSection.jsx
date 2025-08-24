@@ -39,9 +39,9 @@ const LeadershipTeamSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-4 text-center sm:text-left"
         >
@@ -64,9 +64,9 @@ const LeadershipTeamSection = () => {
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               viewport={{ once: true }}
               className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300"
             >
