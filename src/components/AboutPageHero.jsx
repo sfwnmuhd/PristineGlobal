@@ -54,26 +54,11 @@ const AboutPageHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed mb-12"
+          className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed"
         >
           A family-led enterprise dedicated to excellence in healthcare,
           technology, and global trading across multiple countries.
         </motion.p>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <button className="px-8 py-4 bg-white text-[#0b3b5c] rounded-full font-semibold text-lg hover:bg-blue-50 transition-colors duration-300 shadow-lg">
-            Our Global Impact
-          </button>
-          <button className="px-8 py-4 border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white hover:text-[#0b3b5c] transition-colors duration-300">
-            Explore Locations
-          </button>
-        </motion.div>
       </div>
     </section>
   )
