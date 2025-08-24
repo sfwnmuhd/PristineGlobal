@@ -15,25 +15,29 @@ const India = () => {
       title: "Healthcare Technology",
       description: "Development and implementation of digital health solutions and medical software systems.",
       icon: "💻",
-      focus: "Digital Health Innovation"
+      focus: "Digital Health Innovation",
+      image: "https://images.pexels.com/photos/6153740/pexels-photo-6153740.jpeg"
     },
     {
       title: "Medical Equipment Trading",
       description: "Import and distribution of advanced medical equipment and healthcare technology.",
       icon: "🏥",
-      focus: "Equipment Distribution"
+      focus: "Equipment Distribution",
+      image: "https://images.pexels.com/photos/287237/pexels-photo-287237.jpeg"
     },
     {
       title: "Pharmaceutical Partnership",
       description: "Strategic partnerships with pharmaceutical companies for drug development and distribution.",
       icon: "💊",
-      focus: "Medicine & Research"
+      focus: "Medicine & Research",
+      image: "https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg"
     },
     {
       title: "Healthcare Consulting",
       description: "Advisory services for healthcare institutions and medical practice optimization.",
       icon: "📊",
-      focus: "Strategic Consulting"
+      focus: "Strategic Consulting",
+      image: "https://images.pexels.com/photos/6779716/pexels-photo-6779716.jpeg"
     }
   ]
 
@@ -69,27 +73,40 @@ const India = () => {
       title: "Digital Health Initiative",
       description: "Developing AI-powered healthcare management systems for rural healthcare centers.",
       status: "In Progress",
-      impact: "500+ Healthcare Centers"
+      impact: "500+ Healthcare Centers",
+      image: "https://images.pexels.com/photos/6153740/pexels-photo-6153740.jpeg"
     },
     {
       title: "Medical Equipment Access Program",
       description: "Improving access to modern medical equipment in tier-2 and tier-3 cities.",
       status: "Expanding",
-      impact: "200+ Hospitals"
+      impact: "200+ Hospitals",
+      image: "https://images.pexels.com/photos/287237/pexels-photo-287237.jpeg"
     },
     {
       title: "Telemedicine Platform",
       description: "Connecting rural patients with specialist doctors through digital platforms.",
       status: "Pilot Phase",
-      impact: "50,000+ Patients"
+      impact: "50,000+ Patients",
+      image: "https://images.pexels.com/photos/8376285/pexels-photo-8376285.jpeg"
     }
   ]
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white pt-24 pb-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.pexels.com/photos/6153740/pexels-photo-6153740.jpeg"
+            alt="Healthcare technology innovation in India"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0b3b5c]/80 to-[#2b376b]/80"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,20 +152,32 @@ const India = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-[#0b3b5c] text-white rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-xl">{area.icon}</span>
-                  </div>
-                  <div>
-                    <div className="flex items-center mb-2">
-                      <h3 className="text-xl font-semibold text-black mr-3">{area.title}</h3>
-                      <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
-                        {area.focus}
-                      </span>
+                {/* Business Area Image */}
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={area.image}
+                    alt={area.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Business Area Content */}
+                <div className="p-6">
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-[#0b3b5c] text-white rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <span className="text-xl">{area.icon}</span>
                     </div>
-                    <p className="text-gray-600 leading-relaxed">{area.description}</p>
+                    <div>
+                      <div className="flex items-center mb-2">
+                        <h3 className="text-xl font-semibold text-black mr-3">{area.title}</h3>
+                        <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
+                          {area.focus}
+                        </span>
+                      </div>
+                      <p className="text-gray-600 leading-relaxed">{area.description}</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
