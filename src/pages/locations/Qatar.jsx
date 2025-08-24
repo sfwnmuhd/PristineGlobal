@@ -115,15 +115,27 @@ const Qatar = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-[#0b3b5c] text-white rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-xl">{service.icon}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-black mb-3">{service.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                {/* Service Image */}
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Service Content */}
+                <div className="p-6">
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-[#0b3b5c] text-white rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <span className="text-xl">{service.icon}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-black mb-3">{service.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
