@@ -14,22 +14,26 @@ const Qatar = () => {
     {
       title: "Healthcare Consulting",
       description: "Strategic healthcare consulting services for medical facilities and healthcare organizations.",
-      icon: "🏥"
+      icon: "🏥",
+      image: "https://images.pexels.com/photos/6779716/pexels-photo-6779716.jpeg"
     },
     {
       title: "Business Development",
       description: "Facilitating international business partnerships and investment opportunities.",
-      icon: "💼"
+      icon: "💼",
+      image: "https://images.pexels.com/photos/9471699/pexels-photo-9471699.jpeg"
     },
     {
       title: "Technology Solutions",
       description: "Implementing digital health solutions and healthcare technology systems.",
-      icon: "💻"
+      icon: "💻",
+      image: "https://images.pexels.com/photos/6153740/pexels-photo-6153740.jpeg"
     },
     {
       title: "Training & Development",
       description: "Professional development programs for healthcare staff and administrators.",
-      icon: "📚"
+      icon: "📚",
+      image: "https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg"
     }
   ]
 
@@ -54,8 +58,18 @@ const Qatar = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white pt-24 pb-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.pexels.com/photos/9471699/pexels-photo-9471699.jpeg"
+            alt="Modern office building in Doha, Qatar"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0b3b5c]/80 to-[#2b376b]/80"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
