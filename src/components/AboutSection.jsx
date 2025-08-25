@@ -27,7 +27,7 @@ const AboutSection = () => {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.1 }}
               className="space-y-4"
             >
               <div className="border border-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
@@ -50,8 +50,8 @@ const AboutSection = () => {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="space-y-4"
             >
               <div className="border border-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
@@ -75,7 +75,7 @@ const AboutSection = () => {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             viewport={{ once: true }}
             className="order-1 lg:order-2 text-center lg:text-left"
           >
@@ -84,8 +84,8 @@ const AboutSection = () => {
               className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               About
             </motion.h2>
@@ -95,8 +95,8 @@ const AboutSection = () => {
               className="text-lg sm:text-xl text-gray-500 mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.15 }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               Global Excellence in Healthcare, Retail & Technology
             </motion.h3>
@@ -106,8 +106,8 @@ const AboutSection = () => {
               className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed text-justify"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               Pristine Global is a family-led enterprise founded by visionaries
               Dr. Syed Sayeed Ahmed and Dr. Ahmed Rashid Shaik, both seasoned
