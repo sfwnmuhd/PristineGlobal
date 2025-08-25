@@ -20,6 +20,7 @@ const Navbar = () => {
   // Check if we're on About page or location pages to adjust navbar styling
   const isAboutPage = location.pathname === '/about'
   const isLocationPage = location.pathname.startsWith('/locations/')
+  const isContactPage = location.pathname === '/contact'
 
   // ===== NAVIGATION CONFIGURATION =====
 
