@@ -12,6 +12,7 @@ import India from './pages/locations/India'
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className='min-h-screen bg-white'>
         <ScrollProgressIndicator />
         <Navbar />
