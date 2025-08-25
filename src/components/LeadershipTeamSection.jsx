@@ -42,7 +42,7 @@ const LeadershipTeamSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-4 text-center sm:text-left"
         >
           Our Leadership Team
@@ -51,8 +51,8 @@ const LeadershipTeamSection = () => {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="text-base sm:text-lg lg:text-xl text-gray-500 mb-12 text-center sm:text-left"
         >
           A dynamic team of medical, technology, and business leaders committed
@@ -66,8 +66,8 @@ const LeadershipTeamSection = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.03 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300"
             >
               {/* Member Photo */}
@@ -96,8 +96,8 @@ const LeadershipTeamSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="text-center sm:text-left mt-6 sm:mt-16 sm:flex sm:justify-between sm:items-center"
         >
           {/* CTA Content */}
