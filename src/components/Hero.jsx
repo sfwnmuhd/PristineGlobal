@@ -212,7 +212,7 @@ const Hero = () => {
         {/* ===== INTERACTIVE WORLD MAP SECTION ===== */}
         <motion.div
           variants={mapVariants}
-          className="relative flex-1 w-full max-w-6xl mx-auto flex items-center justify-center overflow-hidden"
+          className="relative flex-1 w-full max-w-6xl mx-auto flex items-center justify-center"
         >
           {/* World Map Image */}
           <motion.img
