@@ -24,6 +24,9 @@ const App = () => {
           <Route path="/locations/qatar" element={<Qatar />} />
           <Route path="/locations/india" element={<India />} />
         </Routes>
+
+        {/* Global Floating Elements */}
+        <SocialMediaPopup />
       </div>
     </Router>
   )
