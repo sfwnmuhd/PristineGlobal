@@ -28,7 +28,7 @@ const Navbar = () => {
     { name: 'About', href: '/about', type: 'route' },
     { name: 'Locations', href: '#locations', type: 'dropdown' },
     { name: 'Services', href: '#services', type: 'scroll' },
-    { name: 'Contact Us', href: '#contact', type: 'scroll' }
+    { name: 'Contact Us', href: '/contact', type: 'route' }
   ]
 
   // ===== SCROLL EFFECT HANDLER =====
