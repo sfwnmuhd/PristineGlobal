@@ -432,8 +432,6 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* ===== SOCIAL MEDIA POPUP ===== */}
-      <SocialMediaPopup />
     </section>
   )
 }
