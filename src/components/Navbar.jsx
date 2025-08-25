@@ -156,7 +156,7 @@ const Navbar = () => {
                   key={index}
                   to={item.href}
                   onClick={() => closeMenu()}
-                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
+                  className={`${(isLocationPage || isContactPage) && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
                 >
                   {item.name}
                 </Link>
@@ -167,6 +167,7 @@ const Navbar = () => {
                   key={index}
                   isAboutPage={isAboutPage}
                   isLocationPage={isLocationPage}
+                  isContactPage={isContactPage}
                   isScrolled={isScrolled}
                   onClose={closeMenu}
                 />
@@ -177,7 +178,7 @@ const Navbar = () => {
                   key={index}
                   href={item.href}
                   onClick={(e) => handleNavigation(e, item)}
-                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
+                  className={`${(isLocationPage || isContactPage) && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer`}
                 >
                   {item.name}
                 </a>
@@ -195,7 +196,7 @@ const Navbar = () => {
                   key={index}
                   to={item.href}
                   onClick={() => closeMenu()}
-                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
+                  className={`${(isLocationPage || isContactPage) && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
                 >
                   {item.name}
                 </Link>
@@ -206,6 +207,7 @@ const Navbar = () => {
                   key={index}
                   isAboutPage={isAboutPage}
                   isLocationPage={isLocationPage}
+                  isContactPage={isContactPage}
                   isScrolled={isScrolled}
                   onClose={closeMenu}
                 />
@@ -216,7 +218,7 @@ const Navbar = () => {
                   key={index}
                   href={item.href}
                   onClick={(e) => handleNavigation(e, item)}
-                  className={`${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
+                  className={`${(isLocationPage || isContactPage) && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] transition-colors font-medium text-sm cursor-pointer`}
                 >
                   {item.name}
                 </a>
@@ -228,7 +230,7 @@ const Navbar = () => {
         {/* ===== MOBILE MENU BUTTON ===== */}
         <button
           onClick={toggleMenu}
-          className={`md:hidden p-2 rounded-md ${isLocationPage && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors`}
+          className={`md:hidden p-2 rounded-md ${(isLocationPage || isContactPage) && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'} hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors`}
           aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -276,7 +278,7 @@ const Navbar = () => {
           >
             {/* Mobile Menu Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200/50">
-              <Link to="/">
+              <Link to="/" onClick={closeMenu}>
                 <img
                   src="/logo.png"
                   alt="Pristine Global Logo"

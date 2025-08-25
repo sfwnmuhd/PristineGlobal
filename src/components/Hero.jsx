@@ -378,6 +378,7 @@ const Hero = () => {
                   exit={{ opacity: 0, y: 14, scale: 0.92 }}
                   transition={{ type: "spring", damping: 20, stiffness: 300, duration: 0.35 }}
                   className="absolute -top-32 sm:-top-36 left-1/2 transform -translate-x-1/2 z-30"
+                  style={{ maxWidth: '90vw' }}
                 >
                   {/* Card Container */}
                   <motion.div

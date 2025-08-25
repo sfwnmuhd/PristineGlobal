@@ -69,8 +69,8 @@ const DivisionByCountrySection = () => {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="text-3xl sm:text-5xl font-semibold text-black mb-4"
         >
           Our Division by Country
@@ -79,8 +79,8 @@ const DivisionByCountrySection = () => {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="text-base sm:text-lg text-gray-500 mb-8 lg:mb-12"
         >
           Expanding across continents with excellence in care, technology, and distribution
@@ -115,7 +115,7 @@ const DivisionByCountrySection = () => {
           key={selectedCountry}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="bg-white rounded-xl border border-gray-200 p-6 sm:p-8 shadow-sm"
         >
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
