@@ -8,7 +8,7 @@ import ReactCountryFlag from 'react-country-flag'
  * LocationsDropdown Component
  * Dropdown menu for location navigation
  */
-const LocationsDropdown = ({ isAboutPage, isLocationPage, isScrolled, onClose }) => {
+const LocationsDropdown = ({ isAboutPage, isLocationPage, isContactPage, isScrolled, onClose }) => {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
