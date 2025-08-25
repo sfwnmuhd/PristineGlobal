@@ -71,7 +71,7 @@ const SocialMediaPopup = () => {
   // ===== COMPONENT RENDER =====
 
   return (
-    <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-40">
+    <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50">
       <div className="relative">
         {/* ===== EXPANDABLE SOCIAL LINKS ===== */}
         <AnimatePresence>
