@@ -275,11 +275,13 @@ const Navbar = () => {
           >
             {/* Mobile Menu Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200/50">
-              <img
-                src="/logo.png"
-                alt="Pristine Global Logo"
-                className="w-auto h-8"
-              />
+              <Link to="/">
+                <img
+                  src="/logo.png"
+                  alt="Pristine Global Logo"
+                  className="w-auto h-8"
+                />
+              </Link>
               <button
                 onClick={closeMenu}
                 className="p-2 rounded-md text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-100/50 transition-colors"

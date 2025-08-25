@@ -5,6 +5,7 @@ import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
 import BackToTop from '../components/BackToTop'
 import FloatingWhatsApp from '../components/FloatingWhatsApp'
+import { IoLogoWhatsapp } from "react-icons/io";
 
 /**
  * Contact Us Page Component
@@ -209,8 +210,8 @@ const Contact = () => {
                 href="tel:+447868751907"
                 className="text-[#0b3b5c] hover:text-[#2b376b] transition-colors font-medium"
               >
-                +44 7868 751 907
-              </a>
+                07868 751 907
+              </a> 
               <p className="text-gray-600 text-sm mt-1">Available 24/7</p>
             </div>
 
@@ -232,7 +233,8 @@ const Contact = () => {
             {/* WhatsApp */}
             <div className="text-center">
               <div className="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-8 h-8" />
+                {/* <Globe className="w-8 h-8" /> */}
+                <IoLogoWhatsapp className='w-8 h-8' />
               </div>
               <h3 className="text-lg font-semibold text-black mb-2">WhatsApp</h3>
               <a 
