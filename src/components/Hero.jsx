@@ -8,6 +8,7 @@ import worldmap from '../assets/worldmap.png'
 
 // Component imports
 import ShimmerButton from './ShimmerButton'
+import { Link } from 'react-router-dom'
 
 /**
  * Hero Section Component
@@ -372,61 +373,63 @@ const Hero = () => {
 
               {/* ===== HOVER INFORMATION CARD ===== */}
               {hoveredLocation === location.id && (
-                <motion.div
-                  initial={{ opacity: 0, y: 14, scale: 0.92 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 14, scale: 0.92 }}
-                  transition={{ type: "spring", damping: 20, stiffness: 300, duration: 0.35 }}
-                  className="absolute -top-32 sm:-top-36 left-1/2 transform -translate-x-1/2 z-30"
-                  style={{ maxWidth: '90vw' }}
-                >
-                  {/* Card Container */}
+                <Link to={`locations/${location.id}`}>
                   <motion.div
-                    className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 sm:p-5 min-w-[240px] sm:min-w-[280px] backdrop-blur-sm"
-                    whileHover={{ y: -4 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    initial={{ opacity: 0, y: 14, scale: 0.92 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 14, scale: 0.92 }}
+                    transition={{ type: "spring", damping: 20, stiffness: 300, duration: 0.35 }}
+                    className="absolute -top-32 sm:-top-36 left-1/2 transform -translate-x-1/2 z-30"
+                    style={{ maxWidth: '90vw' }}
                   >
-                    {/* Card Header with Flag and Country Info */}
-                    <div className="flex items-center gap-3 mb-3">
-                      <motion.div
-                        className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] flex items-center justify-center shadow-md"
-                        whileHover={{ rotate: 5 }}
-                      >
-                        <ReactCountryFlag
-                          countryCode={location.id === 'uk' ? 'GB' : location.id === 'qatar' ? 'QA' : 'IN'}
-                          svg
-                          style={{ width: '18px', height: '14px' }}
-                        />
-                      </motion.div>
-                      <div>
-                        <h3 className="font-bold text-[#0b3b5c] text-base sm:text-lg">
-                          {location.name}
-                        </h3>
-                        <p className="text-xs text-[#2b376b] font-medium">
-                          {location.stats}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Card Content */}
-                    <p className="text-sm text-gray-600 leading-relaxed mb-3">
-                      {location.details}
-                    </p>
-
-                    {/* Animated Bottom Accent */}
+                    {/* Card Container */}
                     <motion.div
-                      className="w-full h-1 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] rounded-full"
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ delay: 0.15, duration: 0.5 }}
-                    />
-                  </motion.div>
+                      className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 sm:p-5 min-w-[240px] sm:min-w-[280px] backdrop-blur-sm"
+                      whileHover={{ y: -4 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {/* Card Header with Flag and Country Info */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <motion.div
+                          className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] flex items-center justify-center shadow-md"
+                          whileHover={{ rotate: 5 }}
+                        >
+                          <ReactCountryFlag
+                            countryCode={location.id === 'uk' ? 'GB' : location.id === 'qatar' ? 'QA' : 'IN'}
+                            svg
+                            style={{ width: '18px', height: '14px' }}
+                          />
+                        </motion.div>
+                        <div>
+                          <h3 className="font-bold text-[#0b3b5c] text-base sm:text-lg">
+                            {location.name}
+                          </h3>
+                          <p className="text-xs text-[#2b376b] font-medium">
+                            {location.stats}
+                          </p>
+                        </div>
+                      </div>
 
-                  {/* Card Arrow Pointer */}
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-                    <div className="w-4 h-4 bg-white border-r border-b border-gray-100 transform rotate-45"></div>
-                  </div>
-                </motion.div>
+                      {/* Card Content */}
+                      <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                        {location.details}
+                      </p>
+
+                      {/* Animated Bottom Accent */}
+                      <motion.div
+                        className="w-full h-1 bg-gradient-to-r from-[#0b3b5c] to-[#2b376b] rounded-full"
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        transition={{ delay: 0.15, duration: 0.5 }}
+                      />
+                    </motion.div>
+
+                    {/* Card Arrow Pointer */}
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                      <div className="w-4 h-4 bg-white border-r border-b border-gray-100 transform rotate-45"></div>
+                    </div>
+                  </motion.div>
+                </Link>
               )}
             </motion.div>
           ))}
