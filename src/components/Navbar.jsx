@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'motion/react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import ReactCountryFlag from 'react-country-flag'
 import LocationsDropdown from './LocationsDropdown'
-import Home from '../pages/Home'
 
 /**
  * Navbar Component
