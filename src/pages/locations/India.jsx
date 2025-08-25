@@ -112,7 +112,7 @@ const India = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1, margin: "-100px" }}
             className="text-3xl sm:text-4xl font-semibold text-black mb-12 text-center"
           >
             Business Areas
@@ -125,7 +125,7 @@ const India = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2, margin: "-50px" }}
                 className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
                 {/* Business Area Image */}
@@ -168,7 +168,7 @@ const India = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1, margin: "-100px" }}
             className="text-3xl sm:text-4xl font-semibold text-black mb-12 text-center"
           >
             Key Initiatives
@@ -181,7 +181,7 @@ const India = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2, margin: "-50px" }}
                 className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="md:flex">
@@ -232,7 +232,7 @@ const India = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1, margin: "-100px" }}
             className="text-center"
           >
             <h2 className="text-3xl sm:text-4xl font-semibold text-black mb-8">
@@ -249,7 +249,7 @@ const India = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px" }}
             className="grid md:grid-cols-3 gap-8"
           >
             <div className="bg-white rounded-xl p-6 text-center">
