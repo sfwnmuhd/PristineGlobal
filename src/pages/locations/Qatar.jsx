@@ -73,7 +73,7 @@ const Qatar = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="text-center"
           >
             <div className="flex items-center justify-center mb-6">
@@ -100,7 +100,7 @@ const Qatar = () => {
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.2 }}
             viewport={{ once: true, amount: 0.1, margin: "-100px" }}
             className="text-3xl sm:text-4xl font-semibold text-black mb-12 text-center"
           >
@@ -113,7 +113,7 @@ const Qatar = () => {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true, amount: 0.2, margin: "-50px" }}
                 className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
@@ -150,7 +150,7 @@ const Qatar = () => {
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.2 }}
             viewport={{ once: true, amount: 0.1, margin: "-100px" }}
             className="text-3xl sm:text-4xl font-semibold text-black mb-12 text-center"
           >
@@ -163,7 +163,7 @@ const Qatar = () => {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true, amount: 0.2, margin: "-50px" }}
                 className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
               >
@@ -186,7 +186,7 @@ const Qatar = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.2 }}
             viewport={{ once: true, amount: 0.1, margin: "-100px" }}
             className="text-center"
           >
@@ -204,7 +204,7 @@ const Qatar = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.2, delay: 0.1 }}
             viewport={{ once: true, amount: 0.1, margin: "-50px" }}
             className="mt-12 grid md:grid-cols-3 gap-8"
           >
