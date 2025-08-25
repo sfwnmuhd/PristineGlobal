@@ -61,6 +61,14 @@ const Navbar = () => {
    */
   const closeMenu = () => {
     setIsMenuOpen(false)
+    setIsMobileLocationsOpen(false)
+  }
+
+  /**
+   * Toggle mobile locations dropdown
+   */
+  const toggleMobileLocations = () => {
+    setIsMobileLocationsOpen(!isMobileLocationsOpen)
   }
 
   /**
