@@ -317,6 +317,9 @@ const Navbar = () => {
                         <button
                           onClick={toggleMobileLocations}
                           className="w-full flex items-center justify-between py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                          aria-expanded={isMobileLocationsOpen}
+                          aria-controls="mobile-locations-submenu"
+                          aria-label={isMobileLocationsOpen ? "Collapse locations menu" : "Expand locations menu"}
                         >
                           <span>{item.name}</span>
                           <motion.div
