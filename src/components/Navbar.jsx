@@ -13,6 +13,7 @@ import Home from '../pages/Home'
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileLocationsOpen, setIsMobileLocationsOpen] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
 
