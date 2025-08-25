@@ -16,7 +16,7 @@ const MissionVisionSection = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             className="space-y-8"
           >
             {/* Mission */}
@@ -75,7 +75,7 @@ const MissionVisionSection = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200"
           >
             <h3 className="text-2xl sm:text-3xl font-semibold text-black mb-6">
