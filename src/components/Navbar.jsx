@@ -167,6 +167,7 @@ const Navbar = () => {
                   key={index}
                   isAboutPage={isAboutPage}
                   isLocationPage={isLocationPage}
+                  isContactPage={isContactPage}
                   isScrolled={isScrolled}
                   onClose={closeMenu}
                 />
