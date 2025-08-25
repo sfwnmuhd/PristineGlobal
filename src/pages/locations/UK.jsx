@@ -57,7 +57,7 @@ const UK = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center"
           >
             <div className="flex items-center justify-center mb-6">
@@ -85,7 +85,7 @@ const UK = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1, margin: "-100px" }}
             className="text-3xl sm:text-4xl font-semibold text-black mb-12 text-center"
           >
             Our Facilities
@@ -98,7 +98,7 @@ const UK = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2, margin: "-50px" }}
                 className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
                 {/* Facility Image */}
@@ -145,7 +145,7 @@ const UK = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1, margin: "-100px" }}
             className="text-3xl sm:text-4xl font-semibold text-black mb-12 text-center"
           >
             Upcoming Projects
@@ -158,7 +158,7 @@ const UK = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2, margin: "-50px" }}
                 className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="flex items-center mb-4">
@@ -195,7 +195,7 @@ const UK = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1, margin: "-100px" }}
             className="text-3xl sm:text-4xl font-semibold text-black mb-12 text-center"
           >
             Our Services in the UK
@@ -206,7 +206,7 @@ const UK = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2, margin: "-50px" }}
               className="bg-white rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
             >
               <div className="h-32 rounded-lg overflow-hidden mb-4">
@@ -224,7 +224,7 @@ const UK = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2, margin: "-50px" }}
               className="bg-white rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
             >
               <div className="h-32 rounded-lg overflow-hidden mb-4">
@@ -242,7 +242,7 @@ const UK = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2, margin: "-50px" }}
               className="bg-white rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
             >
               <div className="h-32 rounded-lg overflow-hidden mb-4">

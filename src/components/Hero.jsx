@@ -8,7 +8,6 @@ import worldmap from '../assets/worldmap.png'
 
 // Component imports
 import ShimmerButton from './ShimmerButton'
-import SocialMediaPopup from './SocialMediaPopup'
 
 /**
  * Hero Section Component
@@ -433,8 +432,6 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* ===== SOCIAL MEDIA POPUP ===== */}
-      <SocialMediaPopup />
     </section>
   )
 }
