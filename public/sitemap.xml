@@ -1,0 +1,32 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--  Home  -->
+<url>
+<loc>https://pristineglobal.netlify.app/</loc>
+<priority>1.0</priority>
+</url>
+<!--  About  -->
+<url>
+<loc>https://pristineglobal.netlify.app/about</loc>
+<priority>0.8</priority>
+</url>
+<!--  locations  -->
+<url>
+<loc>https://skynet-solution.com/services</loc>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://pristineglobal.netlify.app/locations/uk</loc>
+</url>
+<url>
+<loc>https://pristineglobal.netlify.app/locations/qatar</loc>
+</url>
+<url>
+<loc>https://pristineglobal.netlify.app/india</loc>
+</url>
+
+<!--  Contact  -->
+<url>
+<loc>https://skynet-solution.com/contact</loc>
+<priority>0.7</priority>
+</url>
+</urlset>
