@@ -357,9 +357,11 @@ const Navbar = () => {
                                       onClick={closeMenu}
                                       className="flex items-center py-2 px-4 text-gray-600 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium cursor-pointer"
                                     >
-                                      <span className="w-6 h-4 mr-3 flex items-center justify-center">
-                                        🏢
-                                      </span>
+                                      <ReactCountryFlag
+                                        countryCode={location.countryCode}
+                                        svg
+                                        className="w-5 h-4 mr-3 rounded"
+                                      />
                                       {location.name}
                                     </Link>
                                   </motion.div>
