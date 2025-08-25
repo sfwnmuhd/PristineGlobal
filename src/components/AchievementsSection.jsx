@@ -81,7 +81,7 @@ const AchievementsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-4">
@@ -98,7 +98,7 @@ const AchievementsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
           {milestones.map((milestone, index) => (
@@ -118,8 +118,8 @@ const AchievementsSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="space-y-6"
         >
           <h3 className="text-2xl sm:text-3xl font-semibold text-black text-center mb-12">
@@ -132,8 +132,8 @@ const AchievementsSection = () => {
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
               >
                 <div className="flex items-start justify-between mb-4">
@@ -153,8 +153,8 @@ const AchievementsSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.3, delay: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="text-center mt-16 bg-gray-50 rounded-2xl p-8"
         >
           <h3 className="text-2xl sm:text-3xl font-semibold text-black mb-4">
