@@ -295,33 +295,80 @@ const Navbar = () => {
               <ul className="space-y-1">
                 {menuItems.map((item, index) => {
                   if (item.type === 'dropdown') {
-                    // For mobile, show location items directly
+                    // Mobile locations dropdown
                     const locationItems = [
-                      { name: 'UK', href: '/locations/uk' },
-                      { name: 'Qatar', href: '/locations/qatar' },
-                      { name: 'India', href: '/locations/india' }
+                      { name: 'UK', href: '/locations/uk', countryCode: 'GB' },
+                      { name: 'Qatar', href: '/locations/qatar', countryCode: 'QA' },
+                      { name: 'India', href: '/locations/india', countryCode: 'IN' }
                     ];
 
-                    return locationItems.map((location, locationIndex) => (
+                    return (
                       <motion.li
-                        key={`${index}-${locationIndex}`}
+                        key={index}
                         initial={{ opacity: 0, y: -8 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
-                          delay: (index + locationIndex) * 0.05 + 0.1,
+                          delay: index * 0.05 + 0.1,
                           duration: 0.3,
                           ease: 'easeOut'
                         }}
                       >
-                        <Link
-                          to={location.href}
-                          onClick={() => closeMenu()}
-                          className="block py-3 px-4 pl-8 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
+                        {/* Locations Main Menu Item */}
+                        <button
+                          onClick={toggleMobileLocations}
+                          className="w-full flex items-center justify-between py-3 px-4 text-gray-700 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg cursor-pointer"
                         >
-                          {location.name}
-                        </Link>
+                          <span>{item.name}</span>
+                          <motion.div
+                            animate={{ rotate: isMobileLocationsOpen ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </motion.div>
+                        </button>
+
+                        {/* Collapsible Location Sub-menu */}
+                        <AnimatePresence>
+                          {isMobileLocationsOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3, ease: 'easeOut' }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pl-4 space-y-1 mt-2">
+                                {locationItems.map((location, locationIndex) => (
+                                  <motion.div
+                                    key={location.name}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                      delay: locationIndex * 0.05,
+                                      duration: 0.2,
+                                      ease: 'easeOut'
+                                    }}
+                                  >
+                                    <Link
+                                      to={location.href}
+                                      onClick={closeMenu}
+                                      className="flex items-center py-2 px-4 text-gray-600 hover:text-[#0b3b5c] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium cursor-pointer"
+                                    >
+                                      <span className="w-6 h-4 mr-3 flex items-center justify-center">
+                                        🏢
+                                      </span>
+                                      {location.name}
+                                    </Link>
+                                  </motion.div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </motion.li>
-                    ));
+                    );
                   }
 
                   return (
