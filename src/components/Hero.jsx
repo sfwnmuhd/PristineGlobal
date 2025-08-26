@@ -167,7 +167,7 @@ const Hero = () => {
         animate="visible"
       >
         {/* ===== HERO HEADING SECTION ===== */}
-        <div className="text-center space-y-3 sm:space-y-4 mt-12 sm:mt-16 lg:mt-20">
+        <div className="text-center space-y-3 sm:space-y-4 mt-8 sm:mt-12 lg:mt-16">
           {/* Main Heading with Split Animation */}
           <motion.h1
             variants={itemVariants}
