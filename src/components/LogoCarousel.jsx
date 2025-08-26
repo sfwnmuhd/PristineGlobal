@@ -86,7 +86,7 @@ const LogoCarousel = () => {
 
         @media (max-width: 768px) {
           .animate-scroll-left {
-            animation-duration: 15s;
+            animation-duration: 10s;
           }
         }
       `}</style>
