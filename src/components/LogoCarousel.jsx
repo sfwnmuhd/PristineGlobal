@@ -1,4 +1,5 @@
 import React from 'react'
+import './LogoCarousel.css'
 
 const LogoCarousel = () => {
   // Example logos - user can replace these later
