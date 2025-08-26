@@ -137,7 +137,13 @@ const Hero = () => {
     hidden: { opacity: 0, scale: 0.9, y: 20 },
     visible: {
       opacity: 1, scale: 1, y: 0,
-      transition: { type: "spring", damping: 24, stiffness: 120, duration: 0.9, delay: 0.6 }
+      transition: {
+        type: "spring",
+        damping: 24,
+        stiffness: 120,
+        duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0.1 : 0.9,
+        delay: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0.1 : 0.6
+      }
     }
   }
 
