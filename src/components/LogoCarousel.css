@@ -59,16 +59,16 @@
 
 @media (max-width: 768px) {
   .logo-item {
-    width: 150px;
-    height: 60px;
-    margin: 0 1.5rem;
+    width: 120px;
+    height: 50px;
+    margin: 0 1rem;
   }
-  
+
   .logo-image {
-    max-width: 100px;
-    max-height: 50px;
+    max-width: 80px;
+    max-height: 35px;
   }
-  
+
   .logo-carousel-track {
     animation-duration: 25s;
   }
