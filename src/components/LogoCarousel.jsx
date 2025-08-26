@@ -37,11 +37,11 @@ const LogoCarousel = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative">
           {/* Logo carousel container with gradient mask */}
-          <div 
+          <div
             className="w-full overflow-hidden"
             style={{
-              maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)'
+              maskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)'
             }}
           >
             {/* Scrolling track */}
