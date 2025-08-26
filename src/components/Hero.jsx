@@ -157,6 +157,7 @@ const Hero = () => {
           alt="Background Grid Pattern"
           className="w-full h-full object-cover opacity-40"
           loading="eager"
+          decoding="async"
         />
       </motion.div>
 
@@ -226,6 +227,7 @@ const Hero = () => {
             animate={{ opacity: 0.6, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             loading="eager"
+            decoding="async"
           />
 
           {/* ===== ANIMATED CONNECTION LINES ===== */}
