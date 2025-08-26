@@ -55,6 +55,8 @@ const Contact = () => {
             src="https://images.pexels.com/photos/6153740/pexels-photo-6153740.jpeg"
             alt="Professional business contact and communication"
             className="w-full h-full object-cover opacity-30"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#0b3b5c]/80 to-[#2b376b]/80"></div>
         </div>
