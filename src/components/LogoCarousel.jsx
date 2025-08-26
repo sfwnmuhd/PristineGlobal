@@ -49,12 +49,12 @@ const LogoCarousel = () => {
               {duplicatedLogos.map((logo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-32 h-12 sm:w-40 sm:h-16 flex items-center justify-center mx-4 sm:mx-6"
+                  className="flex-shrink-0 w-28 h-12 sm:w-40 sm:h-16 flex items-center justify-center mx-2 sm:mx-6"
                 >
                   <img
                     src={logo.url}
                     alt={logo.name}
-                    className="max-w-[70px] max-h-[28px] sm:max-w-[100px] sm:max-h-[40px] w-auto h-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                    className="max-w-[60px] max-h-[24px] sm:max-w-[100px] sm:max-h-[40px] w-auto h-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
                     onError={(e) => {
                       // Fallback for broken images
                       e.target.style.display = 'none'
