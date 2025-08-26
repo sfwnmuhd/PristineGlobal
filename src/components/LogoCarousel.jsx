@@ -34,7 +34,7 @@ const LogoCarousel = () => {
   const duplicatedLogos = [...logos, ...logos]
 
   return (
-    <section className="bg-transparent py-4 lg:py-6 overflow-hidden">
+    <div className="overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative">
           <div className="logo-carousel-container">
@@ -56,7 +56,7 @@ const LogoCarousel = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
