@@ -124,6 +124,8 @@ const DivisionByCountrySection = () => {
               src={currentData.img}
               alt={`${selectedCountry} operations - ${currentData.title}`}
               className="w-full h-60 sm:h-72 lg:h-80 object-cover rounded-xl"
+              loading="lazy"
+              decoding="async"
             />
 
             {/* Country Information */}
