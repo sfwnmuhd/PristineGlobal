@@ -67,7 +67,7 @@ const LogoCarousel = () => {
         </div>
       </div>
 
-      {/* Custom CSS for animation - added to document head */}
+      {/* Custom CSS for animation - optimized for performance */}
       <style>{`
         @keyframes scroll-left {
           0% {
@@ -77,15 +77,16 @@ const LogoCarousel = () => {
             transform: translateX(-50%);
           }
         }
-        
+
         .animate-scroll-left {
-          animation: scroll-left 30s linear infinite;
+          animation: scroll-left 20s linear infinite;
           width: calc(200% + 2rem);
+          will-change: transform;
         }
-        
+
         @media (max-width: 768px) {
           .animate-scroll-left {
-            animation-duration: 25s;
+            animation-duration: 15s;
           }
         }
       `}</style>
