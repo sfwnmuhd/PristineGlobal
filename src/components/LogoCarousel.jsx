@@ -34,17 +34,8 @@ const LogoCarousel = () => {
   const duplicatedLogos = [...logos, ...logos]
 
   return (
-    <section className="bg-gray-50 py-12 lg:py-16 overflow-hidden">
+    <section className="bg-transparent py-4 lg:py-6 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-            Trusted by Industry Leaders
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            We're proud to partner with some of the world's most innovative companies
-          </p>
-        </div>
-        
         <div className="relative">
           <div className="logo-carousel-container">
             <div className="logo-carousel-track">
