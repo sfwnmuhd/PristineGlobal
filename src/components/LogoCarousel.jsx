@@ -1,5 +1,4 @@
 import React from 'react'
-import './LogoCarousel.css'
 
 const LogoCarousel = () => {
   // Example logos - user can replace these later
@@ -37,14 +36,25 @@ const LogoCarousel = () => {
     <div className="overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative">
-          <div className="logo-carousel-container">
-            <div className="logo-carousel-track">
+          {/* Logo carousel container with gradient mask */}
+          <div 
+            className="w-full overflow-hidden"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)'
+            }}
+          >
+            {/* Scrolling track */}
+            <div className="flex animate-scroll-left">
               {duplicatedLogos.map((logo, index) => (
-                <div key={index} className="logo-item">
+                <div 
+                  key={index} 
+                  className="flex-shrink-0 w-40 h-15 md:w-40 md:h-15 sm:w-30 sm:h-12.5 flex items-center justify-center mx-6 sm:mx-4"
+                >
                   <img
                     src={logo.url}
                     alt={logo.name}
-                    className="logo-image"
+                    className="max-w-25 max-h-10 sm:max-w-20 sm:max-h-8.75 w-auto h-auto object-contain opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 ease-in-out"
                     onError={(e) => {
                       // Fallback for broken images
                       e.target.style.display = 'none'
@@ -56,6 +66,29 @@ const LogoCarousel = () => {
           </div>
         </div>
       </div>
+
+      {/* Custom CSS for animation - added to document head */}
+      <style>{`
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-scroll-left {
+          animation: scroll-left 30s linear infinite;
+          width: calc(200% + 2rem);
+        }
+        
+        @media (max-width: 768px) {
+          .animate-scroll-left {
+            animation-duration: 25s;
+          }
+        }
+      `}</style>
     </div>
   )
 }
