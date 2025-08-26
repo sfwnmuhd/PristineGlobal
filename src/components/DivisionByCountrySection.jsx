@@ -22,10 +22,10 @@ const DivisionByCountrySection = () => {
     Qatar: {
       title: 'Healthcare & Technology Services',
       description: `Our Qatari operations span:
-• Hyper Nova Supermarket & Wholesale Trading – providing quality consumer goods
-• Precedence Information Technologies – delivering strategic IT services and solutions
-• Mednova Medical Trading – supplying medical equipment and healthcare essentials`,
-      img: '',
+                  • Hyper Nova Supermarket & Wholesale Trading – providing quality consumer goods
+                  • Precedence Information Technologies – delivering strategic IT services and solutions
+                  • Mednova Medical Trading – supplying medical equipment and healthcare essentials`,
+      img: 'https://assets.weforum.org/article/image/b3yliS-6KqpbNI0UxUUa6Zl4lK7OVuErGZXf7KS2r28.jpg',
     },
     India: {
       title: 'Integrated Healthcare & Distribution',
@@ -33,7 +33,7 @@ const DivisionByCountrySection = () => {
 • Prime Care Hospitals – delivering multispecialty hospital services across India
 • Prime Care Pharma – retail and wholesale pharmaceutical distribution
 • Primecare Distribution – streamlining supply chain and product delivery logistics`,
-      img: '',
+      img: 'https://victualcourier.com/wp-content/uploads/2023/06/zzzzz.png',
     },
   }
 
@@ -92,7 +92,7 @@ const DivisionByCountrySection = () => {
             <button
               key={country}
               onClick={() => handleCountrySelect(country)}
-              className={`flex items-center px-4 sm:px-6 py-3 rounded-lg transition-all duration-300 ${
+              className={`flex items-center px-4 sm:px-6 py-3 rounded-lg transition-all duration-300 cursor-pointer ${
                 selectedCountry === country
                   ? 'bg-[#2b376b] text-white shadow-md'
                   : 'bg-white text-black border border-gray-300 hover:border-gray-400'
