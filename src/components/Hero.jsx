@@ -441,7 +441,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.6 }}
-            className="absolute bottom-0 left-0 right-0 z-10"
+            className="absolute bottom-6 sm:bottom-8 left-0 right-0 z-10"
           >
             <LogoCarousel />
           </motion.div>
