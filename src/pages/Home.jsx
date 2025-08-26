@@ -1,6 +1,5 @@
 import React from 'react'
 import Hero from '../components/Hero'
-import LogoCarousel from '../components/LogoCarousel'
 import AboutSection from '../components/AboutSection'
 import DivisionByCountrySection from '../components/DivisionByCountrySection'
 import CoreValueSection from '../components/CoreValueSection'
