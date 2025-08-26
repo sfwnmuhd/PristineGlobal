@@ -435,16 +435,16 @@ const Hero = () => {
               )}
             </motion.div>
           ))}
-        </motion.div>
 
-        {/* ===== CLIENT LOGOS CAROUSEL ===== */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="pb-8 lg:pb-12"
-        >
-          <LogoCarousel />
+          {/* ===== CLIENT LOGOS CAROUSEL OVERLAY ===== */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+            className="absolute bottom-0 left-0 right-0 z-10"
+          >
+            <LogoCarousel />
+          </motion.div>
         </motion.div>
       </motion.div>
 
