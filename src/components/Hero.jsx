@@ -9,6 +9,7 @@ import worldmap from '../assets/worldmap.png'
 // Component imports
 import ShimmerButton from './ShimmerButton'
 import { Link } from 'react-router-dom'
+import LogoCarousel from './LogoCarousel'
 
 
 /**
