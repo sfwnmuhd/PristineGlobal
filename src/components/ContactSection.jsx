@@ -57,7 +57,7 @@ const ContactSection = () => {
             {/* Header with Arrow Icon */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-black mb-6 sm:mb-8 flex items-center flex-wrap">
               Reach out
-              <ArrowUpRight className="w-16 h-14 sm:w-24 sm:h-20 lg:w-32 lg:h-28 ml-4"/>
+              <ArrowUpRight className="w-8 h-8 sm:w-16 sm:h-14 md:w-20 md:h-16 lg:w-24 lg:h-20 xl:w-32 xl:h-28 ml-2 sm:ml-4"/>
               {/* <svg
                 className="w-16 h-14 sm:w-24 sm:h-20 lg:w-32 lg:h-28 ml-4"
                 fill="currentColor"
