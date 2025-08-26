@@ -55,7 +55,7 @@ const ContactSection = () => {
             viewport={{ once: true }}
           >
             {/* Header with Arrow Icon */}
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-black mb-8 flex items-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-black mb-6 sm:mb-8 flex items-center flex-wrap">
               Reach out
               <ArrowUpRight className="w-16 h-14 sm:w-24 sm:h-20 lg:w-32 lg:h-28 ml-4"/>
               {/* <svg
