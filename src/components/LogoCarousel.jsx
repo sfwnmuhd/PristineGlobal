@@ -80,13 +80,14 @@ const LogoCarousel = () => {
 
         .animate-scroll-left {
           animation: scroll-left 20s linear infinite;
-          width: calc(200% + 2rem);
+          width: calc(200% + 4rem);
           will-change: transform;
         }
 
         @media (max-width: 768px) {
           .animate-scroll-left {
             animation-duration: 10s;
+            width: calc(200% + 1rem);
           }
         }
       `}</style>
