@@ -47,14 +47,14 @@ const LogoCarousel = () => {
             {/* Scrolling track */}
             <div className="flex animate-scroll-left">
               {duplicatedLogos.map((logo, index) => (
-                <div 
-                  key={index} 
-                  className="flex-shrink-0 w-40 h-15 md:w-40 md:h-15 sm:w-30 sm:h-12.5 flex items-center justify-center mx-6 sm:mx-4"
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-40 h-16 sm:w-32 sm:h-14 flex items-center justify-center mx-6 sm:mx-4"
                 >
                   <img
                     src={logo.url}
                     alt={logo.name}
-                    className="max-w-25 max-h-10 sm:max-w-20 sm:max-h-8.75 w-auto h-auto object-contain opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 ease-in-out"
+                    className="max-w-[100px] max-h-[40px] sm:max-w-[80px] sm:max-h-[35px] w-auto h-auto object-contain opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 ease-in-out"
                     onError={(e) => {
                       // Fallback for broken images
                       e.target.style.display = 'none'
