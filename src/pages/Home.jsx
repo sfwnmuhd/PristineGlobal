@@ -21,7 +21,6 @@ const Home = () => {
       <section id="home">
         <Hero />
       </section>
-      <LogoCarousel />
       <section id="about">
         <AboutSection />
       </section>
