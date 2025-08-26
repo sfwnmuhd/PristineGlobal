@@ -9,6 +9,7 @@ import worldmap from '../assets/worldmap.png'
 // Component imports
 import ShimmerButton from './ShimmerButton'
 import { Link } from 'react-router-dom'
+import LogoCarousel from './LogoCarousel'
 
 
 /**
@@ -136,7 +137,13 @@ const Hero = () => {
     hidden: { opacity: 0, scale: 0.9, y: 20 },
     visible: {
       opacity: 1, scale: 1, y: 0,
-      transition: { type: "spring", damping: 24, stiffness: 120, duration: 0.9, delay: 0.6 }
+      transition: {
+        type: "spring",
+        damping: 24,
+        stiffness: 120,
+        duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0.1 : 0.9,
+        delay: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0.1 : 0.6
+      }
     }
   }
 
@@ -156,6 +163,7 @@ const Hero = () => {
           alt="Background Grid Pattern"
           className="w-full h-full object-cover opacity-40"
           loading="eager"
+          decoding="async"
         />
       </motion.div>
 
@@ -167,7 +175,7 @@ const Hero = () => {
         animate="visible"
       >
         {/* ===== HERO HEADING SECTION ===== */}
-        <div className="text-center space-y-3 sm:space-y-4 mt-12 sm:mt-16 lg:mt-20">
+        <div className="text-center space-y-3 sm:space-y-4 mt-8 sm:mt-12 lg:mt-16">
           {/* Main Heading with Split Animation */}
           <motion.h1
             variants={itemVariants}
@@ -220,11 +228,12 @@ const Hero = () => {
           <motion.img
             src={worldmap}
             alt="Interactive World Map"
-            className="w-full max-h-[55vh] sm:max-h-[60vh] lg:max-h-[65vh] xl:max-h-[70vh] object-contain"
+            className="w-full max-h-[40vh] sm:max-h-[45vh] lg:max-h-[50vh] xl:max-h-[55vh] object-contain"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 0.6, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             loading="eager"
+            decoding="async"
           />
 
           {/* ===== ANIMATED CONNECTION LINES ===== */}
@@ -434,6 +443,16 @@ const Hero = () => {
               )}
             </motion.div>
           ))}
+
+          {/* ===== CLIENT LOGOS CAROUSEL OVERLAY ===== */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+            className="absolute bottom-6 sm:bottom-8 left-0 right-0 z-10"
+          >
+            <LogoCarousel />
+          </motion.div>
         </motion.div>
       </motion.div>
 
