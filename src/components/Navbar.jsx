@@ -268,7 +268,7 @@ const Navbar = () => {
             exit={{ y: '-100%', opacity: 0 }}
             transition={{
               type: 'tween',
-              duration: 0.3,
+              duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0.1 : 0.3,
               ease: 'easeOut'
             }}
             className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-lg z-50"
