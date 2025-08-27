@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import BackToTop from '../components/BackToTop'
 import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import { IoLogoWhatsapp } from "react-icons/io";
+import SEO from '../components/SEO'
 
 /**
  * Contact Us Page Component
@@ -25,7 +26,7 @@ const Contact = () => {
     },
     {
       country: 'Qatar',
-      flag: '🇶🇦',
+      flag: '🇶��',
       isHeadquarters: false,
       address: 'Business Development Office, Doha, Qatar',
       phone: '+974 7765 1525',
