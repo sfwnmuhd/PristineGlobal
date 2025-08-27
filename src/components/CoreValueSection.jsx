@@ -57,8 +57,11 @@ const CoreValueSection = () => {
               {/* Value Icon */}
               <img
                 src={value.icon}
-                alt={`${value.title} icon`}
+                alt=""
+                aria-hidden="true"
                 className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 mx-auto mb-6 opacity-80"
+                loading="lazy"
+                decoding="async"
               />
               
               {/* Value Title */}
