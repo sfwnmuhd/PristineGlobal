@@ -54,7 +54,7 @@ const LocationsDropdown = ({ isAboutPage, isLocationPage, isContactPage, isScrol
     >
       {/* Dropdown Trigger */}
       <button
-        className={`${textColor} hover:text-[#0b3b5c] transition-colors font-medium text-sm xl:text-base cursor-pointer flex items-center`}
+        className={`${textColor} ${isAboutPage ? '' : 'hover:text-[#0b3b5c]'} transition-colors font-medium text-sm xl:text-base cursor-pointer flex items-center`}
         onClick={() => setIsOpen(!isOpen)}
       >
         Locations
