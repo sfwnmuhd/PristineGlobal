@@ -1,9 +1,8 @@
-import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import { useEffect } from 'react'
 
 /**
  * SEO Component for dynamic meta tags management
- * Provides comprehensive SEO meta tags for different pages
+ * Uses React's built-in document manipulation for SEO optimization
  */
 const SEO = ({ 
   title, 
@@ -27,38 +26,82 @@ const SEO = ({
   const seoUrl = url ? `${siteUrl}${url}` : siteUrl
   const fullImageUrl = seoImage.startsWith('http') ? seoImage : `${siteUrl}${seoImage}`
 
-  return (
-    <Helmet>
-      {/* Basic Meta Tags */}
-      <title>{seoTitle}</title>
-      <meta name="description" content={seoDescription} />
-      <meta name="keywords" content={seoKeywords} />
+  useEffect(() => {
+    // Update document title
+    document.title = seoTitle
+
+    // Helper function to update or create meta tags
+    const updateMetaTag = (property, content, isProperty = false) => {
+      const selector = isProperty ? `meta[property="${property}"]` : `meta[name="${property}"]`
+      let metaTag = document.querySelector(selector)
       
-      {/* Canonical URL */}
-      <link rel="canonical" href={seoUrl} />
+      if (metaTag) {
+        metaTag.setAttribute('content', content)
+      } else {
+        metaTag = document.createElement('meta')
+        if (isProperty) {
+          metaTag.setAttribute('property', property)
+        } else {
+          metaTag.setAttribute('name', property)
+        }
+        metaTag.setAttribute('content', content)
+        document.head.appendChild(metaTag)
+      }
+    }
+
+    // Helper function to update or create link tags
+    const updateLinkTag = (rel, href) => {
+      let linkTag = document.querySelector(`link[rel="${rel}"]`)
       
-      {/* Open Graph Tags */}
-      <meta property="og:title" content={seoTitle} />
-      <meta property="og:description" content={seoDescription} />
-      <meta property="og:image" content={fullImageUrl} />
-      <meta property="og:url" content={seoUrl} />
-      <meta property="og:type" content={type} />
-      <meta property="og:site_name" content="Pristine Global" />
-      
-      {/* Twitter Card Tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={seoTitle} />
-      <meta name="twitter:description" content={seoDescription} />
-      <meta name="twitter:image" content={fullImageUrl} />
-      
-      {/* Additional Schema Data */}
-      {schemaData && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
-      )}
-    </Helmet>
-  )
+      if (linkTag) {
+        linkTag.setAttribute('href', href)
+      } else {
+        linkTag = document.createElement('link')
+        linkTag.setAttribute('rel', rel)
+        linkTag.setAttribute('href', href)
+        document.head.appendChild(linkTag)
+      }
+    }
+
+    // Update basic meta tags
+    updateMetaTag('description', seoDescription)
+    updateMetaTag('keywords', seoKeywords)
+    
+    // Update canonical URL
+    updateLinkTag('canonical', seoUrl)
+    
+    // Update Open Graph tags
+    updateMetaTag('og:title', seoTitle, true)
+    updateMetaTag('og:description', seoDescription, true)
+    updateMetaTag('og:image', fullImageUrl, true)
+    updateMetaTag('og:url', seoUrl, true)
+    updateMetaTag('og:type', type, true)
+    
+    // Update Twitter Card tags
+    updateMetaTag('twitter:title', seoTitle)
+    updateMetaTag('twitter:description', seoDescription)
+    updateMetaTag('twitter:image', fullImageUrl)
+
+    // Add structured data if provided
+    if (schemaData) {
+      // Remove existing schema data
+      const existingSchema = document.querySelector('script[type="application/ld+json"]#page-schema')
+      if (existingSchema) {
+        existingSchema.remove()
+      }
+
+      // Add new schema data
+      const script = document.createElement('script')
+      script.type = 'application/ld+json'
+      script.id = 'page-schema'
+      script.textContent = JSON.stringify(schemaData)
+      document.head.appendChild(script)
+    }
+
+  }, [seoTitle, seoDescription, seoKeywords, fullImageUrl, seoUrl, type, schemaData])
+
+  // This component doesn't render anything visible
+  return null
 }
 
 export default SEO
