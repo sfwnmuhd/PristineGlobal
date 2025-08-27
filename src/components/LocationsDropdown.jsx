@@ -43,7 +43,7 @@ const LocationsDropdown = ({ isAboutPage, isLocationPage, isContactPage, isScrol
     if (onClose) onClose()
   }
 
-  const textColor = (isLocationPage || isContactPage) && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage && !isScrolled ? 'text-gray-900' : 'text-gray-700'
+  const textColor = (isLocationPage || isContactPage) && !isScrolled ? 'text-white hover:text-blue-200' : isAboutPage ? 'text-white hover:text-blue-200' : 'text-gray-700'
 
   return (
     <div
