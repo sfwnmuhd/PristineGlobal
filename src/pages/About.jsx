@@ -7,6 +7,7 @@ import AchievementsSection from '../components/AchievementsSection'
 import Footer from '../components/Footer'
 import BackToTop from '../components/BackToTop'
 import FloatingWhatsApp from '../components/FloatingWhatsApp'
+import SEO from '../components/SEO'
 
 /**
  * About Page Component
