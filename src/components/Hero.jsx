@@ -228,7 +228,7 @@ const Hero = () => {
           {/* World Map Image */}
           <motion.img
             src={worldmap}
-            alt="Interactive World Map"
+            alt="World map showing Pristine Global operations across the UK, Qatar, and India with interactive location markers"
             className="w-full max-h-[40vh] sm:max-h-[45vh] lg:max-h-[50vh] xl:max-h-[55vh] object-contain"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 0.6, scale: 1 }}
