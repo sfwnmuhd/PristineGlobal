@@ -97,6 +97,13 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Contact Pristine Global - Global Offices in UK, Qatar & India"
+        description="Contact Pristine Global's offices in UK, Qatar, and India. Get in touch for healthcare, technology, and trading solutions. Phone, email, and WhatsApp support available."
+        keywords="contact pristine global, pristine global office, UK healthcare contact, Qatar office, India office, healthcare consultation contact, global office contact"
+        url="/contact"
+        schemaData={contactSchemaData}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white pt-24 pb-16 overflow-hidden">
         {/* Background Image */}
