@@ -13,6 +13,55 @@ import SEO from '../components/SEO'
  * Dedicated page for contact information, offices, and contact form
  */
 const Contact = () => {
+  // Structured data for contact page
+  const contactSchemaData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Pristine Global",
+    "description": "Contact Pristine Global's offices in UK, Qatar, and India. Get in touch for healthcare, technology, and trading solutions.",
+    "url": "https://pristineglobal.netlify.app/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Pristine Global",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+44-7868-751-907",
+          "contactType": "customer service",
+          "areaServed": "GB",
+          "availableLanguage": "English",
+          "email": "sayeed@pristine-global.com"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+974-7765-1525",
+          "contactType": "customer service",
+          "areaServed": "QA",
+          "availableLanguage": "English",
+          "email": "qatar@pristine-global.com"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-124-456-7890",
+          "contactType": "customer service",
+          "areaServed": "IN",
+          "availableLanguage": "English",
+          "email": "india@pristine-global.com"
+        }
+      ],
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Hawthorne House, 17a Hawthorne Drive",
+          "addressLocality": "Leicester",
+          "addressRegion": "England",
+          "postalCode": "LE5 6DL",
+          "addressCountry": "GB"
+        }
+      ]
+    }
+  }
+
   const offices = [
     {
       country: 'United Kingdom',
@@ -26,7 +75,7 @@ const Contact = () => {
     },
     {
       country: 'Qatar',
-      flag: '🇶��',
+      flag: '🇶🇦',
       isHeadquarters: false,
       address: 'Business Development Office, Doha, Qatar',
       phone: '+974 7765 1525',
