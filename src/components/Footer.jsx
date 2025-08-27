@@ -88,8 +88,10 @@ const Footer = () => {
             <div className="mb-6">
               <img
                 src={logo}
-                alt="Pristine Global Logo"
+                alt="Pristine Global — Healthcare, Technology & Trading Solutions"
                 className="w-40 h-16 object-contain brightness-0 invert"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <p className="text-gray-300 text-base leading-relaxed mb-8 max-w-md">

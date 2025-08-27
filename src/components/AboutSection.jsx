@@ -33,15 +33,19 @@ const AboutSection = () => {
               <div className="border border-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
                 <img
                   src={care}
-                  alt="Compassionate care services and healthcare facilities"
+                  alt="Pristine Global compassionate care services — care home environment in the UK"
                   className="w-full h-40 sm:h-48 lg:h-56 xl:h-64 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="border border-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
                 <img
                   src={technology}
-                  alt="Technology solutions and IT services"
+                  alt="Pristine Global technology solutions team developing healthcare IT services"
                   className="w-full h-40 sm:h-48 lg:h-56 xl:h-64 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </motion.div>
@@ -57,15 +61,19 @@ const AboutSection = () => {
               <div className="border border-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
                 <img
                   src={retail}
-                  alt="Retail and business operations"
+                  alt="Pristine Global retail and trading operations — business development activities"
                   className="w-full h-40 sm:h-48 lg:h-56 xl:h-64 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="border border-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
                 <img
                   src={doctor}
-                  alt="Healthcare professionals and medical services"
+                  alt="Pristine Global healthcare professionals providing medical services across three countries"
                   className="w-full h-40 sm:h-48 lg:h-56 xl:h-64 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </motion.div>

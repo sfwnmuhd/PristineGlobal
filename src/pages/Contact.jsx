@@ -6,12 +6,62 @@ import Footer from '../components/Footer'
 import BackToTop from '../components/BackToTop'
 import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import { IoLogoWhatsapp } from "react-icons/io";
+import SEO from '../components/SEO'
 
 /**
  * Contact Us Page Component
  * Dedicated page for contact information, offices, and contact form
  */
 const Contact = () => {
+  // Structured data for contact page
+  const contactSchemaData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Pristine Global",
+    "description": "Contact Pristine Global's offices in UK, Qatar, and India. Get in touch for healthcare, technology, and trading solutions.",
+    "url": "https://pristineglobal.netlify.app/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Pristine Global",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+44-7868-751-907",
+          "contactType": "customer service",
+          "areaServed": "GB",
+          "availableLanguage": "English",
+          "email": "sayeed@pristine-global.com"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+974-7765-1525",
+          "contactType": "customer service",
+          "areaServed": "QA",
+          "availableLanguage": "English",
+          "email": "qatar@pristine-global.com"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-124-456-7890",
+          "contactType": "customer service",
+          "areaServed": "IN",
+          "availableLanguage": "English",
+          "email": "india@pristine-global.com"
+        }
+      ],
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Hawthorne House, 17a Hawthorne Drive",
+          "addressLocality": "Leicester",
+          "addressRegion": "England",
+          "postalCode": "LE5 6DL",
+          "addressCountry": "GB"
+        }
+      ]
+    }
+  }
+
   const offices = [
     {
       country: 'United Kingdom',
@@ -47,13 +97,21 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Contact Pristine Global - Global Offices in UK, Qatar & India"
+        description="Contact Pristine Global's offices in UK, Qatar, and India. Get in touch for healthcare, technology, and trading solutions. Phone, email, and WhatsApp support available."
+        keywords="contact pristine global, pristine global office, UK healthcare contact, Qatar office, India office, healthcare consultation contact, global office contact"
+        url="/contact"
+        schemaData={contactSchemaData}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white pt-24 pb-16 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.pexels.com/photos/6153740/pexels-photo-6153740.jpeg"
-            alt="Professional business contact and communication"
+            alt=""
+            aria-hidden="true"
             className="w-full h-full object-cover opacity-30"
             loading="lazy"
             decoding="async"
