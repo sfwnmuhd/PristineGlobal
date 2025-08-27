@@ -21,9 +21,9 @@ const MissionVisionSection = () => {
           >
             {/* Mission */}
             <div>
-              <h3 className="text-2xl sm:text-3xl font-semibold text-black mb-4">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">
                 Our Mission
-              </h3>
+              </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 To deliver exceptional healthcare services, innovative technology solutions, 
                 and strategic trading partnerships that enhance lives and drive sustainable 
@@ -34,9 +34,9 @@ const MissionVisionSection = () => {
 
             {/* Vision */}
             <div>
-              <h3 className="text-2xl sm:text-3xl font-semibold text-black mb-4">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">
                 Our Vision
-              </h3>
+              </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 To be a leading global enterprise recognized for transforming healthcare 
                 delivery, pioneering technology innovations, and fostering international 
@@ -46,9 +46,9 @@ const MissionVisionSection = () => {
 
             {/* Core Principles */}
             <div>
-              <h3 className="text-2xl sm:text-3xl font-semibold text-black mb-4">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">
                 Our Principles
-              </h3>
+              </h2>
               <ul className="space-y-3 text-lg text-gray-700">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-[#0b3b5c] rounded-full mt-3 mr-3 flex-shrink-0"></span>
@@ -78,9 +78,9 @@ const MissionVisionSection = () => {
             viewport={{ once: true, amount: 0.1 }}
             className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200"
           >
-            <h3 className="text-2xl sm:text-3xl font-semibold text-black mb-6">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-6">
               Our Founding Story
-            </h3>
+            </h2>
             
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
