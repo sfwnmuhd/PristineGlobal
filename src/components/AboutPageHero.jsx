@@ -7,7 +7,7 @@ import { motion } from 'motion/react'
  */
 const AboutPageHero = () => {
   return (
-    <section className="py-20 lg:py-32 flex items-center justify-center bg-gradient-to-br from-[#0b3b5c] to-[#1a5073]">
+    <section className="py-15 sm:py-24 flex items-center justify-center bg-gradient-to-br from-[#0b3b5c] to-[#1a5073]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
         {/* Main Title */}
@@ -15,20 +15,20 @@ const AboutPageHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-light text-white mb-8"
+          className="text-5xl sm:text-7xl lg:text-8xl font-light text-white mb-2"
         >
-          About
+          About Us
         </motion.h1>
 
         {/* Company Name */}
-        <motion.h2
+        {/* <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-2xl sm:text-3xl lg:text-4xl font-medium text-blue-200 mb-12"
         >
           Pristine Global
-        </motion.h2>
+        </motion.h2> */}
 
         {/* Simple Description */}
         <motion.p
