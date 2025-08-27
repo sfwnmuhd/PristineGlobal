@@ -105,8 +105,10 @@ const UK = () => {
                 <div className="h-48 overflow-hidden">
                   <img
                     src={facility.image}
-                    alt={`${facility.name} - ${facility.specialty}`}
+                    alt={`${facility.name} — ${facility.specialty} facility in the UK`}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
