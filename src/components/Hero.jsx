@@ -160,7 +160,8 @@ const Hero = () => {
       >
         <img
           src={gridbg}
-          alt="Background Grid Pattern"
+          alt=""
+          aria-hidden="true"
           className="w-full h-full object-cover opacity-40"
           loading="eager"
           decoding="async"
