@@ -9,6 +9,7 @@ import CallToActionSection from '../components/CallToActionSection'
 import Footer from '../components/Footer'
 import BackToTop from '../components/BackToTop'
 import FloatingWhatsApp from '../components/FloatingWhatsApp'
+import SEO from '../components/SEO'
 
 /**
  * Home Page Component
