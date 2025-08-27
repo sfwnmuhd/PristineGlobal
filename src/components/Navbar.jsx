@@ -282,8 +282,10 @@ const Navbar = () => {
               <Link to="/" onClick={closeMenu}>
                 <img
                   src="/logo.png"
-                  alt="Pristine Global Logo"
+                  alt="Pristine Global — Healthcare, Technology & Trading Solutions"
                   className="w-auto h-8"
+                  loading="eager"
+                  decoding="async"
                 />
               </Link>
               <button
