@@ -54,15 +54,15 @@ const FounderMessageSection = () => {
               className="space-y-6 text-base lg:text-lg text-gray-700 leading-relaxed"
             >
               <p>
-                We are a chain of hospitals, medical centers and pharmacies, delivering quality and affordable healthcare to our patients. Our vision is to be a truly world class healthcare organization, gaining the lifetime loyalty of our patients.
+                We are a diversified enterprise with operations spanning healthcare, technology, retail, and international trading, committed to delivering excellence and value across our global network. With a strong presence in Qatar, the United Kingdom, and India, Pristine Global integrates innovation, compassion, and business acumen to create sustainable impact in every market we serve.
               </p>
 
               <p>
-                The healthcare sector in India has undergone a sea change, and continues to address the many challenges. With rising incomes and a burgeoning disease burden, India has an enormous expressed need for high quality healthcare delivery.
+                The global healthcare and business landscape is evolving rapidly, driven by changing demographics, rising demand, and technological advancements. In Qatar, we are building a strong ecosystem in pharmaceuticals, medical equipment, IT solutions, and modern retail. In the United Kingdom, our operations extend to care homes, children’s care, and FMCG & medical wholesale trading, addressing critical social needs while fostering trusted business partnerships. In India, under the Prime Care brand, we are focused on hospitals, healthcare distribution, and patient-centered medical services, ensuring quality and affordability for a growing population.
               </p>
 
               <p>
-                The availability of a large pool of clinical talent in the country, improved global connectivity, increasing healthcare insurance penetration and growing foreign direct investment in healthcare, help to create an excellent ecosystem where a world class healthcare system could sustain and thrive. This growth potential in the medical sector in India is likely to sustain over the coming several years.
+                With rising global healthcare demand, expanding trade opportunities, and rapid digitization, Pristine Global is positioned to thrive at the intersection of healthcare, technology, and international business. Leveraging local expertise, global networks, and strategic investments, we continue to deliver value for patients, communities, and partners worldwide.
               </p>
             </motion.div>
           </motion.div>
