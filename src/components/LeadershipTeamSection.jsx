@@ -2,134 +2,79 @@ import React from 'react'
 import { motion } from 'motion/react'
 
 /**
- * LeadershipTeamSection Component
- * Displays the leadership team with photos and roles
- * Features: Responsive grid, investment CTA, staggered animations
+ * FounderMessageSection Component
+ * Displays the founder's message and vision for the company
  */
-const LeadershipTeamSection = () => {
-  // ===== TEAM MEMBERS DATA =====
-  
-  const teamMembers = [
-    {
-      name: "Dr. Mohsin Ditta",
-      role: "Family Medicine specialist | co-founder of Pristine Care Homes",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738",
-    },
-    {
-      name: "Dr. Syed Sayeed Ahmed",
-      role: "Consultant Pediatrician | MBA | leader across our UK, Middle East, and Indian healthcare ventures",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738",
-    },
-    {
-      name: "Dr. Ahmed Rashid Shaik",
-      role: "Family Physician | Academic Faculty | co-founder | overseeing IT and healthcare investments across regions",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738",
-    },
-    {
-      name: "Tanveer Mohamed",
-      role: "CEO of Precedence Technologies | driving strategy and long-term planning for our IT and investment arm",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738",
-    },
-  ]
-
-  // ===== COMPONENT RENDER =====
-
+const FounderMessageSection = () => {
   return (
     <section className="py-16 lg:py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           viewport={{ once: true, amount: 0.1 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-4 text-center sm:text-left"
+          className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-8 text-center"
         >
-          Our Leadership Team
+          Message From Founder
         </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-          viewport={{ once: true, amount: 0.1 }}
-          className="text-base sm:text-lg lg:text-xl text-gray-500 mb-12 text-center sm:text-left"
-        >
-          A dynamic team of medical, technology, and business leaders committed
-          to global healthcare excellence.
-        </motion.p>
-
-        {/* Team Members Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.03 }}
-              viewport={{ once: true, amount: 0.1 }}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300"
-            >
-              {/* Member Photo */}
-              <div className="relative h-auto sm:h-72 lg:h-80 overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={`${member.name} — ${member.role.split('|')[0].trim()}, Pristine Global leadership team`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* Member Info */}
-              <div className="p-4 sm:p-6">
-                <h3 className="text-lg font-medium text-black mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {member.role}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* ===== INVESTMENT CALL-TO-ACTION ===== */}
+        {/* Founder Message Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true, amount: 0.1 }}
-          className="text-center sm:text-left mt-6 sm:mt-16 sm:flex sm:justify-between sm:items-center"
+          className="bg-white rounded-2xl shadow-lg p-8 lg:p-12"
         >
-          {/* CTA Content */}
-          <div className='sm:flex sm:flex-col sm:items-start mb-2 sm:mb-0'>
-            <h3 className="text-xl sm:text-2xl font-medium text-black mb-2 sm:mb-4">
-              Ready to invest in our growing portfolio?
-            </h3>
-            <p className="text-sm sm:text-lg text-gray-500">
-              From the upcoming UK care home to thriving ventures worldwide.
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
+            className="prose prose-lg max-w-none"
+          >
+            <p className="text-lg lg:text-xl text-gray-700 font-medium mb-6">
+              Greetings from Primecare (India),
             </p>
-          </div>
 
-          {/* CTA Button */}
-          <div>
-            <button className="flex items-center justify-center mx-auto sm:mx-0 border border-[#0b3b5c] text-[#0b3b5c] px-6 py-3 rounded-full text-sm font-medium hover:bg-[#0b3b5c] hover:text-white transition-colors cursor-pointer">
-              Invest with Us
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M17.4383 10.5565L8.47314 19.5217L7 18.0485L15.9652 9.08333H8.06335V7H19.5217V18.4583H17.4383V10.5565Z" />
-              </svg>
-            </button>
-          </div>
+            <div className="text-base lg:text-lg text-gray-600 leading-relaxed space-y-4">
+              <p>
+                We are a chain of hospitals, medical centers and pharmacies, delivering quality and affordable healthcare to our patients. Our vision is to be a truly world class healthcare organization, gaining the lifetime loyalty of our patients.
+              </p>
+
+              <p>
+                The healthcare sector in India has undergone a sea change, and continues to address the many challenges. With rising incomes and a burgeoning disease burden, India has an enormous expressed need for high quality healthcare delivery.
+              </p>
+
+              <p>
+                The availability of a large pool of clinical talent in the country, improved global connectivity, increasing healthcare insurance penetration and growing foreign direct investment in healthcare, help to create an excellent ecosystem where a world class healthcare system could sustain and thrive. This growth potential in the medical sector in India is likely to sustain over the coming several years.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Founder Signature */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+            viewport={{ once: true, amount: 0.1 }}
+            className="mt-8 pt-6 border-t border-gray-200"
+          >
+            <div className="text-right">
+              <h3 className="text-xl lg:text-2xl font-semibold text-[#0b3b5c] mb-1">
+                DR. SYED SAYEED AHMED
+              </h3>
+              <p className="text-sm lg:text-base text-gray-600 font-medium">
+                Founder Chairman & Managing Director
+              </p>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
   )
 }
 
-export default LeadershipTeamSection
+export default FounderMessageSection
