@@ -2,7 +2,7 @@ import React from 'react'
 import AboutPageHero from '../components/AboutPageHero'
 import MissionVisionSection from '../components/MissionVisionSection'
 import CoreValueSection from '../components/CoreValueSection'
-import LeadershipTeamSection from '../components/LeadershipTeamSection'
+import FounderMessageSection from '../components/LeadershipTeamSection'
 import AchievementsSection from '../components/AchievementsSection'
 import Footer from '../components/Footer'
 import BackToTop from '../components/BackToTop'
@@ -63,8 +63,8 @@ const About = () => {
       {/* Core Values */}
       <CoreValueSection />
 
-      {/* Leadership Team */}
-      <LeadershipTeamSection />
+      {/* Founder Message */}
+      <FounderMessageSection />
 
       {/* Achievements & Milestones */}
       <AchievementsSection />

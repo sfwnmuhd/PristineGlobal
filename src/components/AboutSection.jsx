@@ -117,10 +117,7 @@ const AboutSection = () => {
               transition={{ duration: 0.3, delay: 0.2 }}
               viewport={{ once: true, amount: 0.1 }}
             >
-              Pristine Global is a family-led enterprise founded by visionaries
-              Dr. Syed Sayeed Ahmed and Dr. Ahmed Rashid Shaik, both seasoned
-              healthcare professionals with deep expertise in medical service
-              delivery and strategic investments across multiple countries.
+              Pristine Global was founded by Dr. Syed Sayeed Ahmed, a visionary healthcare leader with decades of expertise in medical service delivery, healthcare administration, and strategic investments across international markets.
             </motion.p>
           </motion.div>
         </div>

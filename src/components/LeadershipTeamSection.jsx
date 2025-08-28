@@ -2,99 +2,119 @@ import React from 'react'
 import { motion } from 'motion/react'
 
 /**
- * LeadershipTeamSection Component
- * Displays the leadership team with photos and roles
- * Features: Responsive grid, investment CTA, staggered animations
+ * FounderMessageSection Component
+ * Displays the founder's message with a clean two-column layout
+ * Features: Content left, simple founder image with details right, and CTA below
  */
-const LeadershipTeamSection = () => {
-  // ===== TEAM MEMBERS DATA =====
-  
-  const teamMembers = [
-    {
-      name: "Dr. Mohsin Ditta",
-      role: "Family Medicine specialist | co-founder of Pristine Care Homes",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738",
-    },
-    {
-      name: "Dr. Syed Sayeed Ahmed",
-      role: "Consultant Pediatrician | MBA | leader across our UK, Middle East, and Indian healthcare ventures",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738",
-    },
-    {
-      name: "Dr. Ahmed Rashid Shaik",
-      role: "Family Physician | Academic Faculty | co-founder | overseeing IT and healthcare investments across regions",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738",
-    },
-    {
-      name: "Tanveer Mohamed",
-      role: "CEO of Precedence Technologies | driving strategy and long-term planning for our IT and investment arm",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738",
-    },
-  ]
-
-  // ===== COMPONENT RENDER =====
-
+const FounderMessageSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
+    <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          viewport={{ once: true, amount: 0.1 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black mb-4 text-center sm:text-left"
-        >
-          Our Leadership Team
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-          viewport={{ once: true, amount: 0.1 }}
-          className="text-base sm:text-lg lg:text-xl text-gray-500 mb-12 text-center sm:text-left"
-        >
-          A dynamic team of medical, technology, and business leaders committed
-          to global healthcare excellence.
-        </motion.p>
-
-        {/* Team Members Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
+        
+        {/* Two Column Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+          
+          {/* Left Column - Message Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.1 }}
+            className="order-2 lg:order-1"
+          >
+            {/* Main Heading */}
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.03 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true, amount: 0.1 }}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300"
+              className="text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-4 leading-tight"
             >
-              {/* Member Photo */}
-              <div className="relative h-auto sm:h-72 lg:h-80 overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={`${member.name} — ${member.role.split('|')[0].trim()}, Pristine Global leadership team`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              Message from our{' '}
+              <span className="text-[#0b3b5c]">Founder.</span>
+            </motion.h2>
 
-              {/* Member Info */}
-              <div className="p-4 sm:p-6">
-                <h3 className="text-lg font-medium text-black mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {member.role}
-                </p>
-              </div>
+            {/* Greeting */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
+              className="text-lg lg:text-xl text-gray-600 mb-8 font-medium"
+            >
+              Greetings from Pristine Global,
+            </motion.p>
+
+            {/* Message Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
+              className="space-y-6 text-base lg:text-lg text-gray-700 leading-relaxed"
+            >
+              <p>
+                We are a diversified enterprise with operations spanning healthcare, technology, retail, and international trading, committed to delivering excellence and value across our global network. With a strong presence in Qatar, the United Kingdom, and India, Pristine Global integrates innovation, compassion, and business acumen to create sustainable impact in every market we serve.
+              </p>
+
+              <p>
+                The global healthcare and business landscape is evolving rapidly, driven by changing demographics, rising demand, and technological advancements. In Qatar, we are building a strong ecosystem in pharmaceuticals, medical equipment, IT solutions, and modern retail. In the United Kingdom, our operations extend to care homes, children’s care, and FMCG & medical wholesale trading, addressing critical social needs while fostering trusted business partnerships. In India, under the Prime Care brand, we are focused on hospitals, healthcare distribution, and patient-centered medical services, ensuring quality and affordability for a growing population.
+              </p>
+
+              <p>
+                With rising global healthcare demand, expanding trade opportunities, and rapid digitization, Pristine Global is positioned to thrive at the intersection of healthcare, technology, and international business. Leveraging local expertise, global networks, and strategic investments, we continue to deliver value for patients, communities, and partners worldwide.
+              </p>
             </motion.div>
-          ))}
+          </motion.div>
+
+          {/* Right Column - Founder Details */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
+            className="order-1 lg:order-2"
+          >
+            <div className="text-center">
+              {/* Founder Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
+                className="relative mb-6"
+              >
+                <div className="relative w-80 h-96 mx-auto overflow-hidden rounded-2xl shadow-xl">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738"
+                    alt="Dr. Syed Sayeed Ahmed - Founder Chairman & Managing Director"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Founder Name and Title */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true, amount: 0.1 }}
+                className="space-y-2"
+              >
+                <h3 className="text-2xl lg:text-3xl font-bold text-[#0b3b5c]">
+                  DR. SYED SAYEED AHMED
+                </h3>
+                <p className="text-lg lg:text-xl text-gray-600 font-medium">
+                  Founder Chairman & Managing Director
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* ===== INVESTMENT CALL-TO-ACTION ===== */}
+        {/* ===== CALL-TO-ACTION SECTION ===== */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -132,4 +152,4 @@ const LeadershipTeamSection = () => {
   )
 }
 
-export default LeadershipTeamSection
+export default FounderMessageSection

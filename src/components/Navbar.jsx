@@ -126,7 +126,7 @@ const Navbar = () => {
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       animate={{
-        // backgroundColor: (isScrolled || isAboutPage) ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
+        backgroundColor: (isScrolled ) ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
         backdropFilter: (isScrolled || isAboutPage) ? 'blur(10px)' : 'blur(0px)'
       }}
       style={{

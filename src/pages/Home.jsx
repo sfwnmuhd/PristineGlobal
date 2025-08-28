@@ -3,7 +3,7 @@ import Hero from '../components/Hero'
 import AboutSection from '../components/AboutSection'
 import DivisionByCountrySection from '../components/DivisionByCountrySection'
 import CoreValueSection from '../components/CoreValueSection'
-import LeadershipTeamSection from '../components/LeadershipTeamSection'
+import FounderMessageSection from '../components/LeadershipTeamSection'
 import ContactSection from '../components/ContactSection'
 import CallToActionSection from '../components/CallToActionSection'
 import Footer from '../components/Footer'
@@ -93,7 +93,7 @@ const Home = () => {
       </section>
       <section id="services">
         <CoreValueSection />
-        <LeadershipTeamSection />
+        <FounderMessageSection />
       </section>
       <section id="contact">
         <ContactSection />
