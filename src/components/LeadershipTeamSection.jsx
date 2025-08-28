@@ -118,23 +118,23 @@ const FounderMessageSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true, amount: 0.1 }}
-          className="text-center sm:text-left sm:flex sm:justify-between sm:items-center bg-gray-50 rounded-2xl p-8 lg:p-12"
+          className="text-center sm:text-left mt-6 sm:mt-16 sm:flex sm:justify-between sm:items-center"
         >
           {/* CTA Content */}
-          <div className='sm:flex sm:flex-col sm:items-start mb-6 sm:mb-0'>
-            <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">
-              Ready to invest in our growing healthcare portfolio?
+          <div className='sm:flex sm:flex-col sm:items-start mb-2 sm:mb-0'>
+            <h3 className="text-xl sm:text-2xl font-medium text-black mb-2 sm:mb-4">
+              Ready to invest in our growing portfolio?
             </h3>
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-              From expanding medical centers to innovative healthcare technology solutions across multiple countries.
+            <p className="text-sm sm:text-lg text-gray-500">
+              From the upcoming UK care home to thriving ventures worldwide.
             </p>
           </div>
 
           {/* CTA Button */}
-          <div className="flex-shrink-0">
-            <button className="flex items-center justify-center mx-auto sm:mx-0 bg-[#0b3b5c] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          <div>
+            <button className="flex items-center justify-center mx-auto sm:mx-0 border border-[#0b3b5c] text-[#0b3b5c] px-6 py-3 rounded-full text-sm font-medium hover:bg-[#0b3b5c] hover:text-white transition-colors cursor-pointer">
               Invest with Us
               <svg
                 className="w-5 h-5 ml-2"
