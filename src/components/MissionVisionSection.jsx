@@ -84,22 +84,15 @@ const MissionVisionSection = () => {
             
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Founded by visionary healthcare professionals Dr. Syed Sayeed Ahmed and 
-                Dr. Ahmed Rashid Shaik, Pristine Global emerged from a shared commitment 
-                to revolutionize healthcare delivery across international markets.
+                Founded by visionary healthcare leader Dr. Syed Sayeed Ahmed, Pristine Global emerged from a commitment to revolutionize healthcare delivery and expand into technology and international trade.
               </p>
               
               <p>
-                With decades of combined experience in medical practice, healthcare 
-                administration, and strategic business development, our founders recognized 
-                the opportunity to create a unique enterprise that bridges healthcare 
-                excellence with technological innovation.
+                With decades of experience in medical practice, healthcare administration, and strategic business development, Dr. Ahmed recognized the opportunity to build an enterprise that bridges healthcare excellence with innovation and global partnerships.
               </p>
               
               <p>
-                Today, Pristine Global stands as a testament to the power of medical 
-                expertise combined with entrepreneurial vision, operating across multiple 
-                continents and serving diverse communities with unwavering dedication to quality.
+                Today, Pristine Global stands as a testament to his vision and leadership, operating across multiple countries and serving diverse communities with unwavering dedication to quality and growth.
               </p>
             </div>
 
