@@ -42,7 +42,7 @@ const FounderMessageSection = () => {
               viewport={{ once: true, amount: 0.1 }}
               className="text-lg lg:text-xl text-gray-600 mb-8 font-medium"
             >
-              Greetings from Primecare (India),
+              Greetings from Pristine Global,
             </motion.p>
 
             {/* Message Content */}
