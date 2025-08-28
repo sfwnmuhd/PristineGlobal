@@ -15,7 +15,7 @@ import SEO from '../components/SEO'
 const Contact = () => {
   // Structured data for contact page
   const contactSchemaData = {
-    "@context": "https://schema.org",
+    "@context": "https://schema.or  g",
     "@type": "ContactPage",
     "name": "Contact Pristine Global",
     "description": "Contact Pristine Global's offices in UK, Qatar, and India. Get in touch for healthcare, technology, and trading solutions.",
@@ -67,31 +67,31 @@ const Contact = () => {
       country: 'United Kingdom',
       flag: '🇬🇧',
       isHeadquarters: true,
-      address: 'Hawthorne House, 17a Hawthorne Drive, Leicester, England, LE5 6DL',
+      address: 'Pristine global ltd, Hawthorne House, 17a Hawhorne Drive, LE5 6DL, Leicester, United Kingdom',
       phone: '+44 7868 751 907',
       email: 'sayeed@pristine-global.com',
       businessHours: 'Mon - Fri: 9:00 AM - 6:00 PM GMT',
-      services: ['Nursing Homes', 'Child Care', 'Healthcare Consulting']
+      services: ['Care Homes', 'Child Care', 'Wholesale Traiding','FMCG','Medical']
     },
     {
       country: 'Qatar',
       flag: '🇶🇦',
       isHeadquarters: false,
-      address: 'Business Development Office, Doha, Qatar',
+      address: 'Office No.104, building No.430, Retaj Building, Street 430, Zone 55, Abu Sidra, Doha - Qatar',
       phone: '+974 7765 1525',
       email: 'qatar@pristine-global.com',
       businessHours: 'Sun - Thu: 8:00 AM - 5:00 PM AST',
-      services: ['Healthcare Consulting', 'Business Development', 'Technology Solutions']
+      services: ['Pharmacy', 'Medical Equipments', 'Super market & Online Grocery','IT Solutions']
     },
     {
       country: 'India',
       flag: '🇮🇳',
       isHeadquarters: false,
-      address: 'S-359, 2nd Floor, Tower B, Ansal Corporate Plaza, Palam Vihar, Gurgaon, Haryana',
+      address: 'Primecare Hospital-Fraser Town, 158, MM Road, near Everest Theater, Pulikeshi Nagar, Bengaluru, Karnataka 560005, India',
       phone: '+91 124 456 7890',
       email: 'india@pristine-global.com',
       businessHours: 'Mon - Sat: 9:30 AM - 6:30 PM IST',
-      services: ['Healthcare Technology', 'Medical Equipment Trading', 'Pharmaceutical Partnership']
+      services: ['FMCG Distribution', 'Medical Equipment Trading', 'Hospital','']
     }
   ]
 
