@@ -73,7 +73,7 @@ const DivisionByCountrySection = () => {
           viewport={{ once: true, amount: 0.1 }}
           className="text-3xl sm:text-5xl font-semibold text-black mb-4"
         >
-          Our Division by Country
+          Our Business by Country
         </motion.h2>
 
         <motion.p

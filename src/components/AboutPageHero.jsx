@@ -37,8 +37,7 @@ const AboutPageHero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed"
         >
-          A family-led enterprise dedicated to excellence in healthcare,
-          technology, and global trading across multiple countries.
+          A global enterprise committed to excellence in healthcare, technology, and international trading.
         </motion.p>
       </div>
     </section>
