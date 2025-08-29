@@ -19,19 +19,13 @@ const DivisionByCountrySection = () => {
       img: 'https://api.builder.io/api/v1/image/assets/TEMP/b9bc235f1adeb19209ec3398e8fbca66d5117640?width=996',
     },
     Qatar: {
-      title: 'Healthcare & Technology Services',
-      description: `Our Qatari operations span:
-                  • Hyper Nova Supermarket & Wholesale Trading – providing quality consumer goods
-                  • Precedence Information Technologies – delivering strategic IT services and solutions
-                  • Mednova Medical Trading – supplying medical equipment and healthcare essentials`,
+      title: 'Qatar — Healthcare, Pharma, Tech & Retail',
+      description: `Pristine Global’s Qatar operations are focused on healthcare, pharmaceuticals, technology, and retail, represented by:\n\n• Excel Pharma Import & Export – Freezone pharmaceutical import/export.\n• Pharmolife Biotechnologies – Pharmacies and healthcare trading.\n• Mednova Trading – Advanced medical equipment supplier.\n• Hypernova Trading – Retail and e‑commerce (supermarkets, online grocery).\n• Precedence Information Technology – Cutting‑edge IT solutions.`,
       img: 'https://assets.weforum.org/article/image/b3yliS-6KqpbNI0UxUUa6Zl4lK7OVuErGZXf7KS2r28.jpg',
     },
     India: {
-      title: 'Integrated Healthcare & Distribution',
-      description: `Our operations in India focus on:
-• Prime Care Hospitals – delivering multispecialty hospital services across India
-• Prime Care Pharma – retail and wholesale pharmaceutical distribution
-• Primecare Distribution – streamlining supply chain and product delivery logistics`,
+      title: 'India — Prime Care Healthcare & Distribution',
+      description: `Pristine Global’s India operations emphasize healthcare and distribution, led by the Prime Care brand:\n\n• Prime Care Distribution – FMCG distribution network.\n• Prime Care Hospital – Quality, affordable healthcare with patient‑centric values.\n• Prime Care Global – Ethical, accessible, value‑based medical services with strong leadership, skilled professionals and modern infrastructure.`,
       img: 'https://victualcourier.com/wp-content/uploads/2023/06/zzzzz.png',
     },
   }
