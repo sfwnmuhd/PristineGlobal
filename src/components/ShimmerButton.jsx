@@ -28,7 +28,7 @@ const ShimmerButton = ({ text, onClick }) => {
       `}</style>
       
       {/* Button Container with Gradient Border */}
-      <button className="relative inline-flex items-center justify-center p-[2.5px] bg-[#0b3b5c] rounded-full overflow-hidden group cursor-pointer">
+      <button onClick={onClick} className="relative inline-flex items-center justify-center p-[2.5px] bg-[#0b3b5c] rounded-full overflow-hidden group cursor-pointer">
         {/* Animated Shimmer Gradient Background */}
         <div 
           className="absolute inset-0" 
