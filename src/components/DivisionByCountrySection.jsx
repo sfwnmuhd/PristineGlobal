@@ -42,6 +42,15 @@ const DivisionByCountrySection = () => {
 
   // Get current country data
   const currentData = countryData[selectedCountry]
+  const hasBullets = currentData.description.includes('•')
+  const bulletLines = hasBullets
+    ? currentData.description
+        .split('\n')
+        .map((l) => l.trim())
+        .filter((l) => l.startsWith('•'))
+        .map((l) => l.replace(/^•\s*/, ''))
+    : []
+  const introText = hasBullets ? currentData.description.split('•')[0].trim() : currentData.description
 
   // ===== EVENT HANDLERS =====
   
