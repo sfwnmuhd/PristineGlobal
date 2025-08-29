@@ -170,34 +170,6 @@ const Hero = () => {
         />
       </motion.div>
 
-      {/* ===== LOADING OVERLAY ===== */}
-      <AnimatePresence>
-        {!loaded.bg || !loaded.map ? (
-          <motion.div
-            key="hero-loader"
-            className="absolute inset-0 z-30 bg-white/70 backdrop-blur-sm flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            aria-busy="true"
-            aria-live="polite"
-          >
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] animate-pulse" />
-              <div className="w-64 h-3 rounded-full bg-gray-200 overflow-hidden">
-                <motion.div
-                  className="h-full bg-[#0b3b5c]"
-                  initial={{ x: '-100%' }}
-                  animate={{ x: ['-100%', '100%'] }}
-                  transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
-                />
-              </div>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-
       {/* ===== MAIN CONTENT WRAPPER ===== */}
       <motion.div
         className="relative z-10 max-w-7xl mx-auto flex flex-col justify-between h-full px-4 sm:px-6 lg:px-8"
@@ -260,9 +232,10 @@ const Hero = () => {
             src={worldmap}
             alt="World map showing Pristine Global operations across the UK, Qatar, and India with interactive location markers"
             className="w-full max-h-[40vh] sm:max-h-[45vh] lg:max-h-[50vh] xl:max-h-[55vh] object-contain"
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ willChange: 'opacity, transform, filter' }}
+            initial={{ opacity: 0, scale: 1.02, filter: 'blur(16px)' }}
+            animate={{ opacity: loaded.map ? 0.6 : 0, scale: loaded.map ? 1 : 1.01, filter: loaded.map ? 'blur(0px)' : 'blur(16px)' }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
             loading="eager"
             decoding="async"
             onLoad={() => setLoaded((s) => ({ ...s, map: true }))}
@@ -273,7 +246,7 @@ const Hero = () => {
             className="pointer-events-none absolute inset-0 w-full h-full"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
-            style={{ zIndex: 1 }}
+            style={{ zIndex: 1, opacity: loaded.map ? 1 : 0, transition: 'opacity 400ms ease' }}
           >
             {connectionLines.map((line, index) => {
               // Calculate curved path using quadratic Bezier curves
@@ -355,10 +328,10 @@ const Hero = () => {
                 top: `${getCoordinates(location).y}%`,
                 zIndex: 2
               }}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={loaded.map ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
               transition={{
-                delay: index * 0.25 + 1.2,
+                delay: loaded.map ? index * 0.2 + 0.3 : 0,
                 type: "spring",
                 damping: 16,
                 stiffness: 210
