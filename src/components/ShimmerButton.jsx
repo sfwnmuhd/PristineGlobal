@@ -7,7 +7,7 @@ import React from 'react'
  * 
  * @param {string} text - The text to display inside the button
  */
-const ShimmerButton = ({ text }) => {
+const ShimmerButton = ({ text, onClick }) => {
   return (
     <div className="flex items-center justify-center font-sans">
       {/* CSS-in-JS styles for the shimmer animation */}
