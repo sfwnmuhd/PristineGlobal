@@ -95,6 +95,9 @@ const India = () => {
             src="https://images.pexels.com/photos/6153740/pexels-photo-6153740.jpeg"
             alt="Healthcare and distribution operations in India"
             className="w-full h-full object-cover opacity-30"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#0b3b5c]/80 to-[#2b376b]/80"></div>
         </div>
@@ -142,7 +145,7 @@ const India = () => {
                 className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="h-40 overflow-hidden">
-                  <img src={b.img} alt={b.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  <img src={b.img} alt={b.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
                 </div>
                 <div className="p-6">
                   <div className="mb-2">
@@ -186,7 +189,7 @@ const India = () => {
                 className="bg-white rounded-xl p-6 border border-gray-200"
               >
                 <div className="h-32 rounded-lg overflow-hidden mb-4">
-                  <img src={v.img} alt={v.alt} className="w-full h-full object-cover" />
+                  <img src={v.img} alt={v.alt} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <h3 className="text-xl font-semibold text-black mb-2">{v.title}</h3>
                 <p className="text-gray-600">{v.text}</p>
