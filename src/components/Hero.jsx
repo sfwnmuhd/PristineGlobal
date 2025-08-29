@@ -212,7 +212,7 @@ const Hero = () => {
 
           {/* Call-to-Action Buttons */}
           <motion.div variants={itemVariants} className="flex justify-center">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.96 }}
