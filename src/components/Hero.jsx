@@ -172,7 +172,7 @@ const Hero = () => {
 
       {/* ===== MAIN CONTENT WRAPPER ===== */}
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto flex flex-col justify-between h-full px-4 sm:px-6 lg:px-8"
+        className="relative z-10 max-w-7xl mx-auto flex flex-col h-full px-4 sm:px-6 lg:px-8 md:justify-between gap-6 sm:gap-8 md:gap-0"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -244,7 +244,7 @@ const Hero = () => {
         {/* ===== INTERACTIVE WORLD MAP SECTION ===== */}
         <motion.div
           variants={mapVariants}
-          className="relative flex-1 w-full max-w-6xl mx-auto flex items-center justify-center"
+          className="relative w-full md:flex-1 max-w-6xl mx-auto flex items-center justify-center mt-4 sm:mt-6 md:mt-0"
         >
           {/* World Map Image */}
           <motion.img
