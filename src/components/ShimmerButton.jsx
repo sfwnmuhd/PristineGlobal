@@ -39,7 +39,7 @@ const ShimmerButton = ({ text, onClick }) => {
         />
         
         {/* Button Content */}
-        <span className="relative z-10 inline-flex items-center justify-center w-full h-full px-8 py-3 text-white bg-[#0b3b5c] rounded-full group-hover:bg-[#0b3b5c] hover:text-gray-300 transition-colors duration-300">
+        <span className="relative z-10 inline-flex items-center justify-center w-full h-full px-6 py-2 text-white bg-[#0b3b5c] rounded-full group-hover:bg-[#0b3b5c] hover:text-gray-300 transition-colors duration-300">
           {text}
         </span>
       </button>
