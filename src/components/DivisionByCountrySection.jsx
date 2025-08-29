@@ -104,8 +104,7 @@ const DivisionByCountrySection = () => {
               <ReactCountryFlag
                 countryCode={countryCodes[country]}
                 svg
-                style={{ width: '2em', height: '1.5em', borderRadius: '3px' }}
-                className="mr-3"
+                className="mr-3 w-8 h-6 rounded-sm"
               />
               <span className="text-sm sm:text-base lg:text-lg font-medium">{country}</span>
             </button>
