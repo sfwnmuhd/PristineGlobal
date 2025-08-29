@@ -52,6 +52,25 @@ const DivisionByCountrySection = () => {
     : []
   const introText = hasBullets ? currentData.description.split('•')[0].trim() : currentData.description
 
+  // Parse bullet lines to extract a highlighted label and description
+  const parseBullet = (text) => {
+    const byEnDash = text.split('–')
+    if (byEnDash.length > 1) {
+      return { label: byEnDash[0].trim(), desc: byEnDash.slice(1).join('–').trim() }
+    }
+    const byEmDash = text.split('—')
+    if (byEmDash.length > 1) {
+      return { label: byEmDash[0].trim(), desc: byEmDash.slice(1).join('—').trim() }
+    }
+    const byHyphen = text.split('-')
+    if (byHyphen.length > 1) {
+      return { label: byHyphen[0].trim(), desc: byHyphen.slice(1).join('-').trim() }
+    }
+    return { label: text.trim(), desc: '' }
+  }
+
+  const bulletsParsed = bulletLines.map(parseBullet)
+
   // ===== EVENT HANDLERS =====
   
   /**
@@ -138,16 +157,19 @@ const DivisionByCountrySection = () => {
                 {currentData.title}
               </h3>
               {introText && (
-                <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-5">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-5 border-l-4 border-[#0b3b5c] pl-4">
                   {introText}
                 </p>
               )}
-              {bulletLines.length > 0 && (
+              {bulletsParsed.length > 0 && (
                 <ul className="space-y-3">
-                  {bulletLines.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-gray-700">
-                      <span className="mt-1 w-2.5 h-2.5 rounded-full bg-[#0b3b5c] flex-shrink-0" />
-                      <span className="text-base sm:text-lg lg:text-xl leading-relaxed">{item}</span>
+                  {bulletsParsed.map((b) => (
+                    <li key={`${b.label}-${b.desc}`} className="flex items-start gap-3">
+                      <span aria-hidden className="mt-2 w-2.5 h-2.5 rounded-full bg-[#0b3b5c] flex-shrink-0" />
+                      <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
+                        <span className="font-semibold text-[#0b3b5c]">{b.label}</span>
+                        {b.desc && <span className="text-gray-700"> — {b.desc}</span>}
+                      </p>
                     </li>
                   ))}
                 </ul>
