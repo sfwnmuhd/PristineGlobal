@@ -122,13 +122,16 @@ const DivisionByCountrySection = () => {
         >
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Country Image */}
-            <img
-              src={currentData.img}
-              alt={`${selectedCountry} operations - ${currentData.title}`}
-              className="w-full h-60 sm:h-72 lg:h-80 object-cover rounded-xl"
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="relative h-60 sm:h-72 lg:h-80 overflow-hidden rounded-xl ring-1 ring-black/5">
+              <img
+                src={currentData.img}
+                alt={`${selectedCountry} operations - ${currentData.title}`}
+                className="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+            </div>
 
             {/* Country Information */}
             <div className="text-left">
