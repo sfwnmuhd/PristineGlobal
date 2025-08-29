@@ -55,16 +55,22 @@ const UK = () => {
   const strengths = [
     {
       title: 'Compliance & Quality',
+      img: 'https://images.pexels.com/photos/3861953/pexels-photo-3861953.jpeg',
+      alt: 'Compliance checklist and quality review',
       text:
         'Strong governance with audited processes and documented SOPs across care and distribution operations.',
     },
     {
       title: 'Expert Teams',
+      img: 'https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg',
+      alt: 'Professional UK care and logistics teams collaborating',
       text:
         'Experienced carers, support workers and logistics specialists trained to UK standards and best practices.',
     },
     {
       title: 'Community Impact',
+      img: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg',
+      alt: 'Community support and outreach in the UK',
       text:
         'Services that strengthen local communities—supporting families, improving outcomes and enabling independence.',
     },
@@ -166,6 +172,9 @@ const UK = () => {
                 viewport={{ once: true, amount: 0.2, margin: '-50px' }}
                 className="bg-white rounded-xl p-6 border border-gray-200"
               >
+                <div className="h-32 rounded-lg overflow-hidden mb-4">
+                  <img src={s.img} alt={s.alt} className="w-full h-full object-cover" />
+                </div>
                 <h3 className="text-xl font-semibold text-black mb-2">{s.title}</h3>
                 <p className="text-gray-600">{s.text}</p>
               </motion.div>
