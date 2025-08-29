@@ -138,9 +138,21 @@ const DivisionByCountrySection = () => {
               <h3 className="text-2xl sm:text-3xl font-medium text-black mb-6">
                 {currentData.title}
               </h3>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-8 whitespace-pre-line">
-                {currentData.description}
-              </p>
+              {introText && (
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-5">
+                  {introText}
+                </p>
+              )}
+              {bulletLines.length > 0 && (
+                <ul className="space-y-3">
+                  {bulletLines.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-gray-700">
+                      <span className="mt-1 w-2.5 h-2.5 rounded-full bg-[#0b3b5c] flex-shrink-0" />
+                      <span className="text-base sm:text-lg lg:text-xl leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
             </div>
           </div>
