@@ -118,7 +118,7 @@ const DivisionByCountrySection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-white rounded-xl border border-gray-200 p-6 sm:p-8 shadow-sm"
+          className="group bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-md hover:shadow-lg transition-all duration-300"
         >
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Country Image */}
