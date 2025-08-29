@@ -14,9 +14,8 @@ const DivisionByCountrySection = () => {
   
   const countryData = {
     UK: {
-      title: 'Pristine Care Homes',
-      description: `We operate three care homes and one child care facility in the UK, each offering specialised, person-centered care. Our flagship properties include Willoughby Grange Nursing Home and Broom Lane Care Home, designed to foster warmth, dignity, and community.`,
-      upcoming: 'A new 50-bed nursing home in Stoke-on-Trent is in development, underscoring our growth ambitions.',
+      title: 'United Kingdom — Healthcare & Trading',
+      description: `In the UK, our presence is rooted in healthcare and trading, serving both communities and businesses through:\n\n• Care Homes – Providing compassionate care for the elderly.\n• Children Care Homes – Dedicated facilities for child welfare and development.\n• Wholesale Trading – FMCG and medical wholesale distribution.`,
       img: 'https://api.builder.io/api/v1/image/assets/TEMP/b9bc235f1adeb19209ec3398e8fbca66d5117640?width=996',
     },
     Qatar: {
@@ -137,21 +136,6 @@ const DivisionByCountrySection = () => {
                 {currentData.description}
               </p>
 
-              {/* Upcoming Project (UK Only) */}
-              {selectedCountry === 'UK' && currentData.upcoming && (
-                <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-[#0b3b5c]">
-                  <div className="flex items-center mb-2">
-                    <ReactCountryFlag
-                      countryCode={countryCodes[selectedCountry]}
-                      svg
-                      style={{ width: '1.5em', height: '1.125em', borderRadius: '3px' }}
-                      className="mr-3"
-                    />
-                    <h4 className="text-lg sm:text-xl font-medium text-black">Upcoming Project</h4>
-                  </div>
-                  <p className="text-base sm:text-lg text-gray-600">{currentData.upcoming}</p>
-                </div>
-              )}
             </div>
           </div>
         </motion.div>
