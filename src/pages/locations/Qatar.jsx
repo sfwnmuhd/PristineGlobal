@@ -120,6 +120,9 @@ const Qatar = () => {
             src="https://images.pexels.com/photos/9471699/pexels-photo-9471699.jpeg"
             alt="Doha skyline and modern business district"
             className="w-full h-full object-cover opacity-30"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#0b3b5c]/80 to-[#2b376b]/80"></div>
         </div>
@@ -167,7 +170,7 @@ const Qatar = () => {
                 className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="h-40 overflow-hidden">
-                  <img src={c.img} alt={c.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  <img src={c.img} alt={c.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
                 </div>
                 <div className="p-6">
                   <div className="mb-2">
@@ -211,7 +214,7 @@ const Qatar = () => {
                 className="bg-white rounded-xl p-6 border border-gray-200"
               >
                 <div className="h-32 rounded-lg overflow-hidden mb-4">
-                  <img src={d.img} alt={d.alt} className="w-full h-full object-cover" />
+                  <img src={d.img} alt={d.alt} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <h3 className="text-xl font-semibold text-black mb-2">{d.title}</h3>
                 <p className="text-gray-600">{d.text}</p>
