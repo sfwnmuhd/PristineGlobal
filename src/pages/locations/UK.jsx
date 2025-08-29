@@ -7,6 +7,7 @@ import BackToTop from '../../components/BackToTop'
 import FloatingWhatsApp from '../../components/FloatingWhatsApp'
 
 const UK = () => {
+  const img = (u, w = 1200) => (typeof u === 'string' && !u.includes('?') ? `${u}?auto=compress&cs=tinysrgb&w=${w}` : u)
   const pillars = [
     {
       key: 'care-homes',
@@ -82,7 +83,7 @@ const UK = () => {
       <section className="relative bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/9703033/pexels-photo-9703033.jpeg"
+            src={img("https://images.pexels.com/photos/9703033/pexels-photo-9703033.jpeg", 1920)}
             alt="UK operations in healthcare and trading"
             className="w-full h-full object-cover opacity-30"
             loading="eager"
@@ -135,7 +136,7 @@ const UK = () => {
                 className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="h-40 overflow-hidden">
-                  <img src={p.img} alt={p.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+                  <img src={img(p.img, 1200)} alt={p.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-black mb-2">{p.title}</h3>
@@ -176,7 +177,7 @@ const UK = () => {
                 className="bg-white rounded-xl p-6 border border-gray-200"
               >
                 <div className="h-32 rounded-lg overflow-hidden mb-4">
-                  <img src={s.img} alt={s.alt} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                  <img src={img(s.img, 800)} alt={s.alt} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <h3 className="text-xl font-semibold text-black mb-2">{s.title}</h3>
                 <p className="text-gray-600">{s.text}</p>
