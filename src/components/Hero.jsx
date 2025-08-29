@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
 import ReactCountryFlag from 'react-country-flag'
 
 // Asset imports
@@ -64,6 +64,7 @@ const Hero = () => {
   
   const [hoveredLocation, setHoveredLocation] = useState(null)
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
+  const [loaded, setLoaded] = useState({ bg: false, map: false })
 
   // ===== UTILITY FUNCTIONS =====
   
@@ -165,8 +166,37 @@ const Hero = () => {
           className="w-full h-full object-cover opacity-40"
           loading="eager"
           decoding="async"
+          onLoad={() => setLoaded((s) => ({ ...s, bg: true }))}
         />
       </motion.div>
+
+      {/* ===== LOADING OVERLAY ===== */}
+      <AnimatePresence>
+        {!loaded.bg || !loaded.map ? (
+          <motion.div
+            key="hero-loader"
+            className="absolute inset-0 z-30 bg-white/70 backdrop-blur-sm flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            aria-busy="true"
+            aria-live="polite"
+          >
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] animate-pulse" />
+              <div className="w-64 h-3 rounded-full bg-gray-200 overflow-hidden">
+                <motion.div
+                  className="h-full bg-[#0b3b5c]"
+                  initial={{ x: '-100%' }}
+                  animate={{ x: ['-100%', '100%'] }}
+                  transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
+                />
+              </div>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
       {/* ===== MAIN CONTENT WRAPPER ===== */}
       <motion.div
@@ -235,6 +265,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             loading="eager"
             decoding="async"
+            onLoad={() => setLoaded((s) => ({ ...s, map: true }))}
           />
 
           {/* ===== ANIMATED CONNECTION LINES ===== */}
