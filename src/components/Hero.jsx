@@ -232,7 +232,7 @@ const Hero = () => {
               >
                 <Link
                   to="/about"
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-[#0b3b5c] text-[#0b3b5c] hover:bg-[#0b3b5c] hover:text-white transition-colors duration-200"
+                  className="inline-flex items-center justify-center px-5 py-2 rounded-full border border-[#0b3b5c] text-[#0b3b5c] hover:bg-[#0b3b5c] hover:text-white transition-colors duration-200"
                 >
                   Learn More
                 </Link>
