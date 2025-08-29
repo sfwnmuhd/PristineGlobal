@@ -7,7 +7,7 @@ import React from 'react'
  * 
  * @param {string} text - The text to display inside the button
  */
-const ShimmerButton = ({ text }) => {
+const ShimmerButton = ({ text, onClick }) => {
   return (
     <div className="flex items-center justify-center font-sans">
       {/* CSS-in-JS styles for the shimmer animation */}
@@ -28,7 +28,7 @@ const ShimmerButton = ({ text }) => {
       `}</style>
       
       {/* Button Container with Gradient Border */}
-      <button className="relative inline-flex items-center justify-center p-[2.5px] bg-[#0b3b5c] rounded-full overflow-hidden group cursor-pointer">
+      <button onClick={onClick} className="relative inline-flex items-center justify-center p-[2px] sm:p-[2.5px] bg-[#0b3b5c] rounded-full overflow-hidden group cursor-pointer">
         {/* Animated Shimmer Gradient Background */}
         <div 
           className="absolute inset-0" 
@@ -39,7 +39,7 @@ const ShimmerButton = ({ text }) => {
         />
         
         {/* Button Content */}
-        <span className="relative z-10 inline-flex items-center justify-center w-full h-full px-8 py-3 text-white bg-[#0b3b5c] rounded-full group-hover:bg-[#0b3b5c] hover:text-gray-300 transition-colors duration-300">
+        <span className="relative z-10 inline-flex items-center justify-center w-full h-full px-4 py-1.5 sm:px-6 sm:py-2 text-sm sm:text-base whitespace-nowrap text-white bg-[#0b3b5c] rounded-full group-hover:bg-[#0b3b5c] hover:text-gray-300 transition-colors duration-300">
           {text}
         </span>
       </button>

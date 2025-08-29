@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
 import ReactCountryFlag from 'react-country-flag'
 
 // Asset imports
@@ -64,6 +64,7 @@ const Hero = () => {
   
   const [hoveredLocation, setHoveredLocation] = useState(null)
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
+  const [loaded, setLoaded] = useState({ bg: false, map: false })
 
   // ===== UTILITY FUNCTIONS =====
   
@@ -150,7 +151,7 @@ const Hero = () => {
   // ===== COMPONENT RENDER =====
 
   return (
-    <section className="relative h-screen overflow-hidden bg-[#fafafa] flex flex-col pt-10 sm:pt-16" id='hero'>
+    <section className="relative h-[70vh] md:h-screen overflow-hidden bg-[#fafafa] flex flex-col pt-10 sm:pt-16" id='hero'>
       {/* ===== BACKGROUND GRID ===== */}
       <motion.div
         className="absolute inset-0"
@@ -165,12 +166,13 @@ const Hero = () => {
           className="w-full h-full object-cover opacity-40"
           loading="eager"
           decoding="async"
+          onLoad={() => setLoaded((s) => ({ ...s, bg: true }))}
         />
       </motion.div>
 
       {/* ===== MAIN CONTENT WRAPPER ===== */}
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto flex flex-col justify-between h-full px-4 sm:px-6 lg:px-8"
+        className="relative z-10 max-w-7xl mx-auto flex flex-col h-full px-4 sm:px-6 lg:px-8 md:justify-between gap-6 sm:gap-8 md:gap-0"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -208,33 +210,54 @@ const Hero = () => {
             care, innovative solutions, and trusted services.
           </motion.p>
 
-          {/* Call-to-Action Button */}
+          {/* Call-to-Action Buttons */}
           <motion.div variants={itemVariants} className="flex justify-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 300 }}   
-            >
-              <ShimmerButton text="Explore Our Services" />
-            </motion.div>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <ShimmerButton text="Explore Countries" onClick={() => {
+                  const el = document.getElementById('locations')
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 80
+                    window.scrollTo({ top: y, behavior: 'smooth' })
+                  }
+                }} />
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -1 }}
+                transition={{ type: 'tween', duration: 0.15 }}
+              >
+                <Link
+                  to="/about"
+                  className="inline-flex items-center justify-center px-4 py-1.5 sm:px-5 sm:py-2 text-sm sm:text-base whitespace-nowrap rounded-full border border-[#0b3b5c] text-[#0b3b5c] hover:bg-[#0b3b5c] hover:text-white transition-colors duration-200"
+                >
+                  Learn More
+                </Link>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
 
         {/* ===== INTERACTIVE WORLD MAP SECTION ===== */}
         <motion.div
           variants={mapVariants}
-          className="relative flex-1 w-full max-w-6xl mx-auto flex items-center justify-center"
+          className="relative w-full md:flex-1 max-w-6xl mx-auto flex items-center justify-center mt-4 sm:mt-6 md:mt-0"
         >
           {/* World Map Image */}
           <motion.img
             src={worldmap}
             alt="World map showing Pristine Global operations across the UK, Qatar, and India with interactive location markers"
             className="w-full max-h-[40vh] sm:max-h-[45vh] lg:max-h-[50vh] xl:max-h-[55vh] object-contain"
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ willChange: 'opacity, transform, filter' }}
+            initial={{ opacity: 0, scale: 1.02, filter: 'blur(16px)' }}
+            animate={{ opacity: loaded.map ? 0.6 : 0, scale: loaded.map ? 1 : 1.01, filter: loaded.map ? 'blur(0px)' : 'blur(16px)' }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
             loading="eager"
             decoding="async"
+            onLoad={() => setLoaded((s) => ({ ...s, map: true }))}
           />
 
           {/* ===== ANIMATED CONNECTION LINES ===== */}
@@ -242,7 +265,7 @@ const Hero = () => {
             className="pointer-events-none absolute inset-0 w-full h-full"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
-            style={{ zIndex: 1 }}
+            style={{ zIndex: 1, opacity: loaded.map ? 1 : 0, transition: 'opacity 400ms ease' }}
           >
             {connectionLines.map((line, index) => {
               // Calculate curved path using quadratic Bezier curves
@@ -324,10 +347,10 @@ const Hero = () => {
                 top: `${getCoordinates(location).y}%`,
                 zIndex: 2
               }}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={loaded.map ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
               transition={{
-                delay: index * 0.25 + 1.2,
+                delay: loaded.map ? index * 0.2 + 0.3 : 0,
                 type: "spring",
                 damping: 16,
                 stiffness: 210

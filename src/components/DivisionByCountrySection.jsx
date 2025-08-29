@@ -14,25 +14,18 @@ const DivisionByCountrySection = () => {
   
   const countryData = {
     UK: {
-      title: 'Pristine Care Homes',
-      description: `We operate three care homes and one child care facility in the UK, each offering specialised, person-centered care. Our flagship properties include Willoughby Grange Nursing Home and Broom Lane Care Home, designed to foster warmth, dignity, and community.`,
-      upcoming: 'A new 50-bed nursing home in Stoke-on-Trent is in development, underscoring our growth ambitions.',
+      title: 'United Kingdom — Healthcare & Trading',
+      description: `In the UK, our presence is rooted in healthcare and trading, serving both communities and businesses through:\n\n• Care Homes – Providing compassionate care for the elderly.\n• Children Care Homes – Dedicated facilities for child welfare and development.\n• Wholesale Trading – FMCG and medical wholesale distribution.`,
       img: 'https://api.builder.io/api/v1/image/assets/TEMP/b9bc235f1adeb19209ec3398e8fbca66d5117640?width=996',
     },
     Qatar: {
-      title: 'Healthcare & Technology Services',
-      description: `Our Qatari operations span:
-                  • Hyper Nova Supermarket & Wholesale Trading – providing quality consumer goods
-                  • Precedence Information Technologies – delivering strategic IT services and solutions
-                  • Mednova Medical Trading – supplying medical equipment and healthcare essentials`,
+      title: 'Qatar — Healthcare, Pharma, Tech & Retail',
+      description: `Pristine Global’s Qatar operations are focused on healthcare, pharmaceuticals, technology, and retail, represented by:\n\n• Excel Pharma Import & Export – Freezone pharmaceutical import/export.\n• Pharmolife Biotechnologies – Pharmacies and healthcare trading.\n• Mednova Trading – Advanced medical equipment supplier.\n• Hypernova Trading – Retail and e‑commerce (supermarkets, online grocery).\n• Precedence Information Technology – Cutting‑edge IT solutions.`,
       img: 'https://assets.weforum.org/article/image/b3yliS-6KqpbNI0UxUUa6Zl4lK7OVuErGZXf7KS2r28.jpg',
     },
     India: {
-      title: 'Integrated Healthcare & Distribution',
-      description: `Our operations in India focus on:
-• Prime Care Hospitals – delivering multispecialty hospital services across India
-• Prime Care Pharma – retail and wholesale pharmaceutical distribution
-• Primecare Distribution – streamlining supply chain and product delivery logistics`,
+      title: 'India — Prime Care Healthcare & Distribution',
+      description: `Pristine Global’s India operations emphasize healthcare and distribution, led by the Prime Care brand:\n\n• Prime Care Distribution – FMCG distribution network.\n• Prime Care Hospital – Quality, affordable healthcare with patient‑centric values.\n• Prime Care Global – Ethical, accessible, value‑based medical services with strong leadership, skilled professionals and modern infrastructure.`,
       img: 'https://victualcourier.com/wp-content/uploads/2023/06/zzzzz.png',
     },
   }
@@ -49,6 +42,34 @@ const DivisionByCountrySection = () => {
 
   // Get current country data
   const currentData = countryData[selectedCountry]
+  const hasBullets = currentData.description.includes('•')
+  const bulletLines = hasBullets
+    ? currentData.description
+        .split('\n')
+        .map((l) => l.trim())
+        .filter((l) => l.startsWith('•'))
+        .map((l) => l.replace(/^•\s*/, ''))
+    : []
+  const introText = hasBullets ? currentData.description.split('•')[0].trim() : currentData.description
+
+  // Parse bullet lines to extract a highlighted label and description
+  const parseBullet = (text) => {
+    const byEnDash = text.split('–')
+    if (byEnDash.length > 1) {
+      return { label: byEnDash[0].trim(), desc: byEnDash.slice(1).join('–').trim() }
+    }
+    const byEmDash = text.split('—')
+    if (byEmDash.length > 1) {
+      return { label: byEmDash[0].trim(), desc: byEmDash.slice(1).join('—').trim() }
+    }
+    const byHyphen = text.split('-')
+    if (byHyphen.length > 1) {
+      return { label: byHyphen[0].trim(), desc: byHyphen.slice(1).join('-').trim() }
+    }
+    return { label: text.trim(), desc: '' }
+  }
+
+  const bulletsParsed = bulletLines.map(parseBullet)
 
   // ===== EVENT HANDLERS =====
   
@@ -102,8 +123,7 @@ const DivisionByCountrySection = () => {
               <ReactCountryFlag
                 countryCode={countryCodes[country]}
                 svg
-                style={{ width: '2em', height: '1.5em', borderRadius: '3px' }}
-                className="mr-3"
+                className="mr-3 w-8 h-6 rounded-sm"
               />
               <span className="text-sm sm:text-base lg:text-lg font-medium">{country}</span>
             </button>
@@ -116,42 +136,45 @@ const DivisionByCountrySection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-white rounded-xl border border-gray-200 p-6 sm:p-8 shadow-sm"
+          className="group bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-md hover:shadow-lg transition-all duration-300"
         >
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Country Image */}
-            <img
-              src={currentData.img}
-              alt={`${selectedCountry} operations - ${currentData.title}`}
-              className="w-full h-60 sm:h-72 lg:h-80 object-cover rounded-xl"
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="relative h-60 sm:h-72 lg:h-80 overflow-hidden rounded-xl ring-1 ring-black/5">
+              <img
+                src={currentData.img}
+                alt={`${selectedCountry} operations - ${currentData.title}`}
+                className="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+            </div>
 
             {/* Country Information */}
             <div className="text-left">
               <h3 className="text-2xl sm:text-3xl font-medium text-black mb-6">
                 {currentData.title}
               </h3>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-8 whitespace-pre-line">
-                {currentData.description}
-              </p>
-
-              {/* Upcoming Project (UK Only) */}
-              {selectedCountry === 'UK' && currentData.upcoming && (
-                <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-[#0b3b5c]">
-                  <div className="flex items-center mb-2">
-                    <ReactCountryFlag
-                      countryCode={countryCodes[selectedCountry]}
-                      svg
-                      style={{ width: '1.5em', height: '1.125em', borderRadius: '3px' }}
-                      className="mr-3"
-                    />
-                    <h4 className="text-lg sm:text-xl font-medium text-black">Upcoming Project</h4>
-                  </div>
-                  <p className="text-base sm:text-lg text-gray-600">{currentData.upcoming}</p>
-                </div>
+              {introText && (
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-5 border-l-4 border-[#0b3b5c] pl-4">
+                  {introText}
+                </p>
               )}
+              {bulletsParsed.length > 0 && (
+                <ul className="space-y-3">
+                  {bulletsParsed.map((b) => (
+                    <li key={`${b.label}-${b.desc}`} className="flex items-start gap-3">
+                      <span aria-hidden className="mt-2 w-2.5 h-2.5 rounded-full bg-[#0b3b5c] flex-shrink-0" />
+                      <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
+                        <span className="font-semibold text-[#0b3b5c]">{b.label}</span>
+                        {b.desc && <span className="text-gray-700"> — {b.desc}</span>}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
             </div>
           </div>
         </motion.div>
