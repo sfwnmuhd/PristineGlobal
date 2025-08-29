@@ -118,6 +118,7 @@ const UK = () => {
             {pillars.map((p, i) => (
               <motion.article
                 key={p.key}
+                id={p.key}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.25, delay: i * 0.05 }}
