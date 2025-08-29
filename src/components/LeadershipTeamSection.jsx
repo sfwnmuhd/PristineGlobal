@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'motion/react'
+import founder from '../assets/founder.avif'
 
 /**
  * FounderMessageSection Component
@@ -51,18 +52,18 @@ const FounderMessageSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true, amount: 0.1 }}
-              className="space-y-6 text-base lg:text-lg text-gray-700 leading-relaxed"
+              className="space-y-6 text-base lg:text-lg text-gray-700 leading-relaxed text-justify"
             >
               <p>
-                We are a diversified enterprise with operations spanning healthcare, technology, retail, and international trading, committed to delivering excellence and value across our global network. With a strong presence in Qatar, the United Kingdom, and India, Pristine Global integrates innovation, compassion, and business acumen to create sustainable impact in every market we serve.
+                At Pristine Global, our mission has always been to create an organization that goes beyond borders—delivering excellence in healthcare, technology, retail, and international trading. From Qatar to the United Kingdom and India, we are committed to building businesses that not only serve markets but also touch lives with compassion and integrity.
               </p>
 
               <p>
-                The global healthcare and business landscape is evolving rapidly, driven by changing demographics, rising demand, and technological advancements. In Qatar, we are building a strong ecosystem in pharmaceuticals, medical equipment, IT solutions, and modern retail. In the United Kingdom, our operations extend to care homes, children’s care, and FMCG & medical wholesale trading, addressing critical social needs while fostering trusted business partnerships. In India, under the Prime Care brand, we are focused on hospitals, healthcare distribution, and patient-centered medical services, ensuring quality and affordability for a growing population.
+                The world around us is changing rapidly, with growing healthcare needs, new opportunities in global trade, and the power of technology shaping our future. Pristine Global is positioned at this intersection—driven by innovation, guided by values, and dedicated to making a lasting impact on the communities we serve.
               </p>
 
               <p>
-                With rising global healthcare demand, expanding trade opportunities, and rapid digitization, Pristine Global is positioned to thrive at the intersection of healthcare, technology, and international business. Leveraging local expertise, global networks, and strategic investments, we continue to deliver value for patients, communities, and partners worldwide.
+                Our vision is simple yet profound: to build a truly world-class enterprise that earns the trust and loyalty of people worldwide. Together with our teams, partners, and communities, we are shaping a healthier, more connected, and sustainable future.”
               </p>
             </motion.div>
           </motion.div>
@@ -86,7 +87,7 @@ const FounderMessageSection = () => {
               >
                 <div className="relative w-80 h-96 mx-auto overflow-hidden rounded-2xl shadow-xl">
                   <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/e8930efbc20636ab52761fbcf08e7ec14a79654e?width=738"
+                    src={founder}
                     alt="Dr. Syed Sayeed Ahmed - Founder Chairman & Managing Director"
                     className="w-full h-full object-cover"
                     loading="lazy"

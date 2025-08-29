@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'motion/react'
 
+
 /**
  * AboutPageHero Component
  * Minimal hero section for the About page
