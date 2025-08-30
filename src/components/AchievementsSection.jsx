@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'motion/react'
+import { Link } from 'react-router-dom'
 
 /**
  * AchievementsSection Component
@@ -115,7 +116,7 @@ const AchievementsSection = () => {
         </motion.div>
 
         {/* Achievements Timeline */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.2 }}
@@ -147,7 +148,7 @@ const AchievementsSection = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Call to Action */}
         <motion.div
@@ -165,12 +166,14 @@ const AchievementsSection = () => {
             technological innovation, and global business partnerships.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-6 py-3 bg-[#0b3b5c] text-white rounded-full font-medium hover:bg-[#094461] transition-colors">
-              Partner With Us
-            </button>
-            <button className="px-6 py-3 border border-[#0b3b5c] text-[#0b3b5c] rounded-full font-medium hover:bg-[#0b3b5c] hover:text-white transition-colors">
+            <Link to="/contact">
+              <button className="px-6 py-3 bg-[#0b3b5c] text-white rounded-full font-medium hover:bg-[#094461] transition-colors cursor-pointer">
+                Partner With Us
+              </button>
+            </Link>
+            {/* <button className="px-6 py-3 border border-[#0b3b5c] text-[#0b3b5c] rounded-full font-medium hover:bg-[#0b3b5c] hover:text-white transition-colors">
               Learn More
-            </button>
+            </button> */}
           </div>
         </motion.div>
       </div>
