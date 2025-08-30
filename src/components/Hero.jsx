@@ -151,7 +151,7 @@ const Hero = () => {
   // ===== COMPONENT RENDER =====
 
   return (
-    <section className="relative h-[90vh] md:h-screen overflow-hidden bg-[#fafafa] flex flex-col pt-10 sm:pt-16" id='hero'>
+    <section className="relative h-[65vh] md:h-screen overflow-hidden bg-[#fafafa] flex flex-col pt-10 sm:pt-16" id='hero'>
       {/* ===== BACKGROUND GRID ===== */}
       <motion.div
         className="absolute inset-0"
@@ -362,7 +362,7 @@ const Hero = () => {
               <div className="relative flex items-center justify-center">
                 {/* Outer ripple effect */}
                 <motion.div
-                  className="absolute w-8 h-8 bg-[#0b3b5c] rounded-full opacity-20"
+                  className="absolute w-4 h-4 sm:w-8 sm:h-8 bg-[#0b3b5c] rounded-full opacity-20"
                   animate={{ scale: [1, 2.4, 1], opacity: [0.2, 0, 0.2] }}
                   transition={{
                     duration: 3,
@@ -374,7 +374,7 @@ const Hero = () => {
                 
                 {/* Middle ripple effect */}
                 <motion.div
-                  className="absolute w-6 h-6 bg-[#2b376b] rounded-full opacity-30"
+                  className="absolute w-4 h-4 sm:w-6 sm:h-6 bg-[#2b376b] rounded-full opacity-30"
                   animate={{ scale: [1, 1.7, 1], opacity: [0.3, 0, 0.3] }}
                   transition={{
                     duration: 2,
@@ -386,7 +386,7 @@ const Hero = () => {
                 
                 {/* Core dot with pulse and hover effects */}
                 <motion.div
-                  className="w-4 h-4 bg-[#0b3b5c] rounded-full border-2 border-white shadow-lg relative z-10"
+                  className="w-3 h-3 sm:w-4 sm:h-4 bg-[#0b3b5c] rounded-full border-2 border-white shadow-lg relative z-10"
                   whileHover={{
                     scale: 1.25,
                     boxShadow: "0 0 20px rgba(11, 59, 92, 0.4)"
