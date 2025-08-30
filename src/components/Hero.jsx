@@ -29,7 +29,7 @@ const Hero = () => {
       id: "uk",
       name: "United Kingdom",
       coordinates: {
-        mobile: { x: 43, y: 42 },
+        mobile: { x: 43, y: 30 },
         tablet: { x: 44, y: 38 },
         desktop: { x: 45, y: 30 }
       },
