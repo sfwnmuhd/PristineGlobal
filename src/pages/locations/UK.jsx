@@ -208,12 +208,13 @@ const UK = () => {
               >
                 Contact Us
               </Link>
-              <a
+              <Link
+                to="/about"
                 href="#wholesale-trading"
                 className="inline-flex items-center justify-center rounded-lg border border-white text-white px-6 py-3 font-medium hover:bg-white/10"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>

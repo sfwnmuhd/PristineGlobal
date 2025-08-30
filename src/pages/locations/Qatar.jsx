@@ -4,13 +4,14 @@ import ReactCountryFlag from 'react-country-flag'
 import Footer from '../../components/Footer'
 import BackToTop from '../../components/BackToTop'
 import FloatingWhatsApp from '../../components/FloatingWhatsApp'
+import { Link } from 'react-router-dom'
 
 const Qatar = () => {
   const img = (u, w = 1200) => (typeof u === 'string' && !u.includes('?') ? `${u}?auto=compress&cs=tinysrgb&w=${w}` : u)
   const companies = [
     {
       key: 'excel-pharma',
-      name: 'Excel Pharma Import & Export',
+      name: 'Excel Pharma',
       sector: 'Pharmaceutical Freezone Entity',
       img: 'https://images.pexels.com/photos/4210610/pexels-photo-4210610.jpeg',
       alt: 'Pharmaceutical logistics and export operations',
@@ -27,7 +28,7 @@ const Qatar = () => {
       key: 'pharmolife',
       name: 'Pharmolife Biotechnologies',
       sector: 'Pharmacies & Healthcare Trading',
-      img: 'https://images.pexels.com/photos/159211/analysis-chemistry-laboratory-chemist-159211.jpeg',
+      img: 'https://images.pexels.com/photos/33658644/pexels-photo-33658644.jpeg',
       alt: 'Pharmacy shelves and biotech research environment',
       intro:
         'Retail and institutional pharmacy solutions with a curated range of pharmaceuticals, wellness and biotech-led products.',
@@ -57,7 +58,7 @@ const Qatar = () => {
       key: 'hypernova',
       name: 'Hypernova Trading',
       sector: 'Retail & E‑commerce',
-      img: 'https://images.pexels.com/photos/5632381/pexels-photo-5632381.jpeg',
+      img: 'https://images.pexels.com/photos/3987223/pexels-photo-3987223.jpeg',
       alt: 'Retail supermarket aisle and e‑commerce order fulfilment',
       intro:
         'Retail and online grocery ventures delivering everyday essentials with reliable fulfilment and customer experience.',
@@ -75,12 +76,13 @@ const Qatar = () => {
       img: 'https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg',
       alt: 'Modern IT solutions and software engineering team',
       intro:
-        'A cutting‑edge IT company delivering secure, scalable, technology‑driven solutions for enterprises and public sector.',
+        'Trusted IT System Integrator with 20 years’ expertise, driving secure, scalable digital transformation across GCC.',
       bullets: [
-        'Custom software, integration and cloud modernization',
-        'Cybersecurity, IAM and compliance frameworks',
-        'Data platforms, analytics and automation',
-        'IT advisory, PMO and managed services',
+        'Network infrastructure, SD-WAN, ICT, and ELV solutions',
+        'Cybersecurity, IAM, compliance, AI, and IoT',
+        'Cloud modernization, integration, and custom software',
+        'Data platforms, analytics, and automation',
+        'IT advisory, PMO, and managed services'
       ],
     },
   ]
@@ -88,19 +90,19 @@ const Qatar = () => {
   const domains = [
     {
       title: 'Healthcare & Pharmaceuticals',
-      img: 'https://images.pexels.com/photos/572167/pexels-photo-572167.jpeg',
+      img: 'https://images.pexels.com/photos/4033148/pexels-photo-4033148.jpeg',
       alt: 'Healthcare and pharma operations in Qatar',
       text: 'Strengthening access to medicines, care delivery and clinical quality through regulated distribution and pharmacy services.',
     },
     {
       title: 'Medical Equipment',
-      img: 'https://images.pexels.com/photos/3735789/pexels-photo-3735789.jpeg',
+      img: 'https://images.pexels.com/photos/6291281/pexels-photo-6291281.jpeg',
       alt: 'Medical equipment and hospital technology',
       text: 'Equipping providers with reliable devices and lifecycle support to improve patient outcomes and operational efficiency.',
     },
     {
       title: 'Retail & E‑commerce',
-      img: 'https://images.pexels.com/photos/5632392/pexels-photo-5632392.jpeg',
+      img: 'https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg',
       alt: 'E‑commerce operations and retail logistics',
       text: 'Omnichannel retail experiences with efficient fulfilment and customer‑centric service models.',
     },
@@ -268,6 +270,39 @@ const Qatar = () => {
               </div>
               <h3 className="text-lg font-semibold text-black mb-2">Social Development</h3>
               <p className="text-gray-600">Strengthening access to care and essential goods</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            viewport={{ once: true, amount: 0.2, margin: '-50px' }}
+            className="bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white rounded-2xl p-10"
+          >
+            <h3 className="text-2xl sm:text-3xl font-semibold mb-3">Partner with us in the Qatar</h3>
+            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+              Whether you are seeking trusted care provision or a reliable wholesale partner, our Qatar teams are ready to help.
+            </p>
+            <div className="flex items-center justify-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-lg bg-white text-[#0b3b5c] px-6 py-3 font-medium shadow hover:shadow-md transition-shadow"
+              >
+                Contact Us
+              </Link>
+              <Link
+                to="/about"
+                href="#wholesale-trading"
+                className="inline-flex items-center justify-center rounded-lg border border-white text-white px-6 py-3 font-medium hover:bg-white/10"
+              >
+                Learn More
+              </Link>
             </div>
           </motion.div>
         </div>

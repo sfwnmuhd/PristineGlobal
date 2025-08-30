@@ -201,28 +201,36 @@ const India = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.25 }}
-            viewport={{ once: true, amount: 0.2, margin: '-50px' }}
-            className="bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white rounded-2xl p-10"
-          >
-            <h3 className="text-2xl sm:text-3xl font-semibold mb-3">Connect with Prime Care India</h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              From distribution partnerships to patient care, our teams are ready to support your needs across India.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-lg bg-white text-[#0b3b5c] px-6 py-3 font-medium shadow hover:shadow-md transition-shadow"
-            >
-              Contact Us
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+            <section className="py-16 lg:py-24">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  viewport={{ once: true, amount: 0.2, margin: '-50px' }}
+                  className="bg-gradient-to-br from-[#0b3b5c] to-[#2b376b] text-white rounded-2xl p-10"
+                >
+                  <h3 className="text-2xl sm:text-3xl font-semibold mb-3">Partner with us in India</h3>
+                  <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                    Whether you are seeking trusted care provision or a reliable wholesale partner, our India teams are ready to help.
+                  </p>
+                  <div className="flex items-center justify-center gap-4">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center justify-center rounded-lg bg-white text-[#0b3b5c] px-6 py-3 font-medium shadow hover:shadow-md transition-shadow"
+                    >
+                      Contact Us
+                    </Link>
+                    <Link
+                      to="/about"
+                      className="inline-flex items-center justify-center rounded-lg border border-white text-white px-6 py-3 font-medium hover:bg-white/10"
+                    >
+                      Learn More
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+            </section>
 
       <Footer />
       <BackToTop />
