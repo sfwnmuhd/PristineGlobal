@@ -54,7 +54,7 @@ const LogoCarousel = () => {
                   <img
                     src={logo.url}
                     alt={logo.name}
-                    className="max-w-[60px] max-h-[24px] sm:max-w-[100px] sm:max-h-[40px] w-auto h-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                    className="max-w-[60px] max-h-[18px] sm:max-w-[100px] sm:max-h-[40px] w-auto h-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
                     loading="lazy"
                     decoding="async"
                     onError={(e) => {

@@ -30,7 +30,7 @@ const Hero = () => {
       name: "United Kingdom",
       coordinates: {
         mobile: { x: 43, y: 30 },
-        tablet: { x: 44, y: 38 },
+        tablet: { x: 45, y: 38 },
         desktop: { x: 45, y: 30 }
       },
       details: "Three care homes and one child care facility offering specialized, person-centered care.",
@@ -41,7 +41,7 @@ const Hero = () => {
       name: "Qatar",
       coordinates: {
         mobile: { x: 59, y: 48 },
-        tablet: { x: 61, y: 48 },
+        tablet: { x: 61, y: 49 },
         desktop: { x: 60, y: 48 }
       },
       details: "Healthcare and technology services in the Middle East region.",
@@ -52,7 +52,7 @@ const Hero = () => {
       name: "India",
       coordinates: {
         mobile: { x: 66, y: 50 },
-        tablet: { x: 66, y: 52 },
+        tablet: { x: 67, y: 52 },
         desktop: { x: 65, y: 53 }
       },
       details: "Distribution networks and healthcare investments across multiple regions.",
